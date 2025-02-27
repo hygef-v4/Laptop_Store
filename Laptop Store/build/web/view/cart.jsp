@@ -51,7 +51,7 @@
         <div class="page-wrapper">
            
 
-            <jsp:include page="/common/header.jsp"></jsp:include>
+            <jsp:include page="/view/common/header.jsp"></jsp:include>
             <!-- End .header -->
 
             <main class="main">
@@ -277,7 +277,7 @@
                 <div class="mb-6"></div><!-- margin -->
             </main><!-- End .main -->
 
-            <jsp:include page="/common/footer.jsp"></jsp:include>
+            <jsp:include page="/view/common/footer.jsp"></jsp:include>
 
                 <!-- End .footer -->
             </div><!-- End .page-wrapper -->

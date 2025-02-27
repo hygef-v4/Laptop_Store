@@ -10585,7 +10585,7 @@ footer .contact-info-label{
 }
 .coupon-sale-text i{
     position:absolute;
-    left:-2.25em;
+    left:-4.25em;
     top:50%;
     transform:translateY(-50%) rotate(-90deg);
     font-size:0.65em;
@@ -13495,7 +13495,7 @@ section{
     opacity:0.7
 }
 .home-slide1 h3{
-    font-size:5.875em
+    font-size:2.875em
 }
 .home-slide1 h5{
     font-size:0.75em;
