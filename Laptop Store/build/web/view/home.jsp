@@ -884,7 +884,7 @@
                          }">
                         <article class="post">
                             <div class="post-media">
-                                <a href="https://vnexpress.net/don-ap-thue-cua-ong-trump-co-the-lam-tang-gia-smartphone-laptop-4844018.html">
+                                <a target="_blank" href="https://vnexpress.net/don-ap-thue-cua-ong-trump-co-the-lam-tang-gia-smartphone-laptop-4844018.html">
                                     <img style="width: 280px; height: 187px" src="https://i1-sohoa.vnecdn.net/2025/01/28/laptop-1738056387-2999-1738056471.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=-BGjJM97AFL0fr49TRzRFg" alt="Post" width="225" height="280">
                                 </a>
                                 <div class="post-date">
@@ -896,7 +896,7 @@
 
                             <div class="post-body">
                                 <h2 class="post-title">
-                                    <a href="https://vnexpress.net/don-ap-thue-cua-ong-trump-co-the-lam-tang-gia-smartphone-laptop-4844018.html">Đòn áp thuế của ông Trump có thể làm tăng giá smartphone, laptop</a>
+                                    <a target="_blank" href="https://vnexpress.net/don-ap-thue-cua-ong-trump-co-the-lam-tang-gia-smartphone-laptop-4844018.html">Đòn áp thuế của ông Trump có thể làm tăng giá smartphone, laptop</a>
                                 </h2>
                                 <div class="post-content">
                                     <p>Nếu ông Trump thực hiện lời đe dọa áp thuế, hàng loạt thiết bị công nghệ như smartphone, laptop và tablet có thể bị tăng giá đáng kể....</p>
@@ -910,7 +910,7 @@
 
                         <article class="post">
                             <div class="post-media">
-                                <a href="https://vnexpress.net/loat-laptop-msi-giup-toi-uu-hieu-suat-lam-viec-giai-tri-4850575.html">
+                                <a target="_blank" href="https://vnexpress.net/loat-laptop-msi-giup-toi-uu-hieu-suat-lam-viec-giai-tri-4850575.html">
                                     <img src="https://i1-sohoa.vnecdn.net/2025/02/18/2-1739850370-6762-1739851025.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=yKMhBJOx23yfkiIyClBDsQ" alt="Post" width="225" height="280">
                                 </a>
                                 <div class="post-date">
@@ -922,7 +922,7 @@
 
                             <div class="post-body">
                                 <h2 class="post-title">
-                                    <a href="https://vnexpress.net/loat-laptop-msi-giup-toi-uu-hieu-suat-lam-viec-giai-tri-4850575.html
+                                    <a target="_blank" href="https://vnexpress.net/loat-laptop-msi-giup-toi-uu-hieu-suat-lam-viec-giai-tri-4850575.html
                                        ">Loạt laptop MSI giúp tối ưu hiệu suất làm việc, giải trí</a>
                                 </h2>
                                 <div class="post-content">
@@ -937,7 +937,7 @@
 
                         <article class="post">
                             <div class="post-media">
-                                <a href="https://vnexpress.net/hai-diem-noi-bat-cua-laptop-asus-gaming-vivobook-k3605-4825674.html">
+                                <a target="_blank" href="https://vnexpress.net/hai-diem-noi-bat-cua-laptop-asus-gaming-vivobook-k3605-4825674.html">
                                     <img style="width: 280px; height: 187px" src="https://i1-sohoa.vnecdn.net/2024/12/09/ASUS-Gaming-Vivobook-1-7993-1733733001.png?w=1020&h=0&q=100&dpr=1&fit=crop&s=JeNzGVCR_0M70y6PLRFKCw" alt="Post" width="225" height="280">
                                 </a>
                                 <div class="post-date">
@@ -949,7 +949,7 @@
 
                             <div class="post-body">
                                 <h2 class="post-title">
-                                    <a href="https://vnexpress.net/hai-diem-noi-bat-cua-laptop-asus-gaming-vivobook-k3605-4825674.html">Hai điểm nổi bật của laptop Asus Gaming Vivobook K3605</a>
+                                    <a target="_blank" href="https://vnexpress.net/hai-diem-noi-bat-cua-laptop-asus-gaming-vivobook-k3605-4825674.html">Hai điểm nổi bật của laptop Asus Gaming Vivobook K3605</a>
                                 </h2>
                                 <div class="post-content">
                                     <p>Asus Gaming Vivobook K3605 trang bị vi xử lý Intel Core i5 hiệu năng mạnh cùng thiết kế mỏng nhẹ....</p>
@@ -963,7 +963,7 @@
 
                         <article class="post">
                             <div class="post-media">
-                                <a href="https://vnexpress.net/goi-y-mot-so-laptop-co-cau-hinh-phu-hop-voi-sinh-vien-4821071.html">
+                                <a target="_blank" href="https://vnexpress.net/goi-y-mot-so-laptop-co-cau-hinh-phu-hop-voi-sinh-vien-4821071.html">
                                     <img style="width: 280px; height: 187px" src="https://i1-sohoa.vnecdn.net/2024/11/27/hinh3-1-4597-1732697358.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=HYcDRrMp-dg3E2_uZ55B8g" alt="Post" width="225" height="280">
                                 </a>
                                 <div class="post-date">
@@ -975,7 +975,7 @@
 
                             <div class="post-body">
                                 <h2 class="post-title">
-                                    <a href="https://vnexpress.net/goi-y-mot-so-laptop-co-cau-hinh-phu-hop-voi-sinh-vien-4821071.html">
+                                    <a target="_blank" href="https://vnexpress.net/goi-y-mot-so-laptop-co-cau-hinh-phu-hop-voi-sinh-vien-4821071.html">
                                         Gợi ý một số laptop có cấu hình phù hợp với sinh viên
                                     </a>
                                 </h2>

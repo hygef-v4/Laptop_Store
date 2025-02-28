@@ -56,7 +56,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-nav">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="home.jsp"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="#">Products</a></li>
+                        <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
                     </ol>
                 </nav>
 

@@ -9,7 +9,7 @@
 <html lang="en">
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:43 GMT -->
+    <!-- Mirrored from portotheme.com/html/porto_ecommerce/forgot-password.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:43 GMT -->
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="UTF-8">
@@ -59,16 +59,16 @@
                             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                                 <div class="container">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="category.html">Shop</a></li>
+                                        <li class="breadcrumb-item"><a href="home.jsp">Trang chủ</a></li>
+                                        <li class="breadcrumb-item"><a href="category.jsp">Cửa hàng</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            My Account
+                                            Tài khoản
                                         </li>
                                     </ol>
                                 </div>
                             </nav>
 
-                            <h1>My Account</h1>
+                            <h1>Quên mật khẩu</h1>
                         </div>
                     </div>
 
@@ -79,22 +79,20 @@
                                     <div class="feature-box-content">
                                         <form class="mb-0" action="#">
                                             <p>
-                                                Lost your password? Please enter your
-                                                username or email address. You will receive
-                                                a link to create a new password via email.
+                                                Vui lòng nhập tên đăng nhập hoặc địa chỉ email của bạn. Bạn sẽ nhận được một liên kết để tạo mật khẩu mới qua email.
                                             </p>
                                             <div class="form-group mb-0">
-                                                <label for="reset-email" class="font-weight-normal">Username or email</label>
+                                                <label for="reset-email" class="font-weight-normal">Địa chỉ email</label>
                                                 <input type="email" class="form-control" id="reset-email" name="reset-email"
                                                        required />
                                             </div>
 
                                             <div class="form-footer mb-0">
-                                                <a href="login.html">Click here to login</a>
+                                                <a href="login.jsp">Đăng nhập</a>
 
                                                 <button type="submit"
                                                         class="btn btn-md btn-primary form-footer-right font-weight-normal text-transform-none mr-0">
-                                                    Reset Password
+                                                    Khôi phục mật khẩu
                                                 </button>
                                             </div>
                                         </form>
@@ -125,55 +123,55 @@
                     <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
                     <nav class="mobile-nav">
                         <ul class="mobile-menu">
-                            <li><a href="demo4.html">Home</a></li>
+                            <li><a href="home.jsp">Home</a></li>
                             <li>
-                                <a href="category.html">Categories</a>
+                                <a href="category.jsp">Categories</a>
                                 <ul>
-                                    <li><a href="category.html">Full Width Banner</a></li>
-                                    <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
-                                    <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
-                                    <li><a href="https://www.portotheme.com/html/porto_ecommerce/category-sidebar-left.html">Left Sidebar</a></li>
-                                    <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                                    <li><a href="category-off-canvas.html">Off Canvas Filter</a></li>
-                                    <li><a href="category-horizontal-filter1.html">Horizontal Filter 1</a></li>
-                                    <li><a href="category-horizontal-filter2.html">Horizontal Filter 2</a></li>
+                                    <li><a href="category.jsp">Full Width Banner</a></li>
+                                    <li><a href="category-banner-boxed-slider.jsp">Boxed Slider Banner</a></li>
+                                    <li><a href="category-banner-boxed-image.jsp">Boxed Image Banner</a></li>
+                                    <li><a href="https://www.portotheme.com/html/porto_ecommerce/category-sidebar-left.jsp">Left Sidebar</a></li>
+                                    <li><a href="category-sidebar-right.jsp">Right Sidebar</a></li>
+                                    <li><a href="category-off-canvas.jsp">Off Canvas Filter</a></li>
+                                    <li><a href="category-horizontal-filter1.jsp">Horizontal Filter 1</a></li>
+                                    <li><a href="category-horizontal-filter2.jsp">Horizontal Filter 2</a></li>
                                     <li><a href="#">List Types</a></li>
-                                    <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span
+                                    <li><a href="category-infinite-scroll.jsp">Ajax Infinite Scroll<span
                                                 class="tip tip-new">New</span></a></li>
-                                    <li><a href="category.html">3 Columns Products</a></li>
-                                    <li><a href="category-4col.html">4 Columns Products</a></li>
-                                    <li><a href="category-5col.html">5 Columns Products</a></li>
-                                    <li><a href="category-6col.html">6 Columns Products</a></li>
-                                    <li><a href="category-7col.html">7 Columns Products</a></li>
-                                    <li><a href="category-8col.html">8 Columns Products</a></li>
+                                    <li><a href="category.jsp">3 Columns Products</a></li>
+                                    <li><a href="category-4col.jsp">4 Columns Products</a></li>
+                                    <li><a href="category-5col.jsp">5 Columns Products</a></li>
+                                    <li><a href="category-6col.jsp">6 Columns Products</a></li>
+                                    <li><a href="category-7col.jsp">7 Columns Products</a></li>
+                                    <li><a href="category-8col.jsp">8 Columns Products</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="product.html">Products</a>
+                                <a href="product.jsp">Products</a>
                                 <ul>
                                     <li>
                                         <a href="#" class="nolink">PRODUCT PAGES</a>
                                         <ul>
-                                            <li><a href="product.html">SIMPLE PRODUCT</a></li>
-                                            <li><a href="product-variable.html">VARIABLE PRODUCT</a></li>
-                                            <li><a href="product.html">SALE PRODUCT</a></li>
-                                            <li><a href="product.html">FEATURED & ON SALE</a></li>
-                                            <li><a href="product-sticky-info.html">WIDTH CUSTOM TAB</a></li>
-                                            <li><a href="product-sidebar-left.html">WITH LEFT SIDEBAR</a></li>
-                                            <li><a href="product-sidebar-right.html">WITH RIGHT SIDEBAR</a></li>
-                                            <li><a href="product-addcart-sticky.html">ADD CART STICKY</a></li>
+                                            <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
+                                            <li><a href="product-variable.jsp">VARIABLE PRODUCT</a></li>
+                                            <li><a href="product.jsp">SALE PRODUCT</a></li>
+                                            <li><a href="product.jsp">FEATURED & ON SALE</a></li>
+                                            <li><a href="product-sticky-info.jsp">WIDTH CUSTOM TAB</a></li>
+                                            <li><a href="product-sidebar-left.jsp">WITH LEFT SIDEBAR</a></li>
+                                            <li><a href="product-sidebar-right.jsp">WITH RIGHT SIDEBAR</a></li>
+                                            <li><a href="product-addcart-sticky.jsp">ADD CART STICKY</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#" class="nolink">PRODUCT LAYOUTS</a>
                                         <ul>
-                                            <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                            <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                            <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                            <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                            <li><a href="product-sticky-both.html">LEFT & RIGHT STICKY</a></li>
-                                            <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a></li>
-                                            <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
+                                            <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
+                                            <li><a href="product-grid-layout.jsp">GRID IMAGE</a></li>
+                                            <li><a href="product-full-width.jsp">FULL WIDTH LAYOUT</a></li>
+                                            <li><a href="product-sticky-info.jsp">STICKY INFO</a></li>
+                                            <li><a href="product-sticky-both.jsp">LEFT & RIGHT STICKY</a></li>
+                                            <li><a href="product-transparent-image.jsp">TRANSPARENT IMAGE</a></li>
+                                            <li><a href="product-center-vertical.jsp">CENTER VERTICAL</a></li>
                                             <li><a href="#">BUILD YOUR OWN</a></li>
                                         </ul>
                                     </li>
@@ -183,44 +181,44 @@
                                 <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
                                 <ul>
                                     <li>
-                                        <a href="wishlist.html">Wishlist</a>
+                                        <a href="wishlist.jsp">Wishlist</a>
                                     </li>
                                     <li>
-                                        <a href="cart.html">Shopping Cart</a>
+                                        <a href="cart.jsp">Shopping Cart</a>
                                     </li>
                                     <li>
-                                        <a href="checkout.html">Checkout</a>
+                                        <a href="checkout.jsp">Checkout</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard.html">Dashboard</a>
+                                        <a href="dashboard.jsp">Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="login.html">Login</a>
+                                        <a href="login.jsp">Login</a>
                                     </li>
                                     <li>
-                                        <a href="forgot-password.html">Forgot Password</a>
+                                        <a href="forgot-password.jsp">Forgot Password</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>                                
+                            <li><a href="blog.jsp">Blog</a></li>                                
                             <li><a href="#">Elements</a>
                                 <ul class="custom-scrollbar">
-                                    <li><a href="element-accordions.html">Accordion</a></li>
-                                    <li><a href="element-alerts.html">Alerts</a></li>
-                                    <li><a href="element-animations.html">Animations</a></li>
-                                    <li><a href="element-banners.html">Banners</a></li>
-                                    <li><a href="element-buttons.html">Buttons</a></li>
-                                    <li><a href="element-call-to-action.html">Call to Action</a></li>
-                                    <li><a href="element-countdown.html">Count Down</a></li>
-                                    <li><a href="element-counters.html">Counters</a></li>
-                                    <li><a href="element-headings.html">Headings</a></li>
-                                    <li><a href="element-icons.html">Icons</a></li>
-                                    <li><a href="element-info-box.html">Info box</a></li>
-                                    <li><a href="element-posts.html">Posts</a></li>
-                                    <li><a href="element-products.html">Products</a></li>
-                                    <li><a href="element-product-categories.html">Product Categories</a></li>
-                                    <li><a href="element-tabs.html">Tabs</a></li>
-                                    <li><a href="element-testimonial.html">Testimonials</a></li>
+                                    <li><a href="element-accordions.jsp">Accordion</a></li>
+                                    <li><a href="element-alerts.jsp">Alerts</a></li>
+                                    <li><a href="element-animations.jsp">Animations</a></li>
+                                    <li><a href="element-banners.jsp">Banners</a></li>
+                                    <li><a href="element-buttons.jsp">Buttons</a></li>
+                                    <li><a href="element-call-to-action.jsp">Call to Action</a></li>
+                                    <li><a href="element-countdown.jsp">Count Down</a></li>
+                                    <li><a href="element-counters.jsp">Counters</a></li>
+                                    <li><a href="element-headings.jsp">Headings</a></li>
+                                    <li><a href="element-icons.jsp">Icons</a></li>
+                                    <li><a href="element-info-box.jsp">Info box</a></li>
+                                    <li><a href="element-posts.jsp">Posts</a></li>
+                                    <li><a href="element-products.jsp">Products</a></li>
+                                    <li><a href="element-product-categories.jsp">Product Categories</a></li>
+                                    <li><a href="element-tabs.jsp">Tabs</a></li>
+                                    <li><a href="element-testimonial.jsp">Testimonials</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -240,12 +238,12 @@
                         </ul>
 
                         <ul class="mobile-menu">
-                            <li><a href="login.html">My Account</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="wishlist.html">My Wishlist</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="login.html" class="login-link">Log In</a></li>
+                            <li><a href="login.jsp">My Account</a></li>
+                            <li><a href="contact.jsp">Contact Us</a></li>
+                            <li><a href="blog.jsp">Blog</a></li>
+                            <li><a href="wishlist.jsp">My Wishlist</a></li>
+                            <li><a href="cart.jsp">Cart</a></li>
+                            <li><a href="login.jsp" class="login-link">Log In</a></li>
                         </ul>
                     </nav><!-- End .mobile-nav -->
 
@@ -267,27 +265,27 @@
 
             <div class="sticky-navbar">
                 <div class="sticky-info">
-                    <a href="demo4.html">
+                    <a href="home.jsp">
                         <i class="icon-home"></i>Home
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="category.html" class="">
+                    <a href="category.jsp" class="">
                         <i class="icon-bars"></i>Categories
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="wishlist.html" class="">
+                    <a href="wishlist.jsp" class="">
                         <i class="icon-wishlist-2"></i>Wishlist
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="login.html" class="">
+                    <a href="login.jsp" class="">
                         <i class="icon-user-2"></i>Account
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="cart.html" class="">
+                    <a href="cart.jsp" class="">
                         <i class="icon-shopping-cart position-relative">
                             <span class="cart-count badge-circle">3</span>
                         </i>Cart
@@ -311,5 +309,5 @@
     </body>
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:44 GMT -->
+    <!-- Mirrored from portotheme.com/html/porto_ecommerce/forgot-password.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:44 GMT -->
 </html>

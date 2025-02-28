@@ -10,7 +10,7 @@
 <html lang="en">
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:40 GMT -->
+    <!-- Mirrored from portotheme.com/html/porto_ecommerce/cart.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:40 GMT -->
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="UTF-8">
@@ -58,13 +58,13 @@
                 <div class="container">
                     <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
                         <li class="active">
-                            <a href="cart.html">Shopping Cart</a>
+                            <a href="cart.jsp">Giỏ Hàng</a>
                         </li>
                         <li>
-                            <a href="checkout.html">Checkout</a>
+                            <a href="checkout.jsp">Thanh toán</a>
                         </li>
                         <li class="disabled">
-                            <a href="cart.html">Order Complete</a>
+                            <a href="cart.jsp">Hoàn tất thanh toán</a>
                         </li>
                     </ul>
 
@@ -75,17 +75,17 @@
                                     <thead>
                                         <tr>
                                             <th class="thumbnail-col"></th>
-                                            <th class="product-col">Product</th>
-                                            <th class="price-col">Price</th>
-                                            <th class="qty-col">Quantity</th>
-                                            <th class="text-right">Subtotal</th>
+                                            <th class="product-col">Sản phẩm</th>
+                                            <th class="price-col">Giá tiền</th>
+                                            <th class="qty-col">Số lượng</th>
+                                            <th class="text-right">Tổng tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="product-row">
                                             <td>
                                                 <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
+                                                    <a href="product.jsp" class="product-image">
                                                         <img src="${pageContext.request.contextPath}/assets/images/products/product-4.jpg" alt="product">
                                                     </a>
 
@@ -94,7 +94,7 @@
                                             </td>
                                             <td class="product-col">
                                                 <h5 class="product-title">
-                                                    <a href="product.html">Men Watch</a>
+                                                    <a href="product.jsp">Men Watch</a>
                                                 </h5>
                                             </td>
                                             <td>$17.90</td>
@@ -109,7 +109,7 @@
                                         <tr class="product-row">
                                             <td>
                                                 <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
+                                                    <a href="product.jsp" class="product-image">
                                                         <img src="${pageContext.request.contextPath}/assets/images/products/product-3.jpg" alt="product">
                                                     </a>
 
@@ -118,7 +118,7 @@
                                             </td>
                                             <td class="product-col">
                                                 <h5 class="product-title">
-                                                    <a href="product.html">Men Watch</a>
+                                                    <a href="product.jsp">Men Watch</a>
                                                 </h5>
                                             </td>
                                             <td>$17.90</td>
@@ -133,7 +133,7 @@
                                         <tr class="product-row">
                                             <td>
                                                 <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
+                                                    <a href="product.jsp" class="product-image">
                                                         <img src="${pageContext.request.contextPath}/assets/images/products/product-6.jpg" alt="product">
                                                     </a>
 
@@ -142,7 +142,7 @@
                                             </td>
                                             <td class="product-col">
                                                 <h5 class="product-title">
-                                                    <a href="product.html">Men Black Gentle Belt</a>
+                                                    <a href="product.jsp">Men Black Gentle Belt</a>
                                                 </h5>
                                             </td>
                                             <td>$17.90</td>
@@ -164,10 +164,9 @@
                                                         <form action="#">
                                                             <div class="input-group">
                                                                 <input type="text" class="form-control form-control-sm"
-                                                                       placeholder="Coupon Code" required>
+                                                                       placeholder="Nhập mã giảm giá" required>
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-sm" type="submit">Apply
-                                                                        Coupon</button>
+                                                                    <button class="btn btn-sm" type="submit">Áp dụng mà giảm giá</button>
                                                                 </div>
                                                             </div><!-- End .input-group -->
                                                         </form>
@@ -176,7 +175,7 @@
 
                                                 <div class="float-right">
                                                     <button type="submit" class="btn btn-shop btn-update-cart">
-                                                        Update Cart
+                                                        CẬP NHẬT GIỎ HÀNG
                                                     </button>
                                                 </div><!-- End .float-right -->
                                             </td>
@@ -188,33 +187,38 @@
 
                         <div class="col-lg-4">
                             <div class="cart-summary">
-                                <h3>CART TOTALS</h3>
+                                <h3>Giỏ Hàng</h3>
 
                                 <table class="table table-totals">
                                     <tbody>
                                         <tr>
-                                            <td>Subtotal</td>
+                                            <td>Tạm tính</td>
                                             <td>$17.90</td>
                                         </tr>
-
+                                        
                                         <tr>
+                                            <td>Giảm giá</td>
+                                            <td>$7.90</td>
+                                        </tr>
+
+<!--                                        <tr>
                                             <td colspan="2" class="text-left">
-                                                <h4>Shipping</h4>
+                                                <h4>Vận chuyển</h4>
 
                                                 <div class="form-group form-group-custom-control">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input" name="radio"
                                                                checked>
-                                                        <label class="custom-control-label">Local pickup</label>
-                                                    </div><!-- End .custom-checkbox -->
-                                                </div><!-- End .form-group -->
+                                                        <label class="custom-control-label">Nhận tại cửa hàng</label>
+                                                    </div> End .custom-checkbox 
+                                                </div> End .form-group 
 
                                                 <div class="form-group form-group-custom-control mb-0">
                                                     <div class="custom-control custom-radio mb-0">
                                                         <input type="radio" name="radio" class="custom-control-input">
-                                                        <label class="custom-control-label">Flat rate</label>
-                                                    </div><!-- End .custom-checkbox -->
-                                                </div><!-- End .form-group -->
+                                                        <label class="custom-control-label">Giao hàng tại nhà</label>
+                                                    </div> End .custom-checkbox 
+                                                </div> End .form-group 
 
                                                 <form action="#">
                                                     <div class="form-group form-group-sm">
@@ -226,8 +230,8 @@
                                                                 <option value="China">China</option>
                                                                 <option value="Germany">Germany</option>
                                                             </select>
-                                                        </div><!-- End .select-custom -->
-                                                    </div><!-- End .form-group -->
+                                                        </div> End .select-custom 
+                                                    </div> End .form-group 
 
                                                     <div class="form-group form-group-sm">
                                                         <div class="select-custom">
@@ -236,37 +240,37 @@
                                                                 <option value="CA">California</option>
                                                                 <option value="TX">Texas</option>
                                                             </select>
-                                                        </div><!-- End .select-custom -->
-                                                    </div><!-- End .form-group -->
+                                                        </div> End .select-custom 
+                                                    </div> End .form-group 
 
                                                     <div class="form-group form-group-sm">
                                                         <input type="text" class="form-control form-control-sm"
-                                                               placeholder="Town / City">
-                                                    </div><!-- End .form-group -->
+                                                               placeholder="Thành phố / Tỉnh">
+                                                    </div> End .form-group 
 
                                                     <div class="form-group form-group-sm">
                                                         <input type="text" class="form-control form-control-sm"
-                                                               placeholder="ZIP">
-                                                    </div><!-- End .form-group -->
+                                                               placeholder="Mã ZIP">
+                                                    </div> End .form-group 
 
                                                     <button type="submit" class="btn btn-shop btn-update-total">
-                                                        Update Totals
+                                                        Tổng tiền hàng
                                                     </button>
                                                 </form>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
 
                                     <tfoot>
                                         <tr>
-                                            <td>Total</td>
+                                            <td>Tổng cộng</td>
                                             <td>$17.90</td>
                                         </tr>
                                     </tfoot>
                                 </table>
 
                                 <div class="checkout-methods">
-                                    <a href="cart.html" class="btn btn-block btn-dark">Proceed to Checkout
+                                    <a href="checkout.jsp" class="btn btn-block btn-dark">Tiến hành thanh toán
                                         <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div><!-- End .cart-summary -->
@@ -297,55 +301,55 @@
                     <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
                     <nav class="mobile-nav">
                         <ul class="mobile-menu">
-                            <li><a href="demo4.html">Home</a></li>
+                            <li><a href="demo4.jsp">Home</a></li>
                             <li>
-                                <a href="category.html">Categories</a>
+                                <a href="category.jsp">Categories</a>
                                 <ul>
-                                    <li><a href="category.html">Full Width Banner</a></li>
-                                    <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
-                                    <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
-                                    <li><a href="https://www.portotheme.com/html/porto_ecommerce/category-sidebar-left.html">Left Sidebar</a></li>
-                                    <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                                    <li><a href="category-off-canvas.html">Off Canvas Filter</a></li>
-                                    <li><a href="category-horizontal-filter1.html">Horizontal Filter 1</a></li>
-                                    <li><a href="category.html">Horizontal Filter 2</a></li>
+                                    <li><a href="category.jsp">Full Width Banner</a></li>
+                                    <li><a href="category-banner-boxed-slider.jsp">Boxed Slider Banner</a></li>
+                                    <li><a href="category-banner-boxed-image.jsp">Boxed Image Banner</a></li>
+                                    <li><a href="https://www.portotheme.com/html/porto_ecommerce/category-sidebar-left.jsp">Left Sidebar</a></li>
+                                    <li><a href="category-sidebar-right.jsp">Right Sidebar</a></li>
+                                    <li><a href="category-off-canvas.jsp">Off Canvas Filter</a></li>
+                                    <li><a href="category-horizontal-filter1.jsp">Horizontal Filter 1</a></li>
+                                    <li><a href="category.jsp">Horizontal Filter 2</a></li>
                                     <li><a href="#">List Types</a></li>
-                                    <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span
+                                    <li><a href="category-infinite-scroll.jsp">Ajax Infinite Scroll<span
                                                 class="tip tip-new">New</span></a></li>
-                                    <li><a href="category.html">3 Columns Products</a></li>
-                                    <li><a href="category-4col.html">4 Columns Products</a></li>
-                                    <li><a href="category-5col.html">5 Columns Products</a></li>
-                                    <li><a href="category-6col.html">6 Columns Products</a></li>
-                                    <li><a href="category-7col.html">7 Columns Products</a></li>
-                                    <li><a href="category-8col.html">8 Columns Products</a></li>
+                                    <li><a href="category.jsp">3 Columns Products</a></li>
+                                    <li><a href="category-4col.jsp">4 Columns Products</a></li>
+                                    <li><a href="category-5col.jsp">5 Columns Products</a></li>
+                                    <li><a href="category-6col.jsp">6 Columns Products</a></li>
+                                    <li><a href="category-7col.jsp">7 Columns Products</a></li>
+                                    <li><a href="category-8col.jsp">8 Columns Products</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="product.html">Products</a>
+                                <a href="product.jsp">Products</a>
                                 <ul>
                                     <li>
                                         <a href="#" class="nolink">PRODUCT PAGES</a>
                                         <ul>
-                                            <li><a href="product.html">SIMPLE PRODUCT</a></li>
-                                            <li><a href="product-variable.html">VARIABLE PRODUCT</a></li>
-                                            <li><a href="product.html">SALE PRODUCT</a></li>
-                                            <li><a href="product.html">FEATURED & ON SALE</a></li>
-                                            <li><a href="product-sticky-info.html">WIDTH CUSTOM TAB</a></li>
-                                            <li><a href="product-sidebar-left.html">WITH LEFT SIDEBAR</a></li>
-                                            <li><a href="product-sidebar-right.html">WITH RIGHT SIDEBAR</a></li>
-                                            <li><a href="product-addcart-sticky.html">ADD CART STICKY</a></li>
+                                            <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
+                                            <li><a href="product-variable.jsp">VARIABLE PRODUCT</a></li>
+                                            <li><a href="product.jsp">SALE PRODUCT</a></li>
+                                            <li><a href="product.jsp">FEATURED & ON SALE</a></li>
+                                            <li><a href="product-sticky-info.jsp">WIDTH CUSTOM TAB</a></li>
+                                            <li><a href="product-sidebar-left.jsp">WITH LEFT SIDEBAR</a></li>
+                                            <li><a href="product-sidebar-right.jsp">WITH RIGHT SIDEBAR</a></li>
+                                            <li><a href="product-addcart-sticky.jsp">ADD CART STICKY</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#" class="nolink">PRODUCT LAYOUTS</a>
                                         <ul>
-                                            <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                            <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                            <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                            <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                            <li><a href="product-sticky-both.html">LEFT & RIGHT STICKY</a></li>
-                                            <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a></li>
-                                            <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
+                                            <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
+                                            <li><a href="product-grid-layout.jsp">GRID IMAGE</a></li>
+                                            <li><a href="product-full-width.jsp">FULL WIDTH LAYOUT</a></li>
+                                            <li><a href="product-sticky-info.jsp">STICKY INFO</a></li>
+                                            <li><a href="product-sticky-both.jsp">LEFT & RIGHT STICKY</a></li>
+                                            <li><a href="product-transparent-image.jsp">TRANSPARENT IMAGE</a></li>
+                                            <li><a href="product-center-vertical.jsp">CENTER VERTICAL</a></li>
                                             <li><a href="#">BUILD YOUR OWN</a></li>
                                         </ul>
                                     </li>
@@ -355,71 +359,49 @@
                                 <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
                                 <ul>
                                     <li>
-                                        <a href="wishlist.html">Wishlist</a>
+                                        <a href="wishlist.jsp">Wishlist</a>
                                     </li>
                                     <li>
-                                        <a href="cart.html">Shopping Cart</a>
+                                        <a href="cart.jsp">Shopping Cart</a>
                                     </li>
                                     <li>
-                                        <a href="checkout.html">Checkout</a>
+                                        <a href="checkout.jsp">Checkout</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard.html">Dashboard</a>
+                                        <a href="dashboard.jsp">Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="login.html">Login</a>
+                                        <a href="login.jsp">Login</a>
                                     </li>
                                     <li>
-                                        <a href="forgot-password.html">Forgot Password</a>
+                                        <a href="forgot-password.jsp">Forgot Password</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>                                
+                            <li><a href="blog.jsp">Blog</a></li>                                
                             <li><a href="#">Elements</a>
                                 <ul class="custom-scrollbar">
-                                    <li><a href="element-accordions.html">Accordion</a></li>
-                                    <li><a href="element-alerts.html">Alerts</a></li>
-                                    <li><a href="element-animations.html">Animations</a></li>
-                                    <li><a href="element-banners.html">Banners</a></li>
-                                    <li><a href="element-buttons.html">Buttons</a></li>
-                                    <li><a href="element-call-to-action.html">Call to Action</a></li>
-                                    <li><a href="element-countdown.html">Count Down</a></li>
-                                    <li><a href="element-counters.html">Counters</a></li>
-                                    <li><a href="element-headings.html">Headings</a></li>
-                                    <li><a href="element-icons.html">Icons</a></li>
-                                    <li><a href="element-info-box.html">Info box</a></li>
-                                    <li><a href="element-posts.html">Posts</a></li>
-                                    <li><a href="element-products.html">Products</a></li>
-                                    <li><a href="element-product-categories.html">Product Categories</a></li>
-                                    <li><a href="element-tabs.html">Tabs</a></li>
-                                    <li><a href="element-testimonial.html">Testimonials</a></li>
+                                    <li><a href="element-accordions.jsp">Accordion</a></li>
+                                    <li><a href="element-alerts.jsp">Alerts</a></li>
+                                    <li><a href="element-animations.jsp">Animations</a></li>
+                                    <li><a href="element-banners.jsp">Banners</a></li>
+                                    <li><a href="element-buttons.jsp">Buttons</a></li>
+                                    <li><a href="element-call-to-action.jsp">Call to Action</a></li>
+                                    <li><a href="element-countdown.jsp">Count Down</a></li>
+                                    <li><a href="element-counters.jsp">Counters</a></li>
+                                    <li><a href="element-headings.jsp">Headings</a></li>
+                                    <li><a href="element-icons.jsp">Icons</a></li>
+                                    <li><a href="element-info-box.jsp">Info box</a></li>
+                                    <li><a href="element-posts.jsp">Posts</a></li>
+                                    <li><a href="element-products.jsp">Products</a></li>
+                                    <li><a href="element-product-categories.jsp">Product Categories</a></li>
+                                    <li><a href="element-tabs.jsp">Tabs</a></li>
+                                    <li><a href="element-testimonial.jsp">Testimonials</a></li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <ul class="mobile-menu mt-2 mb-2">
-                            <li class="border-0">
-                                <a href="#">
-                                    Special Offer!
-                                </a>
-                            </li>
-                            <li class="border-0">
-                                <a href="#" target="_blank">
-                                    Buy Porto!
-                                    <span class="tip tip-hot">Hot</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <ul class="mobile-menu">
-                            <li><a href="login.html">My Account</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="wishlist.html">My Wishlist</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="login.html" class="login-link">Log In</a></li>
-                        </ul>
-                    </nav><!-- End .mobile-nav -->
+          
 
                     <form class="search-wrapper mb-2" action="#">
                         <input type="text" class="form-control mb-0" placeholder="Search..." required />
@@ -439,27 +421,27 @@
 
             <div class="sticky-navbar">
                 <div class="sticky-info">
-                    <a href="demo4.html">
+                    <a href="demo4.jsp">
                         <i class="icon-home"></i>Home
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="category.html" class="">
+                    <a href="category.jsp" class="">
                         <i class="icon-bars"></i>Categories
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="wishlist.html" class="">
+                    <a href="wishlist.jsp" class="">
                         <i class="icon-wishlist-2"></i>Wishlist
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="login.html" class="">
+                    <a href="login.jsp" class="">
                         <i class="icon-user-2"></i>Account
                     </a>
                 </div>
                 <div class="sticky-info">
-                    <a href="cart.html" class="">
+                    <a href="cart.jsp" class="">
                         <i class="icon-shopping-cart position-relative">
                             <span class="cart-count badge-circle">3</span>
                         </i>Cart
@@ -481,5 +463,5 @@
     </body>
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:42 GMT -->
+    <!-- Mirrored from portotheme.com/html/porto_ecommerce/cart.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:42 GMT -->
 </html>

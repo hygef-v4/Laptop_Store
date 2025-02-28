@@ -63,8 +63,8 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-nav">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="home.jsp"><i class="icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Men</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Accessories</li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="#">Danh mục</a></li>
+                   
                             </ol>
                         </nav>
 
