@@ -65,13 +65,13 @@
                                         <li class="breadcrumb-item"><a href="home.jsp">Trang chủ</a></li>
                                         <li class="breadcrumb-item"><a href="category.jsp">Cửa hàng</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            Tài khoản của tôi
+                                            Tài khoản
                                         </li>
                                     </ol>
                                 </div>
                             </nav>
 
-                            <h1>Tài khoản của tôi</h1>
+                            <h1>Tài khoản</h1>
                         </div>
                     </div>
 

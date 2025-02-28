@@ -4,11 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/checkout.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/login.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/category.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/css/style.css</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/css/demo4.min.css</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/home.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/css/style.min.css</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/footer.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/header.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/login.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/cart.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/product.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/forgot-password.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/chat_box.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

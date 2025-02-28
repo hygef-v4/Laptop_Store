@@ -833,7 +833,8 @@
 
             <!-- End .feature-boxes-container -->
 
-            <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="${pageContext.request.contextPath}/assets/images/demoes/demo4/banners/banner-5.jpg">
+            <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="${pageContext.request.contextPath}/assets
+                     /images/demoes/demo4/banners/banner-6.jpg">
                 <div class="promo-banner banner container text-uppercase">
                     <div class="banner-content row align-items-center text-center">
                         <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter" data-animation-delay="600">
@@ -1022,7 +1023,7 @@
                 </div>
                 <div class="sticky-info">
                     <a href="wishlist.jsp" class="">
-                        <i class="icon-wishlist-2"></i>Wishlist
+                        <i class="icon-wishlist-2"></i>Yêu thích
                     </a>
                 </div>
                 <div class="sticky-info">

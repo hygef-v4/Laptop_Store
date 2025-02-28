@@ -19,7 +19,7 @@
                         <ul>
                             <li><a href="dashboard.jsp">Tài khoản</a></li>
      
-                            <li><a href="wishlist.jsp">Wishlist</a></li>
+                            <li><a href="wishlist.jsp">Yêu thích</a></li>
                             <li><a href="cart.jsp">Giỏ hàng</a></li>
                             <li><a href="login.jsp">Đăng nhập</a></li>
                         </ul>

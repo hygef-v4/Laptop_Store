@@ -143,7 +143,7 @@
                             <!-- End .toolbox-item -->
 
                             <div class="toolbox-item toolbox-show ml-auto">
-                                <label>Show:</label>
+                                <label>Hiển thị:</label>
 
                                 <div class="select-custom">
                                     <select name="count" class="form-control">
@@ -186,7 +186,7 @@
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <a href="category.jsp" class="product-category">category</a>
+                                            <a href="category.jsp" class="product-category">Danh mục</a>
                                         </div>
                                     </div>
 
@@ -213,8 +213,7 @@
                                         <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
                                         <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>SELECT
-                                                OPTIONS</span></a>
+                                                class="fa fa-arrow-right"></i><span>LỰA CHỌN</span></a>
                                         <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
                                                 class="fas fa-external-link-alt"></i></a>
                                     </div>
@@ -236,7 +235,7 @@
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <a href="category.jsp" class="product-category">category</a>
+                                            <a href="category.jsp" class="product-category">danh mục</a>
                                         </div>
                                     </div>
 
@@ -261,8 +260,7 @@
                                         <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
                                         <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>SELECT
-                                                OPTIONS</span></a>
+                                                class="fa fa-arrow-right"></i><span>LỰA CHỌN</span></a>
                                         <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
                                                 class="fas fa-external-link-alt"></i></a>
                                     </div>
@@ -288,7 +286,7 @@
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <a href="category.jsp" class="product-category">category</a>
+                                            <a href="category.jsp" class="product-category">danh mục</a>
                                         </div>
                                     </div>
 
@@ -340,7 +338,7 @@
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <a href="category.jsp" class="product-category">category</a>
+                                            <a href="category.jsp" class="product-category">danh mục</a>
                                         </div>
                                     </div>
 
