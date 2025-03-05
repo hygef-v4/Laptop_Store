@@ -6,9 +6,10 @@
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/ProductDAO.java</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/HomeServlet.java</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Product.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Category.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/css/demo4.min.css</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/product.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/home.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/CategoryDAO.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/ProductsServlet.java</file>
         </group>
     </open-files>
 </project-private>

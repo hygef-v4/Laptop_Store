@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 
     <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo4.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:29:23 GMT -->
@@ -148,7 +148,7 @@
                             <fmt:setLocale value="vi_VN" />
                             <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                                 <figure>
-                                    <a href="product.jsp">
+                                    <a href="${pageContext.request.contextPath}/products?productID=${p.productID}">
                                         <img src="${p.image}" alt="product"
                                              style="width: 100%; height: auto; max-height: 200px; object-fit: contain; margin-bottom: 10px; display: block;">
                                     </a>
@@ -218,7 +218,7 @@
                             <fmt:setLocale value="vi_VN" />
                             <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                                 <figure>
-                                    <a href="product.jsp">
+                                    <a href="${pageContext.request.contextPath}/products?productID=${p.productID}">
                                         <img src="${p.image}" width="280" height="280" alt="product"
                                              style="width: 100%; height: auto; max-height: 200px; object-fit: contain; margin-bottom: 10px; display: block;">
 
@@ -255,7 +255,7 @@
                                     <div class="product-action">
                                         <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.jsp" class="btn-icon btn-add-cart"><i
+                                        <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
                                         <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
                                                 class="fas fa-external-link-alt"></i></a>

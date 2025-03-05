@@ -28,4 +28,5 @@ public class Product {
     private Date importDate;
     private int warrantyMonths; // Nullable field
     private boolean isFeatured;
+    private String description;
 }

@@ -17,11 +17,11 @@
                     <a href="#">Links</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="dashboard.jsp">Tài khoản</a></li>
-     
-                            <li><a href="wishlist.jsp">Yêu thích</a></li>
-                            <li><a href="cart.jsp">Giỏ hàng</a></li>
-                            <li><a href="login.jsp">Đăng nhập</a></li>
+                            <li><a href="${pageContext.request.contextPath}/view/dashboard.jsp">Tài khoản</a></li>
+
+                            <li><a href="${pageContext.request.contextPath}/view/wishlist.jsp">Yêu thích</a></li>
+                            <li><a href="${pageContext.request.contextPath}/view/cart.jsp">Giỏ hàng</a></li>
+                            <li><a href="${pageContext.request.contextPath}/view/login.jsp">Đăng nhập</a></li>
                         </ul>
                     </div>
                     <!-- End .header-menu -->
@@ -37,7 +37,7 @@
                             <li><a href="#"><i class="flag-vn flag mr-2"></i>VN</a></li>
                             <li><a href="#"><i class="flag-us flag mr-2"></i>ENG</a>
                             </li>
-                            
+
                         </ul>
                     </div>
                     <!-- End .header-menu -->
@@ -77,7 +77,8 @@
                 <button class="mobile-menu-toggler text-primary mr-2" type="button">
                     <i class="fas fa-bars"></i>
                 </button>
-                <a href="home.jsp" class="logo">
+               
+                <a href="${pageContext.request.contextPath}/view/home.jsp" class="logo">
                     <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="111" height="44" alt="Porto Logo">
                 </a>
             </div>
@@ -123,9 +124,9 @@
                     <h6><span>Gọi ngay</span><a href="tel:#" class="text-dark font1">(+87) 327715098</a></h6>
                 </div>
 
-                <a href="login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="${pageContext.request.contextPath}/view/login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="${pageContext.request.contextPath}/view/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -146,7 +147,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="product.jsp">Ultimate 3D Bluetooth Speaker</a>
+                                            <a href="${pageContext.request.contextPath}/view/product.jsp">Ultimate 3D Bluetooth Speaker</a>
                                         </h4>
 
                                         <span class="cart-product-info">
@@ -241,10 +242,10 @@
             <nav class="main-nav w-100">
                 <ul class="menu">
                     <li class="active">
-                        <a href="home.jsp">TRANG CHỦ</a>
+                        <a href="${pageContext.request.contextPath}/view/home.jsp">TRANG CHỦ</a>
                     </li>
                     <li>
-                        <a href="category.jsp">DANH MỤC</a>
+                        <a href="${pageContext.request.contextPath}/view/category.jsp">DANH MỤC</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -298,7 +299,8 @@
                         <!-- End .megamenu -->
                     </li>
                     <li>
-                        <a href="product.jsp">SẢN PHẨM</a>
+
+                        <a href="${pageContext.request.contextPath}/products?productID=1">SẢN PHẨM</a>
                         <div class="megamenu megamenu-fixed-width">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -365,7 +367,7 @@
                     </li>
 
 
-                    <li><a href="contact.jsp">LIÊN HỆ</a></li>
+                    <li><a href="${pageContext.request.contextPath}/view/contact.jsp">LIÊN HỆ</a></li>
 
                 </ul>
             </nav>
