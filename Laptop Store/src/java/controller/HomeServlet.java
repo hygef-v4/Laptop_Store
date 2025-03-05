@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package controller;
+
+import dal.implement.CategoryDAO;
+import dal.implement.ProductDAO;
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.Vector;
+import model.Category;
+import model.Product;
+
+public class HomeServlet extends HttpServlet {
+
+    private static final String featureProductSQL = "SELECT * FROM [dbo].[tblProducts] WHERE isFeatured = 1";
+    private static final String newProductsSQL = "SELECT top 10 * FROM [dbo].[tblProducts] order by importDate desc";
+    private static final String categoryListSQL = "SELECT * FROM [dbo].[tblCategories]";
+    ProductDAO productDAO = new ProductDAO();
+    CategoryDAO categoryDAO = new CategoryDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // get list product by feature
+        Vector<Product> featureProducts = productDAO.getAllProduct(featureProductSQL);
+        // get list of new product
+        Vector<Product> newProducts = productDAO.getAllProduct(newProductsSQL);
+        // get list category
+        Vector<Category> categoryList = categoryDAO.getAllCategory(categoryListSQL);
+        HttpSession session = request.getSession();
+        session.setAttribute("featureProducts", featureProducts);
+        session.setAttribute("newProducts", newProducts);
+        session.setAttribute("categoryList", categoryList);
+        response.sendRedirect("view/home.jsp");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet HomeController</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet HomeController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+}

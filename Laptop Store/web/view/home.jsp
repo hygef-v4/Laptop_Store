@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,53 +131,7 @@
                 </div>
                 <!-- End .info-boxes-slider -->
 
-                <!--                    <div class="banners-container mb-2">
-                                        <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
-                                             'dots': false
-                                             }">
-                                            <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate" style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
-                                                <figure class="w-100">
-                                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/banners/banner-1.jpg" alt="banner" width="380" height="175" />
-                                                </figure>
-                                                <div class="banner-layer">
-                                                    <h3 class="m-b-2">Porto Watches</h3>
-                                                    <h4 class="m-b-3 text-primary"><sup class="text-dark"><del>20%</del></sup>30%<sup>OFF</sup></h4>
-                                                    <a href="category.jsp" class="btn btn-sm btn-dark">Shop Now</a>
-                                                </div>
-                                            </div>
-                                             End .banner 
-                
-                                            <div class="banner banner2 banner-sm-vw text-uppercase d-flex align-items-center appear-animate" data-animation-name="fadeInUpShorter" data-animation-delay="200">
-                                                <figure class="w-100">
-                                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/banners/banner-2.jpg" style="background-color: #ccc;" alt="banner" width="380" height="175" />
-                                                </figure>
-                                                <div class="banner-layer text-center">
-                                                    <div class="row align-items-lg-center">
-                                                        <div class="col-lg-7 text-lg-right">
-                                                            <h3>Deal Promos</h3>
-                                                            <h4 class="pb-4 pb-lg-0 mb-0 text-body">Starting at $99</h4>
-                                                        </div>
-                                                        <div class="col-lg-5 text-lg-left px-0 px-xl-3">
-                                                            <a href="category.jsp" class="btn btn-sm btn-dark">Shop Now</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             End .banner 
-                
-                                            <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate" style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
-                                                <figure class="w-100">
-                                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/banners/banner-3.jpg" alt="banner" width="380" height="175" />
-                                                </figure>
-                                                <div class="banner-layer text-right">
-                                                    <h3 class="m-b-2">Handbags</h3>
-                                                    <h4 class="m-b-2 text-secondary text-uppercase">Starting at $99</h4>
-                                                    <a href="category.jsp" class="btn btn-sm btn-dark">Shop Now</a>
-                                                </div>
-                                            </div>
-                                             End .banner 
-                                        </div>
-                                    </div>-->
+
             </div>
             <!-- End .container -->
 
@@ -186,218 +143,56 @@
                          'dots': false,
                          'nav': true
                          }">
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-1.jpg" width="280" height="280" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-1-2.jpg" width="280" height="280" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                    <div class="product-label label-sale">-20%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Ultimate 3D Bluetooth Speaker</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                        <!--                        start product-->
+                        <c:forEach var="p" items="${featureProducts}">
+                            <fmt:setLocale value="vi_VN" />
+                            <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
+                                <figure>
+                                    <a href="product.jsp">
+                                        <img src="${p.image}" alt="product"
+                                             style="width: 100%; height: auto; max-height: 200px; object-fit: contain; margin-bottom: 10px; display: block;">
+                                    </a>
+                                    <div class="label-group">
+                                        <div class="product-label label-hot">HOT</div>
+                                        <div class="product-label label-sale">-20%</div>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                            class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-2.jpg" width="280" height="280" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-2-2.jpg" width="280" height="280" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                    <div class="product-label label-sale">-30%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Brown Women Casual HandBag</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="category-list">
+                                        <a href="category.jsp" class="product-category">Danh mục</a>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                            class="fa fa-arrow-right"></i><span>SELECT
-                                            OPTIONS</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-3.jpg" width="280" height="280" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-3-2.jpg" width="280" height="280" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Circled Ultimate 3D Speaker</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <h3 class="product-title">
+                                        <!--                                        name-->
+                                        <a href="product.jsp">${p.productName}</a>
+                                    </h3>
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:90%"></span>
+                                            <!-- End .ratings -->
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <!-- End .product-ratings -->
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-4.jpg" width="280" height="280" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-4-2.jpg" width="280" height="280" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                    <div class="product-label label-sale">-40%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Blue Backpack for the Young - S</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <!-- End .product-container -->
+                                    <div class="price-box">
+                                        <!--                                        <del class="old-price">$59.00</del>-->
+                                        <span class="product-price">
+                                            <fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" />
+                                        </span>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-5.jpg" width="280" height="280" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-5-2.jpg" width="280" height="280" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                    <div class="product-label label-sale">-15%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Casual Spring Blue Shoes</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <!-- End .price-box -->
+                                    <div class="product-action">
+                                        <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
+                                                class="icon-heart"></i></a>
+                                        <a href="product.jsp" class="btn-icon btn-add-cart"><i
+                                                class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
+                                        <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
+                                                class="fas fa-external-link-alt"></i></a>
                                     </div>
-                                    <!-- End .product-ratings -->
                                 </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
+                                <!-- End .product-details -->
                             </div>
-                            <!-- End .product-details -->
-                        </div>
+                        </c:forEach>
                     </div>
                     <!-- End .featured-proucts -->
                 </div>
@@ -419,260 +214,57 @@
                          }
                          }
                          }">
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-6.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-6-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Men Black Gentle Belt</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                        <c:forEach var="p" items="${newProducts}">
+                            <fmt:setLocale value="vi_VN" />
+                            <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
+                                <figure>
+                                    <a href="product.jsp">
+                                        <img src="${p.image}" width="280" height="280" alt="product"
+                                             style="width: 100%; height: auto; max-height: 200px; object-fit: contain; margin-bottom: 10px; display: block;">
+
+                                    </a>
+                                    <div class="label-group">
+                                        <div class="product-label label-hot">HOT</div>
+                                        <div class="product-label label-sale">-20%</div>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-7.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-7-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Brown-Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="category-list">
+                                        <a href="category.jsp" class="product-category">Danh mục</a>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-8.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-8-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-20%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Brown-Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <h3 class="product-title">
+                                        <!--                                        name-->
+                                        <a href="product.jsp">${p.productName}</a>
+                                    </h3>
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:90%"></span>
+                                            <!-- End .ratings -->
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <!-- End .product-ratings -->
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-9.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-9-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-30%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <!-- End .product-container -->
+                                    <div class="price-box">
+                                        <!--                                        <del class="old-price">$59.00</del>-->
+                                        <span class="product-price">
+                                            <fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" />
+                                        </span>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                            class="fa fa-arrow-right"></i><span>SELECT
-                                            OPTIONS</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-10.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-10-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Basketball Sports Blue Shoes</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <!-- End .price-box -->
+                                    <div class="product-action">
+                                        <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
+                                                class="icon-heart"></i></a>
+                                        <a href="product.jsp" class="btn-icon btn-add-cart"><i
+                                                class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
+                                        <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
+                                                class="fas fa-external-link-alt"></i></a>
                                     </div>
-                                    <!-- End .product-ratings -->
                                 </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
+                                <!-- End .product-details -->
                             </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.jsp">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-11.jpg" width="220" height="220" alt="product">
-                                    <img src="${pageContext.request.contextPath}/assets/images/products/product-11-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-20%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.jsp" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.jsp">Men Sports Travel Bag</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                    <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                            class="fa fa-arrow-right"></i><span>SELECT
-                                            OPTIONS</span></a>
-                                    <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
+                        </c:forEach>
+
                     </div>
                     <!-- End .featured-proucts -->
 
@@ -695,78 +287,22 @@
                     </h2>
 
                     <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-1.jpg" alt="category" width="280" height="240" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Dress</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
+                        <c:forEach var="c" items="${categoryList}">
+                            <div >
+                                <a href="category.jsp">
+                                    <figure>
+                                        <img style=" display: flex; align-content: center;
+                                             object-fit:contain  ; width: 180px; height: 240px;margin-left: 10px; margin-top: -10px;" src="${c.image}" alt="category" width="280" height="240" />
+                                    </figure>
+                                    <div class="category-content">
+                                        <h3>${c.categoryName}</h3>
 
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-2.jpg" alt="category" width="220" height="220" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Watches</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-3.jpg" alt="category" width="220" height="220" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Machine</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-4.jpg" alt="category" width="220" height="220" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Sofa</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-6.jpg" alt="category" width="220" height="220" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Headphone</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.jsp">
-                                <figure>
-                                    <img src="${pageContext.request.contextPath}/assets/images/demoes/demo4/products/categories/category-5.jpg" alt="category" width="220" height="220" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>Sports</h3>
-                                    <span><mark class="count">3</mark> products</span>
-                                </div>
-                            </a>
-                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
+
                 </div>
             </section>
 

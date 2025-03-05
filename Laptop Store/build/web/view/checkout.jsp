@@ -291,7 +291,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-dark btn-place-order" form="checkout-form">
-                                        Place order
+                                        Đặt hàng
                                     </button>
                                 </div>
                                 <!-- End .cart-summary -->
