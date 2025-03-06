@@ -1,6 +1,7 @@
 package controller;
 
 import dal.implement.ProductDAO;
+import dal.implement.ProductDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -9,12 +10,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Vector;
 import model.Product;
+import model.ProductDetail;
 
 public class ProductsServlet extends HttpServlet {
 
     // declare dao 
     ProductDAO productDao = new ProductDAO();
-    // sql 
+    ProductDetailDAO productDetailDao = new ProductDetailDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,11 +44,22 @@ public class ProductsServlet extends HttpServlet {
         // find product by id 
         Product productFind = productDao.searchProduct(productID);
         // get related product list 
-        Vector<Product> relatedProducts = productDao.getRelatedProducts(productID);
+        Vector<Product> relatedProducts = productDao.getRelatedProducts2(productID);
+        // get category name of product 
+        String categoryName = productDao.getCategoryNameByProductID(productID); 
+        // get brand name 
+        String brandName = productDao.getBrandNameByProductID(productID); 
+        // product detail 
+        ProductDetail productDetail = productDetailDao.getProductDetailByProductID(productID); 
         
         // set and forward sang trang product 
+        
         request.setAttribute("product", productFind);
         request.setAttribute("relatedProducts", relatedProducts);
+        request.setAttribute("categoryName", categoryName);
+        request.setAttribute("brandName", brandName);
+        request.setAttribute("productDetail", productDetail);
+       
         request.getRequestDispatcher("view/product.jsp").forward(request, response);
     }
 

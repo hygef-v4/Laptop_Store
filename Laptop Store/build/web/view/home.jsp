@@ -184,8 +184,8 @@
                                     <div class="product-action">
                                         <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
+                                        <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="btn-icon btn-add-cart"><i
+                                                class="fa fa-arrow-right"></i><span>Mua Ngay</span></a>
                                         <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
                                                 class="fas fa-external-link-alt"></i></a>
                                     </div>
@@ -256,7 +256,7 @@
                                         <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
                                         <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>THÊM VÀO GIỎ HÀNG</span></a>
+                                                class="fa fa-arrow-right"></i><span>Mua Ngay</span></a>
                                         <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
                                                 class="fas fa-external-link-alt"></i></a>
                                     </div>

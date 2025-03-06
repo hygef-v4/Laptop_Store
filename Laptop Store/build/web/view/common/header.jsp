@@ -249,34 +249,17 @@
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">VARIATION 1</a>
+                                    <a href="#" class="nolink">Thương hiệu</a>
                                     <ul class="submenu">
                                         <li><a href="category.jsp">Fullwidth Banner</a></li>
-                                        <li><a href="category-banner-boxed-slider.jsp">Boxed Slider Banner</a>
-                                        </li>
-                                        <li><a href="category-banner-boxed-image.jsp">Boxed Image Banner</a>
-                                        </li>
-                                        <li><a href="category.jsp">Left Sidebar</a></li>
-                                        <li><a href="category-sidebar-right.jsp">Right Sidebar</a></li>
-                                        <li><a href="category-off-canvas.jsp">Off Canvas Filter</a></li>
-                                        <li><a href="category-horizontal-filter1.jsp">Horizontal Filter1</a>
-                                        </li>
-                                        <li><a href="category-horizontal-filter2.jsp">Horizontal Filter2</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">VARIATION 2</a>
+                                    <a href="#" class="nolink">Nhu cầu</a>
                                     <ul class="submenu">
                                         <li><a href="category-list.jsp">List Types</a></li>
-                                        <li><a href="category-infinite-scroll.jsp">Ajax Infinite Scroll</a>
-                                        </li>
-                                        <li><a href="category.jsp">3 Columns Products</a></li>
-                                        <li><a href="category-4col.jsp">4 Columns Products</a></li>
-                                        <li><a href="category-5col.jsp">5 Columns Products</a></li>
-                                        <li><a href="category-6col.jsp">6 Columns Products</a></li>
-                                        <li><a href="category-7col.jsp">7 Columns Products</a></li>
-                                        <li><a href="category-8col.jsp">8 Columns Products</a></li>
+                                      
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -301,37 +284,25 @@
                     <li>
 
                         <a href="${pageContext.request.contextPath}/products?productID=1">SẢN PHẨM</a>
-                        <div class="megamenu megamenu-fixed-width">
+<!--                        <div class="megamenu megamenu-fixed-width">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <a href="#" class="nolink">PRODUCT PAGES</a>
                                     <ul class="submenu">
                                         <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
-                                        <li><a href="product-variable.jsp">VARIABLE PRODUCT</a></li>
-                                        <li><a href="product.jsp">SALE PRODUCT</a></li>
-                                        <li><a href="product.jsp">FEATURED & ON SALE</a></li>
-                                        <li><a href="product-custom-tab.jsp">WITH CUSTOM TAB</a></li>
-                                        <li><a href="product-sidebar-left.jsp">WITH LEFT SIDEBAR</a></li>
-                                        <li><a href="product-sidebar-right.jsp">WITH RIGHT SIDEBAR</a></li>
-                                        <li><a href="product-addcart-sticky.jsp">ADD CART STICKY</a></li>
+                                        
                                     </ul>
                                 </div>
-                                <!-- End .col-lg-4 -->
+                                 End .col-lg-4 
 
                                 <div class="col-lg-4">
                                     <a href="#" class="nolink">PRODUCT LAYOUTS</a>
                                     <ul class="submenu">
                                         <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
-                                        <li><a href="product-grid-layout.jsp">GRID IMAGE</a></li>
-                                        <li><a href="product-full-width.jsp">FULL WIDTH LAYOUT</a></li>
-                                        <li><a href="product-sticky-info.jsp">STICKY INFO</a></li>
-                                        <li><a href="product-sticky-both.jsp">LEFT & RIGHT STICKY</a></li>
-                                        <li><a href="product-transparent-image.jsp">TRANSPARENT IMAGE</a></li>
-                                        <li><a href="product-center-vertical.jsp">CENTER VERTICAL</a></li>
-                                        <li><a href="#">BUILD YOUR OWN</a></li>
+                                        
                                     </ul>
                                 </div>
-                                <!-- End .col-lg-4 -->
+                                 End .col-lg-4 
 
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner menu-banner-2">
@@ -348,10 +319,10 @@
                                         <a href="category.jsp" class="btn btn-sm btn-dark">SHOP NOW</a>
                                     </div>
                                 </div>
-                                <!-- End .col-lg-4 -->
+                                 End .col-lg-4 
                             </div>
-                            <!-- End .row -->
-                        </div>
+                             End .row 
+                        </div>-->
                         <!-- End .megamenu -->
                     </li>
                     <li>
