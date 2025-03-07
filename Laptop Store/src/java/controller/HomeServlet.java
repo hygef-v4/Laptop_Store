@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dal.implement.BrandDAO;
 import dal.implement.CategoryDAO;
 import dal.implement.ProductDAO;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.Vector;
+import model.Brand;
 import model.Category;
 import model.Product;
 
@@ -22,8 +24,11 @@ public class HomeServlet extends HttpServlet {
     private static final String featureProductSQL = "SELECT * FROM [dbo].[tblProducts] WHERE isFeatured = 1";
     private static final String newProductsSQL = "SELECT top 10 * FROM [dbo].[tblProducts] order by importDate desc";
     private static final String categoryListSQL = "SELECT * FROM [dbo].[tblCategories]";
+    private static final String brandListSQL = "SELECT * FROM [dbo].[tblBrands]";
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
+    BrandDAO brandDAO = new BrandDAO(); 
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,10 +39,13 @@ public class HomeServlet extends HttpServlet {
         Vector<Product> newProducts = productDAO.getAllProduct(newProductsSQL);
         // get list category
         Vector<Category> categoryList = categoryDAO.getAllCategory(categoryListSQL);
+        // gete brandDAO
+         Vector<Brand> brandList = brandDAO.getAllBrands(brandListSQL);
         HttpSession session = request.getSession();
         session.setAttribute("featureProducts", featureProducts);
         session.setAttribute("newProducts", newProducts);
         session.setAttribute("categoryList", categoryList);
+        session.setAttribute("brandList", brandList);
         request.getRequestDispatcher("view/home.jsp").forward(request, response);
     
     }

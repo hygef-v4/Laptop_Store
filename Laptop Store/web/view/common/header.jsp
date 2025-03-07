@@ -77,8 +77,8 @@
                 <button class="mobile-menu-toggler text-primary mr-2" type="button">
                     <i class="fas fa-bars"></i>
                 </button>
-               
-                <a href="${pageContext.request.contextPath}/view/home.jsp" class="logo">
+
+                <a href="${pageContext.request.contextPath}/home" class="logo">
                     <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="111" height="44" alt="Porto Logo">
                 </a>
             </div>
@@ -119,10 +119,10 @@
                 </div>
                 <!-- End .header-search -->
 
-                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
+<!--                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
                     <h6><span>Gọi ngay</span><a href="tel:#" class="text-dark font1">(+87) 327715098</a></h6>
-                </div>
+                </div>-->
 
                 <a href="${pageContext.request.contextPath}/view/login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
@@ -242,41 +242,30 @@
             <nav class="main-nav w-100">
                 <ul class="menu">
                     <li class="active">
-                        <a href="${pageContext.request.contextPath}/view/home.jsp">TRANG CHỦ</a>
+                        <a href="${pageContext.request.contextPath}/home">TRANG CHỦ</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/view/category.jsp">DANH MỤC</a>
+                        <a href="${pageContext.request.contextPath}/category">DANH MỤC</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <a href="#" class="nolink">Thương hiệu</a>
                                     <ul class="submenu">
-                                        <li><a href="category.jsp">Fullwidth Banner</a></li>
-                                        
+                                        <c:forEach var="b" items="${brandList}">
+                                            <li><a href="${pageContext.request.contextPath}/category?brandName=${b.brandName}">${b.brandName}</a></li>
+                                            </c:forEach>
+
                                     </ul>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <a href="#" class="nolink">Nhu cầu</a>
                                     <ul class="submenu">
-                                        <li><a href="category-list.jsp">List Types</a></li>
-                                      
+                                        <c:forEach var="c" items="${categoryList}">
+                                            <li><a href="${pageContext.request.contextPath}/category?categoryName=${c.categoryName}">${c.categoryName}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="${pageContext.request.contextPath}/assets/images/menu-banner.jpg" width="192" height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="category.jsp" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                         <!-- End .megamenu -->
@@ -284,45 +273,45 @@
                     <li>
 
                         <a href="${pageContext.request.contextPath}/products?productID=1">SẢN PHẨM</a>
-<!--                        <div class="megamenu megamenu-fixed-width">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">PRODUCT PAGES</a>
-                                    <ul class="submenu">
-                                        <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
-                                        
-                                    </ul>
-                                </div>
-                                 End .col-lg-4 
-
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                    <ul class="submenu">
-                                        <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
-                                        
-                                    </ul>
-                                </div>
-                                 End .col-lg-4 
-
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner menu-banner-2">
-                                        <figure>
-                                            <img src="${pageContext.request.contextPath}/assets/images/menu-banner-1.jpg" width="182" height="317" alt="Menu banner" class="product-promo">
-                                        </figure>
-                                        <i>OFF</i>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                            </h4>
-                                        </div>
-                                        <a href="category.jsp" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                    </div>
-                                </div>
-                                 End .col-lg-4 
-                            </div>
-                             End .row 
-                        </div>-->
+                        <!--                        <div class="megamenu megamenu-fixed-width">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <a href="#" class="nolink">PRODUCT PAGES</a>
+                                                            <ul class="submenu">
+                                                                <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                         End .col-lg-4 
+                        
+                                                        <div class="col-lg-4">
+                                                            <a href="#" class="nolink">PRODUCT LAYOUTS</a>
+                                                            <ul class="submenu">
+                                                                <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                         End .col-lg-4 
+                        
+                                                        <div class="col-lg-4 p-0">
+                                                            <div class="menu-banner menu-banner-2">
+                                                                <figure>
+                                                                    <img src="${pageContext.request.contextPath}/assets/images/menu-banner-1.jpg" width="182" height="317" alt="Menu banner" class="product-promo">
+                                                                </figure>
+                                                                <i>OFF</i>
+                                                                <div class="banner-content">
+                                                                    <h4>
+                                                                        <span class="">UP TO</span><br />
+                                                                        <b class="">50%</b>
+                                                                    </h4>
+                                                                </div>
+                                                                <a href="category.jsp" class="btn btn-sm btn-dark">SHOP NOW</a>
+                                                            </div>
+                                                        </div>
+                                                         End .col-lg-4 
+                                                    </div>
+                                                     End .row 
+                                                </div>-->
                         <!-- End .megamenu -->
                     </li>
                     <li>

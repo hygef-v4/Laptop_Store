@@ -4,7 +4,10 @@
     Author     : hungs
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +67,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="home.jsp"><i class="icon-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page"><a href="#">Danh mục</a></li>
-                   
+
                             </ol>
                         </nav>
 
@@ -169,63 +172,71 @@
                         </nav>
 
                         <div class="row">
+                        <c:forEach var="p" items="${productList}">
                             <div class="col-6 col-sm-4 col-md-3">
                                 <div class="product-default">
                                     <figure>
-                                        <a href="product.jsp">
-                                            <img src="${pageContext.request.contextPath}/assets/images/products/product-1.jpg" width="280" height="280" alt="product" />
-                                        
-                                    </a>
+                                        <a href="${pageContext.request.contextPath}/products?productID=${p.productID}">
 
-                                    <div class="label-group">
-                                        <div class="product-label label-hot">HOT</div>
-                                        <div class="product-label label-sale">-20%</div>
-                                    </div>
-                                </figure>
+                                            <img src="${p.image}" width="280" height="280" alt="product" />
 
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="category.jsp" class="product-category">Danh mục</a>
+                                        </a>
+
+                                        <div class="label-group">
+                                            <div class="product-label label-hot">HOT</div>
+                                            <div class="product-label label-sale">-20%</div>
+                                        </div>
+                                    </figure>
+
+                                    <div class="product-details">
+                                        <div class="category-wrap">
+                                            <div class="category-list">
+                                                <a href="category.jsp" class="product-category">Danh mục</a>
+                                            </div>
+                                        </div>
+
+                                        <h3 class="product-title"> <a href="product.jsp">${p.productName}</a>
+                                        </h3>
+
+                                        <div class="ratings-container">
+                                            <div class="product-ratings">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <!-- End .ratings -->
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <!-- End .product-ratings -->
+                                        </div>
+                                        <!-- End .product-container -->
+
+                                        <div class="price-box">
+                                            <!--                                            <span class="old-price">$90.00</span>-->
+                                            <span class="product-price">
+                                                <fmt:formatNumber value="${p.price}" type="number" maxFractionDigits="0"/> ₫
+
+                                            </span>
+                                        </div>
+                                        <!-- End .price-box -->
+
+                                        <div class="product-action">
+                                            <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                            <a href="product.jsp" class="btn-icon btn-add-cart"><i
+                                                    class="fa fa-arrow-right"></i><span>Mua Ngay</span></a>
+                                            <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
+                                                    class="fas fa-external-link-alt"></i></a>
                                         </div>
                                     </div>
-
-                                    <h3 class="product-title"> <a href="product.jsp">Ultimate 3D Bluetooth Speaker</a>
-                                    </h3>
-
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:100%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-
-                                    <div class="price-box">
-                                        <span class="old-price">$90.00</span>
-                                        <span class="product-price">$70.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-
-                                    <div class="product-action">
-                                        <a href="wishlist.jsp" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="product.jsp" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>LỰA CHỌN</span></a>
-                                        <a href="ajax/product-quick-view.jsp" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
+                                    <!-- End .product-details -->
                                 </div>
-                                <!-- End .product-details -->
+
                             </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
+                            <!-- End .col-sm-4 -->
+                        </c:forEach>
 
-                       
 
-                       
+
+
+
                     </div>
                     <!-- End .row -->
 

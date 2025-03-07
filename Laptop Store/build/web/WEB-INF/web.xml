@@ -12,6 +12,10 @@
         <servlet-name>ProductsServlet</servlet-name>
         <servlet-class>controller.ProductsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HeaderServlet</servlet-name>
+        <servlet-class>controller.HeaderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>ProductsServlet</servlet-name>
         <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HeaderServlet</servlet-name>
+        <url-pattern>/header</url-pattern>
     </servlet-mapping>
 </web-app>

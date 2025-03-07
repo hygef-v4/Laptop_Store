@@ -289,7 +289,8 @@
                     <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
                         <c:forEach var="c" items="${categoryList}">
                             <div >
-                                <a href="category.jsp">
+
+                                <a href="${pageContext.request.contextPath}/category?categoryName=${c.categoryName}">
                                     <figure>
                                         <img style=" display: flex; align-content: center;
                                              object-fit:contain  ; width: 180px; height: 240px;margin-left: 10px; margin-top: -10px;" src="${c.image}" alt="category" width="280" height="240" />

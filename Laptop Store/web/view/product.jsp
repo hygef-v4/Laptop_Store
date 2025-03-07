@@ -185,8 +185,7 @@
                                     </div>
                                     <!-- End .product-single-qty -->
 
-                                    <a href="javascript:;" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to
-                                        Cart</a>
+                                    <a href="javascript:;" class="btn btn-dark add-cart mr-2" title="Add to Cart">Thêm Vào Giỏ Hàng</a>
 
                                     <a href="cart.jsp" class="btn btn-gray view-cart d-none">View cart</a>
                                 </div>
