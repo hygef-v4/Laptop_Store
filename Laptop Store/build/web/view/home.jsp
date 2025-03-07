@@ -71,7 +71,7 @@
                                 <b class="coupon-sale-text text-white bg-secondary align-middle"><sup>vnđ</sup><em
                                         class="align-text-top">16,999,999</em></b>
                             </h5>
-                            <a href="category.jsp" class="btn btn-dark btn-lg">Mua ngay!</a>
+                            <a href="${pageContext.request.contextPath}/category" class="btn btn-dark btn-lg">Mua ngay!</a>
                         </div>
 
 
@@ -277,7 +277,7 @@
                                 </h2>
                             </div>
                             <div class="col-md-3 col-sm-4 text-center text-sm-right">
-                                <a class="btn btn-light btn-white btn-lg" href="category.jsp">XEM NGAY</a>
+                                <a class="btn btn-light btn-white btn-lg" href="${pageContext.request.contextPath}/category">XEM NGAY</a>
                             </div>
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                         <c:forEach var="c" items="${categoryList}">
                             <div >
 
-                                <a href="${pageContext.request.contextPath}/category?categoryName=${c.categoryName}">
+                                <a href="${pageContext.request.contextPath}/category?search=category&categoryID=${c.categoryID}">
                                     <figure>
                                         <img style=" display: flex; align-content: center;
                                              object-fit:contain  ; width: 180px; height: 240px;margin-left: 10px; margin-top: -10px;" src="${c.image}" alt="category" width="280" height="240" />
@@ -378,7 +378,7 @@
                             <h2 class="mb-md-0 text-white">Ưu Đãi Laptop<br>Hàng Đầu</h2>
                         </div>
                         <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn" data-animation-delay="300">
-                            <a href="category.jsp" class="btn btn-dark btn-black ls-10">Xem Khuyến Mãi</a>
+                            <a href="${pageContext.request.contextPath}/category" class="btn btn-dark btn-black ls-10">Xem Khuyến Mãi</a>
                         </div>
                         <div class="col-md-4 mr-xl-auto text-md-left appear-animate" data-animation-name="fadeInLeftShorter" data-animation-delay="600">
                             <h4 class="mb-1 mt-1 font1 coupon-sale-text p-0 d-block ls-n-10 text-transform-none">

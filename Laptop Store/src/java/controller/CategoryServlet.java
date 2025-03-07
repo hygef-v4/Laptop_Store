@@ -15,24 +15,66 @@ import model.Product;
 
 public class CategoryServlet extends HttpServlet {
 
-
+    // sql statement 
     private static final String categoryListSQL = "SELECT * FROM [dbo].[tblCategories]";
     private static final String productListSQL = "SELECT * FROM [dbo].[tblProducts]";
+
+    // declare dao 
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // get product list
-        Vector<Product> productList = productDAO.getAllProduct(productListSQL);
+
+        // loc san pham theo category hoac brand hoac list ra tat ca san pham 
+        Vector<Product> productList = findProductDoGet(request);
         // get list category
         Vector<Category> categoryList = categoryDAO.getAllCategory(categoryListSQL);
-        
+
         request.setAttribute("productList", productList);
         request.setAttribute("categoryList", categoryList);
         request.getRequestDispatcher("view/category.jsp").forward(request, response);
     }
+
+    // loc san pham theo category hoac brand hoac list ra tat ca san pham 
+    private Vector<Product> findProductDoGet(HttpServletRequest request) {
+        // get ve search 
+        String actionSearch = request.getParameter("search") == null ? "default"
+                : request.getParameter("search");
+
+        Vector<Product> listProduct;
+        switch (actionSearch) {
+            case "category":        // find product by category id 
+                String categoryID = request.getParameter("categoryID");
+                listProduct = productDAO.findByCategory(categoryID);
+                break;
+            case "brand":        // find product by brand id 
+                String brandID = request.getParameter("brandID");
+                listProduct = productDAO.findByBrandID(brandID);
+                break;
+            case "searchByKeyword":        // find product by name or description
+                String keyword = request.getParameter("keyword");
+                listProduct = productDAO.searchByKeyword(keyword);
+                break;
+
+            default:                 // list all products 
+                listProduct = productDAO.getAllProduct(productListSQL);
+        }
+
+        return listProduct;
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,21 +92,4 @@ public class CategoryServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

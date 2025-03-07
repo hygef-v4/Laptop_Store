@@ -67,6 +67,7 @@ public class ProductDAO extends DBContext {
         }
         return null;
     }
+
     // lay ra san pham cung danh muc
     public Vector<Product> getRelatedProducts(int productID) {
         Vector<Product> relatedProducts = new Vector<>();
@@ -111,54 +112,55 @@ public class ProductDAO extends DBContext {
 
         return relatedProducts;
     }
+
     // lay ra san pham cung danh muc hoac cung hang 
     public Vector<Product> getRelatedProducts2(int productID) {
-    Vector<Product> relatedProducts = new Vector<>();
-    Product targetProduct = searchProduct(productID);
+        Vector<Product> relatedProducts = new Vector<>();
+        Product targetProduct = searchProduct(productID);
 
-    if (targetProduct == null) {
-        return relatedProducts; // Or throw an exception
-    }
-
-    String categoryID = targetProduct.getCategoryID();
-    String brandID = targetProduct.getBrandID();
-
-    // Using OR to get products with the same category OR the same brand.
-    String sql = "SELECT * FROM tblProducts WHERE (categoryID = ? OR brandID = ?) AND productID <> ?";
-
-    try (PreparedStatement ptm = connection.prepareStatement(sql)) {
-        ptm.setString(1, categoryID);
-        ptm.setString(2, brandID);
-        ptm.setInt(3, productID);
-
-        try (ResultSet rs = ptm.executeQuery()) {
-            while (rs.next()) {
-                // Correctly handle nullable warrantyMonths
-                Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
-                boolean isFeatured = rs.getBoolean("isFeatured");
-
-                Product p = new Product(
-                        rs.getInt("productID"),
-                        rs.getString("productName"),
-                        rs.getString("image"),
-                        rs.getDouble("price"),
-                        rs.getInt("quantity"),
-                        rs.getString("categoryID"),
-                        rs.getString("brandID"),
-                        rs.getDate("importDate"),
-                        warranty, // Use the correctly retrieved value
-                        isFeatured,
-                        rs.getString("description")
-                );
-                relatedProducts.add(p);
-            }
+        if (targetProduct == null) {
+            return relatedProducts; // Or throw an exception
         }
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-    }
 
-    return relatedProducts;
-}
+        String categoryID = targetProduct.getCategoryID();
+        String brandID = targetProduct.getBrandID();
+
+        // Using OR to get products with the same category OR the same brand.
+        String sql = "SELECT * FROM tblProducts WHERE (categoryID = ? OR brandID = ?) AND productID <> ?";
+
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, categoryID);
+            ptm.setString(2, brandID);
+            ptm.setInt(3, productID);
+
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    // Correctly handle nullable warrantyMonths
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean("isFeatured");
+
+                    Product p = new Product(
+                            rs.getInt("productID"),
+                            rs.getString("productName"),
+                            rs.getString("image"),
+                            rs.getDouble("price"),
+                            rs.getInt("quantity"),
+                            rs.getString("categoryID"),
+                            rs.getString("brandID"),
+                            rs.getDate("importDate"),
+                            warranty, // Use the correctly retrieved value
+                            isFeatured,
+                            rs.getString("description")
+                    );
+                    relatedProducts.add(p);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return relatedProducts;
+    }
 
     public String getCategoryNameByProductID(int productID) {
         String sql = "SELECT c.categoryName FROM [dbo].[tblProducts] p JOIN [dbo].tblCategories c ON p.categoryID = c.categoryID WHERE p.productID = ?";
@@ -167,7 +169,7 @@ public class ProductDAO extends DBContext {
             ptm.setInt(1, productID);
             ResultSet rs = ptm.executeQuery();
             if (rs.next()) {
-                return rs.getString("categoryName"); 
+                return rs.getString("categoryName");
             }
         } catch (SQLException ex) {
             ex.printStackTrace(); // Proper error handling
@@ -179,18 +181,126 @@ public class ProductDAO extends DBContext {
         String sql = "SELECT b.brandName\n"
                 + "  FROM [dbo].[tblProducts] p\n"
                 + "  join [dbo].tblBrands b\n"
-                + "  on p.brandID = b.brandID\n" 
+                + "  on p.brandID = b.brandID\n"
                 + "  where p.productID = ?";
         try {
             PreparedStatement ptm = connection.prepareStatement(sql);
             ptm.setInt(1, productID);
             ResultSet rs = ptm.executeQuery();
             if (rs.next()) {
-                return rs.getString("brandName"); 
+                return rs.getString("brandName");
             }
         } catch (SQLException ex) {
-            ex.printStackTrace(); 
+            ex.printStackTrace();
         }
         return null; // Return null if no brand is found or on error
     }
+
+    public Vector<Product> findByCategory(String categoryID) {
+        Vector<Product> products = new Vector<>();
+        String sql = "SELECT * FROM [dbo].[tblProducts] WHERE categoryID = ?";
+
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, categoryID);
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean(10);
+
+                    Product p = new Product(
+                            rs.getInt(1), // productID
+                            rs.getString(2), // productName
+                            rs.getString(3), // image
+                            rs.getDouble(4), // price
+                            rs.getInt(5), // quantity
+                            rs.getString(6), // categoryID
+                            rs.getString(7), // brandID
+                            rs.getDate(8), // importDate
+                            warranty, // warrantyMonths
+                            isFeatured, // isFeatured
+                            rs.getString(11) // description
+                    );
+                    products.add(p);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Proper error handling
+        }
+
+        return products;
+    }
+
+    public Vector<Product> findByBrandID(String brandID) {
+        Vector<Product> products = new Vector<>();
+        String sql = "SELECT * FROM [dbo].[tblProducts] WHERE brandID = ?";
+
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, brandID);
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean(10);
+
+                    Product p = new Product(
+                            rs.getInt(1), // productID
+                            rs.getString(2), // productName
+                            rs.getString(3), // image
+                            rs.getDouble(4), // price
+                            rs.getInt(5), // quantity
+                            rs.getString(6), // categoryID
+                            rs.getString(7), // brandID
+                            rs.getDate(8), // importDate
+                            warranty, // warrantyMonths
+                            isFeatured, // isFeatured
+                            rs.getString(11) // description
+                    );
+                    products.add(p);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Proper error handling
+        }
+
+        return products;
+    }
+    // search by keyword or description 
+    public Vector<Product> searchByKeyword(String keyword) {
+    Vector<Product> products = new Vector<>();
+    String sql = "SELECT * FROM [dbo].[tblProducts] WHERE productName LIKE ? OR description LIKE ?";
+
+    try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+        // Use '%' to allow for partial matches
+        String searchKeyword = "%" + keyword + "%";
+        ptm.setString(1, searchKeyword);
+        ptm.setString(2, searchKeyword);
+
+        try (ResultSet rs = ptm.executeQuery()) {
+            while (rs.next()) {
+                Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                boolean isFeatured = rs.getBoolean(10);
+
+                Product p = new Product(
+                        rs.getInt(1), // productID
+                        rs.getString(2), // productName
+                        rs.getString(3), // image
+                        rs.getDouble(4), // price
+                        rs.getInt(5), // quantity
+                        rs.getString(6), // categoryID
+                        rs.getString(7), // brandID
+                        rs.getDate(8), // importDate
+                        warranty, // warrantyMonths
+                        isFeatured, // isFeatured
+                        rs.getString(11) // description
+                );
+                products.add(p);
+            }
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace(); // Proper error handling
+    }
+
+    return products;
+}
+
+
 }

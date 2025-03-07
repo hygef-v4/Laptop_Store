@@ -87,31 +87,13 @@
             <div class="header-right w-lg-max">
                 <div class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mt-0">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
-                    <form action="#" method="get">
+
+                    <!--                    form search -->
+                    <form action="category?" method="get">
+                        <input type="hidden" name="search" value="searchByKeyword" />
                         <div class="header-search-wrapper">
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Tìm kiếm sản phẩm..." required>
-                            <div class="select-custom">
-                                <select id="cat" name="cat">
-                                    <option value="">Danh mục</option>
-                                    <option value="4">Fashion</option>
-                                    <option value="12">- Women</option>
-                                    <option value="13">- Men</option>
-                                    <option value="66">- Jewellery</option>
-                                    <option value="67">- Kids Fashion</option>
-                                    <option value="5">Electronics</option>
-                                    <option value="21">- Smart TVs</option>
-                                    <option value="22">- Cameras</option>
-                                    <option value="63">- Games</option>
-                                    <option value="7">Home &amp; Garden</option>
-                                    <option value="11">Motors</option>
-                                    <option value="31">- Cars and Trucks</option>
-                                    <option value="32">- Motorcycles &amp; Powersports</option>
-                                    <option value="33">- Parts &amp; Accessories</option>
-                                    <option value="34">- Boats</option>
-                                    <option value="57">- Auto Tools &amp; Supplies</option>
-                                </select>
-                            </div>
-                            <!-- End .select-custom -->
+                            <input type="search" class="form-control" name="keyword" id="q" placeholder="Tìm kiếm sản phẩm..." required>
+                            
                             <button class="btn icon-magnifier p-0" title="search" type="submit"></button>
                         </div>
                         <!-- End .header-search-wrapper -->
@@ -119,10 +101,10 @@
                 </div>
                 <!-- End .header-search -->
 
-<!--                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
-                    <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
-                    <h6><span>Gọi ngay</span><a href="tel:#" class="text-dark font1">(+87) 327715098</a></h6>
-                </div>-->
+                               <div class="header-contact d-none d-lg-flex pl-4 pr-4">
+                                    <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
+                                    <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
+                                </div>
 
                 <a href="${pageContext.request.contextPath}/view/login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
@@ -252,7 +234,7 @@
                                     <a href="#" class="nolink">Thương hiệu</a>
                                     <ul class="submenu">
                                         <c:forEach var="b" items="${brandList}">
-                                            <li><a href="${pageContext.request.contextPath}/category?brandName=${b.brandName}">${b.brandName}</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/category?search=brand&brandID=${b.brandID}">${b.brandName}</a></li>
                                             </c:forEach>
 
                                     </ul>
@@ -261,11 +243,11 @@
                                     <a href="#" class="nolink">Nhu cầu</a>
                                     <ul class="submenu">
                                         <c:forEach var="c" items="${categoryList}">
-                                            <li><a href="${pageContext.request.contextPath}/category?categoryName=${c.categoryName}">${c.categoryName}</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/category?search=category&categoryID=${c.categoryID}">${c.categoryName}</a></li>
                                             </c:forEach>
                                     </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <!-- End .megamenu -->

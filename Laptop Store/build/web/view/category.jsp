@@ -191,7 +191,7 @@
                                     <div class="product-details">
                                         <div class="category-wrap">
                                             <div class="category-list">
-                                                <a href="category.jsp" class="product-category">Danh mục</a>
+                                                <a href="${pageContext.request.contextPath}/category" class="product-category">Danh mục</a>
                                             </div>
                                         </div>
 
