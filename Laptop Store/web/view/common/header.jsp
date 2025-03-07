@@ -17,11 +17,19 @@
                     <a href="#">Links</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath}/view/dashboard.jsp">Tài khoản</a></li>
-
+                            <c:if test="${user != null}">
+                                <li><a href="${pageContext.request.contextPath}/view/dashboard.jsp">Tài khoản</a></li>
+                                </c:if>
                             <li><a href="${pageContext.request.contextPath}/view/wishlist.jsp">Yêu thích</a></li>
                             <li><a href="${pageContext.request.contextPath}/view/cart.jsp">Giỏ hàng</a></li>
-                            <li><a href="${pageContext.request.contextPath}/view/login.jsp">Đăng nhập</a></li>
+                                <c:choose>
+                                    <c:when test="${user == null}">
+                                        <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="${pageContext.request.contextPath}/authen?action=logout">Đăng xuất</a></li>
+                                    </c:otherwise>
+                                </c:choose>
                         </ul>
                     </div>
                     <!-- End .header-menu -->
@@ -93,7 +101,7 @@
                         <input type="hidden" name="search" value="searchByKeyword" />
                         <div class="header-search-wrapper">
                             <input type="search" class="form-control" name="keyword" id="q" placeholder="Tìm kiếm sản phẩm..." required>
-                            
+
                             <button class="btn icon-magnifier p-0" title="search" type="submit"></button>
                         </div>
                         <!-- End .header-search-wrapper -->
@@ -101,10 +109,10 @@
                 </div>
                 <!-- End .header-search -->
 
-                               <div class="header-contact d-none d-lg-flex pl-4 pr-4">
-                                    <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
-                                    <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
-                                </div>
+                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
+                    <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
+                    <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
+                </div>
 
                 <a href="${pageContext.request.contextPath}/view/login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 

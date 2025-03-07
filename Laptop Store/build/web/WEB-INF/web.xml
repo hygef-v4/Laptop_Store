@@ -16,6 +16,10 @@
         <servlet-name>HeaderServlet</servlet-name>
         <servlet-class>controller.HeaderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AuthenticationServlet</servlet-name>
+        <servlet-class>controller.AuthenticationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -31,5 +35,9 @@
     <servlet-mapping>
         <servlet-name>HeaderServlet</servlet-name>
         <url-pattern>/header</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthenticationServlet</servlet-name>
+        <url-pattern>/authen</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -3,38 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/laptop.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Category.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-1.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-5.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/header.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-2.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/login.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-fashion-cat.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/demoes/demo4/banners/banner-2.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/clients/client-1.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/clients/client-2.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/forgot-password.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/demoes/demo4/banners/banner-6.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-electronics-cat.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/CategoryServlet.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-8.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-sports-cat.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/smart_watch.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/bulb.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-3.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/head_phone.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/home.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/ProductsServlet.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-9.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/smart_phone.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/HomeServlet.java</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/ProductDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-7.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/categories/category-4.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/assets/images/demoes/demo4/banners/banner-4.jpg</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/contact.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Brand.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/login.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/UserDAO.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/AuthenticationServlet.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/User.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/header.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -6,9 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page import="java.util.Enumeration" %>
 <!DOCTYPE html>
 <html lang="en">
+
+
 
 
     <!-- Mirrored from portotheme.com/html/porto_ecommerce/login.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:42 GMT -->
@@ -84,21 +86,21 @@
                                             <h2 class="title">Đăng nhập</h2>
                                         </div>
 
-                                        <form action="#">
+                                        <form action="authen?action=login" method="POST">
                                             <label for="login-email">
-                                                Tên đăng nhập hoặc địa chỉ email
+                                                Tên đăng nhập 
                                                 <span class="required">*</span>
                                             </label>
-                                            <input type="email" class="form-input form-wide" id="login-email" required />
+                                            <input type="text" name="username" class="form-input form-wide" id="login-email" required />
 
                                             <label for="login-password">
                                                 Mật khẩu
                                                 <span class="required">*</span>
                                             </label>
-                                            <input type="password" class="form-input form-wide" id="login-password" required />
+                                            <input type="password" name="password" class="form-input form-wide" id="login-password" required />
 
                                             <div class="form-footer">
-                                             
+
 
                                                 <a href="forgot-password.jsp"
                                                    class="forget-password text-dark form-footer-right">Quên mật khẩu?</a>
@@ -106,41 +108,47 @@
                                             <button type="submit" class="btn btn-dark btn-md w-100">
                                                 ĐĂNG NHẬP
                                             </button>
-                                        </form>
+                                            <p style="color:red; margin-top: 4%;">${loginError}</p>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="heading mb-1">
+                                        <h2 class="title">Đăng ký</h2>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="heading mb-1">
-                                            <h2 class="title">Đăng ký</h2>
+
+                                    <form action="authen?action=register" method="POST">
+                                        <label for="register-email">
+                                            Tên đăng nhập 
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input type="text" name="registerUsername" class="form-input form-wide" id="register-email" required />
+
+                                        <label for="register-password">
+                                            Mật khẩu
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input type="password" name="registerPassword" class="form-input form-wide" id="register-password"
+                                               required />
+
+                                        <div class="form-footer mb-2">
+                                            <button type="submit" class="btn btn-dark btn-md w-100 mr-0">
+                                                Đăng ký
+                                            </button>
+                                            
                                         </div>
+                                        <p style="color:red; margin-top: 4%;">${registerError}</p>
 
-                                        <form action="#">
-                                            <label for="register-email">
-                                                Địa chỉ email
-                                                <span class="required">*</span>
-                                            </label>
-                                            <input type="email" class="form-input form-wide" id="register-email" required />
 
-                                            <label for="register-password">
-                                                Mật khẩu
-                                                <span class="required">*</span>
-                                            </label>
-                                            <input type="password" class="form-input form-wide" id="register-password"
-                                                   required />
-
-                                            <div class="form-footer mb-2">
-                                                <button type="submit" class="btn btn-dark btn-md w-100 mr-0">
-                                                    Đăng ký
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main><!-- End .main -->
+                </div>
+            </main><!-- End .main -->
 
-                <jsp:include page="/view/common/footer.jsp"></jsp:include>
+            <jsp:include page="/view/common/footer.jsp"></jsp:include>
 
                 <!-- End .footer -->
             </div><!-- End .page-wrapper -->
@@ -153,182 +161,7 @@
                 </div>
             </div>
 
-            <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
 
-            <div class="mobile-menu-container">
-                <div class="mobile-menu-wrapper">
-                    <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
-                    <nav class="mobile-nav">
-                        <ul class="mobile-menu">
-                            <li><a href="home.jsp">Trang chủ</a></li>
-                            <li>
-                                <a href="category.jsp">Categories</a>
-                                <ul>
-                                    <li><a href="category.jsp">Full Width Banner</a></li>
-                                    <li><a href="category-banner-boxed-slider.jsp">Boxed Slider Banner</a></li>
-                                    <li><a href="category-banner-boxed-image.jsp">Boxed Image Banner</a></li>
-                                    <li><a href="https://www.portotheme.com/html/porto_ecommerce/category-sidebar-left.jsp">Left Sidebar</a></li>
-                                    <li><a href="category-sidebar-right.jsp">Right Sidebar</a></li>
-                                    <li><a href="category-off-canvas.jsp">Off Canvas Filter</a></li>
-                                    <li><a href="category-horizontal-filter1.jsp">Horizontal Filter 1</a></li>
-                                    <li><a href="category.jsp">Horizontal Filter 2</a></li>
-                                    <li><a href="#">List Types</a></li>
-                                    <li><a href="category-infinite-scroll.jsp">Ajax Infinite Scroll<span
-                                                class="tip tip-new">New</span></a></li>
-                                    <li><a href="category.jsp">3 Columns Products</a></li>
-                                    <li><a href="category-4col.jsp">4 Columns Products</a></li>
-                                    <li><a href="category-5col.jsp">5 Columns Products</a></li>
-                                    <li><a href="category-6col.jsp">6 Columns Products</a></li>
-                                    <li><a href="category-7col.jsp">7 Columns Products</a></li>
-                                    <li><a href="category-8col.jsp">8 Columns Products</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="product.jsp">Products</a>
-                                <ul>
-                                    <li>
-                                        <a href="#" class="nolink">PRODUCT PAGES</a>
-                                        <ul>
-                                            <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
-                                            <li><a href="product-variable.jsp">VARIABLE PRODUCT</a></li>
-                                            <li><a href="product.jsp">SALE PRODUCT</a></li>
-                                            <li><a href="product.jsp">FEATURED & ON SALE</a></li>
-                                            <li><a href="product-sticky-info.jsp">WIDTH CUSTOM TAB</a></li>
-                                            <li><a href="product-sidebar-left.jsp">WITH LEFT SIDEBAR</a></li>
-                                            <li><a href="product-sidebar-right.jsp">WITH RIGHT SIDEBAR</a></li>
-                                            <li><a href="product-addcart-sticky.jsp">ADD CART STICKY</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                        <ul>
-                                            <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
-                                            <li><a href="product-grid-layout.jsp">GRID IMAGE</a></li>
-                                            <li><a href="product-full-width.jsp">FULL WIDTH LAYOUT</a></li>
-                                            <li><a href="product-sticky-info.jsp">STICKY INFO</a></li>
-                                            <li><a href="product-sticky-both.jsp">LEFT & RIGHT STICKY</a></li>
-                                            <li><a href="product-transparent-image.jsp">TRANSPARENT IMAGE</a></li>
-                                            <li><a href="product-center-vertical.jsp">CENTER VERTICAL</a></li>
-                                            <li><a href="#">BUILD YOUR OWN</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="wishlist.jsp">Wishlist</a>
-                                    </li>
-                                    <li>
-                                        <a href="cart.jsp">Shopping Cart</a>
-                                    </li>
-                                    <li>
-                                        <a href="checkout.jsp">Checkout</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard.jsp">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="login.jsp">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="forgot-password.jsp">Forgot Password</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="blog.jsp">Blog</a></li>                                
-                            <li><a href="#">Elements</a>
-                                <ul class="custom-scrollbar">
-                                    <li><a href="element-accordions.jsp">Accordion</a></li>
-                                    <li><a href="element-alerts.jsp">Alerts</a></li>
-                                    <li><a href="element-animations.jsp">Animations</a></li>
-                                    <li><a href="element-banners.jsp">Banners</a></li>
-                                    <li><a href="element-buttons.jsp">Buttons</a></li>
-                                    <li><a href="element-call-to-action.jsp">Call to Action</a></li>
-                                    <li><a href="element-countdown.jsp">Count Down</a></li>
-                                    <li><a href="element-counters.jsp">Counters</a></li>
-                                    <li><a href="element-headings.jsp">Headings</a></li>
-                                    <li><a href="element-icons.jsp">Icons</a></li>
-                                    <li><a href="element-info-box.jsp">Info box</a></li>
-                                    <li><a href="element-posts.jsp">Posts</a></li>
-                                    <li><a href="element-products.jsp">Products</a></li>
-                                    <li><a href="element-product-categories.jsp">Product Categories</a></li>
-                                    <li><a href="element-tabs.jsp">Tabs</a></li>
-                                    <li><a href="element-testimonial.jsp">Testimonials</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <ul class="mobile-menu mt-2 mb-2">
-                            <li class="border-0">
-                                <a href="#">
-                                    Special Offer!
-                                </a>
-                            </li>
-                            <li class="border-0">
-                                <a href="#" target="_blank">
-                                    Buy Porto!
-                                    <span class="tip tip-hot">Hot</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <ul class="mobile-menu">
-                            <li><a href="login.jsp">My Account</a></li>
-                            <li><a href="contact.jsp">Contact Us</a></li>
-                            <li><a href="blog.jsp">Blog</a></li>
-                            <li><a href="wishlist.jsp">My Wishlist</a></li>
-                            <li><a href="cart.jsp">Cart</a></li>
-                            <li><a href="login.jsp" class="login-link">Log In</a></li>
-                        </ul>
-                    </nav><!-- End .mobile-nav -->
-
-                    <form class="search-wrapper mb-2" action="#">
-                        <input type="text" class="form-control mb-0" placeholder="Search..." required />
-                        <button class="btn icon-search text-white bg-transparent p-0" type="submit"></button>
-                    </form>
-
-                    <div class="social-icons">
-                        <a href="#" class="social-icon social-facebook icon-facebook" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-twitter icon-twitter" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-instagram icon-instagram" target="_blank">
-                        </a>
-                    </div>
-                </div><!-- End .mobile-menu-wrapper -->
-            </div><!-- End .mobile-menu-container -->
-
-            <div class="sticky-navbar">
-                <div class="sticky-info">
-                    <a href="home.jsp">
-                        <i class="icon-home"></i>Trang chủ
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="category.jsp" class="">
-                        <i class="icon-bars"></i>Categories
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="wishlist.jsp" class="">
-                        <i class="icon-wishlist-2"></i>Wishlist
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="login.jsp" class="">
-                        <i class="icon-user-2"></i>Account
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="cart.jsp" class="">
-                        <i class="icon-shopping-cart position-relative">
-                            <span class="cart-count badge-circle">3</span>
-                        </i>Cart
-                    </a>
-                </div>
-            </div>
 
 
 
