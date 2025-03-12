@@ -8,15 +8,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:29:31 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Porto - Bootstrap eCommerce Template</title>
+        <title>FbtShop.com</title>
 
         <meta name="keywords" content="HTML5 Template" />
         <meta name="description" content="Porto - Bootstrap eCommerce Template">

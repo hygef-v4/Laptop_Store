@@ -58,6 +58,32 @@ public class CategoryServlet extends HttpServlet {
                 listProduct = productDAO.searchByKeyword(keyword);
                 break;
 
+            case "priceRange": // Filter products by price range
+                double minPrice = 0; // Default minimum price
+                double maxPrice = Double.MAX_VALUE; // Default maximum price
+
+                try {
+                    String minPriceStr = request.getParameter("min_price");
+                    String maxPriceStr = request.getParameter("max_price");
+
+                    if (minPriceStr != null && !minPriceStr.isEmpty()) {
+                        minPrice = Double.parseDouble(minPriceStr);
+                    }
+                    if (maxPriceStr != null && !maxPriceStr.isEmpty()) {
+                        maxPrice = Double.parseDouble(maxPriceStr);
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace(); // Handle invalid input gracefully
+                }
+
+                listProduct = productDAO.findByPriceRange(minPrice, maxPrice);
+                break;
+                
+            case "sort": // Sort products based on orderby parameter
+                String orderby = request.getParameter("orderby");
+                listProduct = productDAO.sortProducts(orderby);
+                break;
+
             default:                 // list all products 
                 listProduct = productDAO.getAllProduct(productListSQL);
         }

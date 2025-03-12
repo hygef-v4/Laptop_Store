@@ -4,11 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/ProductDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/login.jsp</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/UserDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/AuthenticationServlet.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/User.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/header.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/CategoryServlet.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/category.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/ProductDetailDAO.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Product.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/ProductsServlet.java</file>
         </group>
     </open-files>
 </project-private>

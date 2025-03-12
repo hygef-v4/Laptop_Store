@@ -9,15 +9,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/cart.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:40 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Porto - Bootstrap eCommerce Template</title>
+        <title>FbtShop.com</title>
 
         <meta name="keywords" content="HTML5 Template" />
         <meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -49,44 +47,44 @@
 
     <body>
         <div class="page-wrapper">
-           
+
 
             <jsp:include page="/view/common/header.jsp"></jsp:include>
-            <!-- End .header -->
+                <!-- End .header -->
 
-            <main class="main">
-                <div class="container">
-                    <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
-                        <li class="active">
-                            <a href="cart.jsp">Giỏ Hàng</a>
-                        </li>
-                        <li>
-                            <a href="checkout.jsp">Thanh toán</a>
-                        </li>
-                        <li class="disabled">
-                            <a href="cart.jsp">Hoàn tất thanh toán</a>
-                        </li>
-                    </ul>
+                <main class="main">
+                    <div class="container">
+                        <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
+                            <li class="active">
+                                <a href="cart.jsp">Giỏ Hàng</a>
+                            </li>
+                            <li>
+                                <a href="checkout.jsp">Thanh toán</a>
+                            </li>
+                            <li class="disabled">
+                                <a href="cart.jsp">Hoàn tất thanh toán</a>
+                            </li>
+                        </ul>
 
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="cart-table-container">
-                                <table class="table table-cart">
-                                    <thead>
-                                        <tr>
-                                            <th class="thumbnail-col"></th>
-                                            <th class="product-col">Sản phẩm</th>
-                                            <th class="price-col">Giá tiền</th>
-                                            <th class="qty-col">Số lượng</th>
-                                            <th class="text-right">Tổng tiền</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="product-row">
-                                            <td>
-                                                <figure class="product-image-container">
-                                                    <a href="product.jsp" class="product-image">
-                                                        <img src="${pageContext.request.contextPath}/assets/images/products/product-4.jpg" alt="product">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="cart-table-container">
+                                    <table class="table table-cart">
+                                        <thead>
+                                            <tr>
+                                                <th class="thumbnail-col"></th>
+                                                <th class="product-col">Sản phẩm</th>
+                                                <th class="price-col">Giá tiền</th>
+                                                <th class="qty-col">Số lượng</th>
+                                                <th class="text-right">Tổng tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="product-row">
+                                                <td>
+                                                    <figure class="product-image-container">
+                                                        <a href="product.jsp" class="product-image">
+                                                            <img src="${pageContext.request.contextPath}/assets/images/products/product-4.jpg" alt="product">
                                                     </a>
 
                                                     <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
@@ -195,70 +193,70 @@
                                             <td>Tạm tính</td>
                                             <td>$17.90</td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td>Giảm giá</td>
                                             <td>$7.90</td>
                                         </tr>
 
-<!--                                        <tr>
-                                            <td colspan="2" class="text-left">
-                                                <h4>Vận chuyển</h4>
-
-                                                <div class="form-group form-group-custom-control">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" name="radio"
-                                                               checked>
-                                                        <label class="custom-control-label">Nhận tại cửa hàng</label>
-                                                    </div> End .custom-checkbox 
-                                                </div> End .form-group 
-
-                                                <div class="form-group form-group-custom-control mb-0">
-                                                    <div class="custom-control custom-radio mb-0">
-                                                        <input type="radio" name="radio" class="custom-control-input">
-                                                        <label class="custom-control-label">Giao hàng tại nhà</label>
-                                                    </div> End .custom-checkbox 
-                                                </div> End .form-group 
-
-                                                <form action="#">
-                                                    <div class="form-group form-group-sm">
-                                                        <label>Shipping to <strong>NY.</strong></label>
-                                                        <div class="select-custom">
-                                                            <select class="form-control form-control-sm">
-                                                                <option value="USA">United States (US)</option>
-                                                                <option value="Turkey">Turkey</option>
-                                                                <option value="China">China</option>
-                                                                <option value="Germany">Germany</option>
-                                                            </select>
-                                                        </div> End .select-custom 
-                                                    </div> End .form-group 
-
-                                                    <div class="form-group form-group-sm">
-                                                        <div class="select-custom">
-                                                            <select class="form-control form-control-sm">
-                                                                <option value="NY">New York</option>
-                                                                <option value="CA">California</option>
-                                                                <option value="TX">Texas</option>
-                                                            </select>
-                                                        </div> End .select-custom 
-                                                    </div> End .form-group 
-
-                                                    <div class="form-group form-group-sm">
-                                                        <input type="text" class="form-control form-control-sm"
-                                                               placeholder="Thành phố / Tỉnh">
-                                                    </div> End .form-group 
-
-                                                    <div class="form-group form-group-sm">
-                                                        <input type="text" class="form-control form-control-sm"
-                                                               placeholder="Mã ZIP">
-                                                    </div> End .form-group 
-
-                                                    <button type="submit" class="btn btn-shop btn-update-total">
-                                                        Tổng tiền hàng
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>-->
+                                        <!--                                        <tr>
+                                                                                    <td colspan="2" class="text-left">
+                                                                                        <h4>Vận chuyển</h4>
+                                        
+                                                                                        <div class="form-group form-group-custom-control">
+                                                                                            <div class="custom-control custom-radio">
+                                                                                                <input type="radio" class="custom-control-input" name="radio"
+                                                                                                       checked>
+                                                                                                <label class="custom-control-label">Nhận tại cửa hàng</label>
+                                                                                            </div> End .custom-checkbox 
+                                                                                        </div> End .form-group 
+                                        
+                                                                                        <div class="form-group form-group-custom-control mb-0">
+                                                                                            <div class="custom-control custom-radio mb-0">
+                                                                                                <input type="radio" name="radio" class="custom-control-input">
+                                                                                                <label class="custom-control-label">Giao hàng tại nhà</label>
+                                                                                            </div> End .custom-checkbox 
+                                                                                        </div> End .form-group 
+                                        
+                                                                                        <form action="#">
+                                                                                            <div class="form-group form-group-sm">
+                                                                                                <label>Shipping to <strong>NY.</strong></label>
+                                                                                                <div class="select-custom">
+                                                                                                    <select class="form-control form-control-sm">
+                                                                                                        <option value="USA">United States (US)</option>
+                                                                                                        <option value="Turkey">Turkey</option>
+                                                                                                        <option value="China">China</option>
+                                                                                                        <option value="Germany">Germany</option>
+                                                                                                    </select>
+                                                                                                </div> End .select-custom 
+                                                                                            </div> End .form-group 
+                                        
+                                                                                            <div class="form-group form-group-sm">
+                                                                                                <div class="select-custom">
+                                                                                                    <select class="form-control form-control-sm">
+                                                                                                        <option value="NY">New York</option>
+                                                                                                        <option value="CA">California</option>
+                                                                                                        <option value="TX">Texas</option>
+                                                                                                    </select>
+                                                                                                </div> End .select-custom 
+                                                                                            </div> End .form-group 
+                                        
+                                                                                            <div class="form-group form-group-sm">
+                                                                                                <input type="text" class="form-control form-control-sm"
+                                                                                                       placeholder="Thành phố / Tỉnh">
+                                                                                            </div> End .form-group 
+                                        
+                                                                                            <div class="form-group form-group-sm">
+                                                                                                <input type="text" class="form-control form-control-sm"
+                                                                                                       placeholder="Mã ZIP">
+                                                                                            </div> End .form-group 
+                                        
+                                                                                            <button type="submit" class="btn btn-shop btn-update-total">
+                                                                                                Tổng tiền hàng
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </td>
+                                                                                </tr>-->
                                     </tbody>
 
                                     <tfoot>
@@ -401,21 +399,21 @@
                             </li>
                         </ul>
 
-          
 
-                    <form class="search-wrapper mb-2" action="#">
-                        <input type="text" class="form-control mb-0" placeholder="Search..." required />
-                        <button class="btn icon-search text-white bg-transparent p-0" type="submit"></button>
-                    </form>
 
-                    <div class="social-icons">
-                        <a href="#" class="social-icon social-facebook icon-facebook" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-twitter icon-twitter" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-instagram icon-instagram" target="_blank">
-                        </a>
-                    </div>
+                        <form class="search-wrapper mb-2" action="#">
+                            <input type="text" class="form-control mb-0" placeholder="Search..." required />
+                            <button class="btn icon-search text-white bg-transparent p-0" type="submit"></button>
+                        </form>
+
+                        <div class="social-icons">
+                            <a href="#" class="social-icon social-facebook icon-facebook" target="_blank">
+                            </a>
+                            <a href="#" class="social-icon social-twitter icon-twitter" target="_blank">
+                            </a>
+                            <a href="#" class="social-icon social-instagram icon-instagram" target="_blank">
+                            </a>
+                        </div>
                 </div><!-- End .mobile-menu-wrapper -->
             </div><!-- End .mobile-menu-container -->
 

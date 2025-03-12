@@ -11,15 +11,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/category-horizontal-filter2.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:14 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Porto - Bootstrap eCommerce Template</title>
+        <title>FbtShop.com</title>
 
         <meta name="keywords" content="HTML5 Template" />
         <meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -93,85 +91,141 @@
 
                             <aside class="toolbox-left sidebar-shop mobile-sidebar">
                                 <div class="toolbox-item toolbox-sort select-custom">
-                                    <a class="sort-menu-trigger" href="#">Size</a>
+                                    <a class="sort-menu-trigger" href="#">Hãng sản xuất</a>
                                     <ul class="sort-list">
-                                        <li><a href="#">Extra Large</a></li>
-                                        <li><a href="#">Large</a></li>
-                                        <li><a href="#">Medium</a></li>
-                                        <li><a href="#">Small</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End .toolbox-item -->
+                                        <li><a href="${pageContext.request.contextPath}/category">Tất cả hãng</a></li>
 
-                                <div class="toolbox-item toolbox-sort select-custom">
-                                    <a class="sort-menu-trigger" href="#">Color</a>
-                                    <ul class="sort-list">
-                                        <li><a href="#">Black</a></li>
-                                        <li><a href="#">Blue</a></li>
-                                        <li><a href="#">Brown</a></li>
-                                        <li><a href="#">Green</a></li>
-                                        <li><a href="#">Indigo</a></li>
-                                        <li><a href="#">Light Blue</a></li>
-                                        <li><a href="#">Red</a></li>
-                                        <li><a href="#">Yellow</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End .toolbox-item -->
+                                    <c:forEach var="b" items="${brandList}">
+                                        <li><a href="${pageContext.request.contextPath}/category?search=brand&brandID=${b.brandID}">${b.brandName}</a></li>
+                                        </c:forEach>
 
-                                <div class="toolbox-item toolbox-sort price-sort select-custom">
-                                    <a class="sort-menu-trigger" href="#">Price</a>
-                                    <div class="sort-list">
-                                        <form class="filter-price-form d-flex align-items-center m-0">
-                                            <input class="input-price mr-2" name="min_price" placeholder="55" /> -
-                                            <input class="input-price mx-2" name="max_price" placeholder="111" />
-                                            <button type="submit" class="btn btn-primary ml-3">Filter</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- End .toolbox-item -->
-                            </aside>
-                            <!-- End .toolbox-left -->
-
+                                </ul>
+                            </div>
+                            <!-- End .toolbox-item -->
 
                             <div class="toolbox-item toolbox-sort select-custom">
-                                <select name="orderby" class="form-control">
-                                    <option value="menu_order" selected="selected">Default sorting</option>
-                                    <option value="popularity">Sort by popularity</option>
-                                    <option value="rating">Sort by average rating</option>
-                                    <option value="date">Sort by newness</option>
-                                    <option value="price">Sort by price: low to high</option>
-                                    <option value="price-desc">Sort by price: high to low</option>
+                                <a class="sort-menu-trigger" href="#">Nhu cầu</a>
+                                <ul class="sort-list">
+                                    <li><a href="${pageContext.request.contextPath}/category">Tất cả sản phẩm</a></li>
+                                    <c:forEach var="c" items="${categoryList}">
+                                        
+                                        <li><a href="${pageContext.request.contextPath}/category?search=category&categoryID=${c.categoryID}">${c.categoryName}</a></li>
+                                        </c:forEach>
+
+
+                                </ul>
+                            </div>
+                            <!-- End .toolbox-item -->
+
+                            <div class="toolbox-item toolbox-sort price-sort select-custom">
+                                <a class="sort-menu-trigger" href="#">Giá tiền</a>
+                                <div class="sort-list">
+                                    <div id="price-filter-form" class="filter-price-form m-0">
+
+
+                                        <!-- Predefined price ranges -->
+                                        <ul class="price-range-list">
+                                            <!-- Tất cả -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=&max_price=">Tất cả</a></li>
+                                            <!-- Dưới 10 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=0&max_price=10000000">Dưới 10 triệu</a></li>
+                                            <!-- Từ 10 - 15 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=10000000&max_price=15000000">Từ 10 - 15 triệu</a></li>
+                                            <!-- Từ 15 - 20 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=15000000&max_price=20000000">Từ 15 - 20 triệu</a></li>
+                                            <!-- Từ 20 - 25 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=20000000&max_price=25000000">Từ 20 - 25 triệu</a></li>
+                                            <!-- Từ 25 - 30 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=25000000&max_price=30000000">Từ 25 - 30 triệu</a></li>
+                                            <!-- Trên 30 triệu -->
+                                            <li><a href="${pageContext.request.contextPath}/category?search=priceRange&min_price=30000000&max_price=">Trên 30 triệu</a></li>
+                                            <!--                                            custom price range-->
+
+
+                                        </ul>
+
+                                        <div class="border rounded p-3" style="background-color: #f8f9fa; border-color: #ddd; padding: 20px;">
+                                            <p class="mb-3 font-weight-bold" style="font-size: 16px; color: #333;">Hoặc nhập khoảng giá phù hợp với bạn:</p>
+                                            <form action="category" method="get">
+                                                <input type="hidden" name="search" value="priceRange">
+
+                                                <!-- Min Price Input -->
+                                                <div class="mb-3" style="margin-bottom: 15px;">
+                                                    <label for="min_price" class="form-label" style="display: block; font-size: 14px; color: #555;">Giá thấp nhất</label>
+                                                    <input type="number" id="min_price" name="min_price" placeholder="Min Price" 
+                                                           class="form-control" 
+                                                           style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                                                </div>
+
+                                                <!-- Max Price Input -->
+                                                <div class="mb-3" style="margin-bottom: 15px;">
+                                                    <label for="max_price" class="form-label" style="display: block; font-size: 14px; color: #555;">Giá cao nhất</label>
+                                                    <input type="number" id="max_price" name="max_price" placeholder="Max Price" 
+                                                           class="form-control"
+                                                           style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                                                </div>
+
+                                                <!-- Submit Button -->
+                                                <button type="submit" class="btn btn-primary w-100"
+                                                        style="background-color: #007bff; border-color: #007bff; padding: 10px; font-size: 14px; border-radius: 5px;">
+                                                    Áp dụng
+                                                </button>
+                                            </form>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End .toolbox-item -->
+                        </aside>
+                        <!-- End .toolbox-left -->
+
+
+                        <div class="toolbox-item toolbox-sort select-custom">
+                            <form id="sortForm" action="${pageContext.request.contextPath}/category" method="get" style="all: unset;">
+                                <input type="hidden" name="search" value="sort">
+                                <select id="orderby" name="orderby" class="form-control"
+                                        onchange="document.getElementById('sortForm').submit();">
+                                    <option value="default" selected="selected">Sắp xếp</option>
+                                    <option value="featured">Nổi bật</option>
+                                    <option value="date">Sản phẩm mới</option>
+                                    <option value="price">Giá thấp nhất</option>
+                                    <option value="price-desc">Giá cao nhất</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <!-- End .toolbox-item -->
+
+                        <div class="toolbox-item toolbox-show ml-auto">
+                            <label>Hiển thị:</label>
+
+                            <div class="select-custom">
+                                <select name="count" class="form-control">
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
                                 </select>
                             </div>
-                            <!-- End .toolbox-item -->
+                            <!-- End .select-custom -->
+                        </div>
+                        <!-- End .toolbox-item -->
 
-                            <div class="toolbox-item toolbox-show ml-auto">
-                                <label>Hiển thị:</label>
+                        <div class="toolbox-item layout-modes">
+                            <a href="category.jsp" class="layout-btn btn-grid active" title="Grid">
+                                <i class="icon-mode-grid"></i>
+                            </a>
+                            <a href="category-list.jsp" class="layout-btn btn-list" title="List">
+                                <i class="icon-mode-list"></i>
+                            </a>
+                        </div>
+                        <!-- End .layout-modes -->
+                    </nav>
 
-                                <div class="select-custom">
-                                    <select name="count" class="form-control">
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="50">50</option>
-                                    </select>
-                                </div>
-                                <!-- End .select-custom -->
-                            </div>
-                            <!-- End .toolbox-item -->
-
-                            <div class="toolbox-item layout-modes">
-                                <a href="category.jsp" class="layout-btn btn-grid active" title="Grid">
-                                    <i class="icon-mode-grid"></i>
-                                </a>
-                                <a href="category-list.jsp" class="layout-btn btn-list" title="List">
-                                    <i class="icon-mode-list"></i>
-                                </a>
-                            </div>
-                            <!-- End .layout-modes -->
-                        </nav>
-
-                        <div class="row">
+                    <div class="row">
                         <c:forEach var="p" items="${productList}">
                             <div class="col-6 col-sm-4 col-md-3">
                                 <div class="product-default">
@@ -485,6 +539,27 @@
 
         <!-- Main JS File -->
         <script src="${pageContext.request.contextPath}/assets/js/main.min.js"></script>
+
+        <!--        script to assign price value-->
+        <!--        <script>
+                    document.querySelectorAll('.price-range-link').forEach(link => {
+                        link.addEventListener('click', function (event) {
+                            event.preventDefault(); // Prevent default link behavior
+        
+                            // Get min and max values from the link's data attributes
+                            const minPrice = this.getAttribute('data-min');
+                            const maxPrice = this.getAttribute('data-max');
+        
+                            // Set the hidden input values
+                            document.getElementById('min_price').value = minPrice;
+                            document.getElementById('max_price').value = maxPrice;
+        
+                            // Optionally, submit the form automatically
+                            document.getElementById('price-filter-form').submit();
+                        });
+                    });
+        
+                </script>-->
     </body>
 
 

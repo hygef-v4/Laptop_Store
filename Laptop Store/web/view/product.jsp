@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:28:19 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

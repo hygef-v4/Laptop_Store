@@ -6,8 +6,7 @@
 <html lang="vi">
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo4.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:29:23 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -268,7 +267,7 @@
                     </div>
                     <!-- End .featured-proucts -->
 
-                    <div class="banner banner-big-sale appear-animate" data-animation-delay="200" data-animation-name="fadeInUpShorter" style="background: #2A95CB center/cover url('assets/images/demoes/demo4/banners/banner-4.jpg');">
+<!--                    <div class="banner banner-big-sale appear-animate" data-animation-delay="200" data-animation-name="fadeInUpShorter" style="background: #2A95CB center/cover url('assets/images/demoes/demo4/banners/banner-4.jpg');">
                         <div class="banner-content row align-items-center mx-0">
                             <div class="col-md-9 col-sm-8">
                                 <h2 class="text-white text-uppercase text-center text-sm-left ls-n-20 mb-md-0 px-4">
@@ -280,7 +279,7 @@
                                 <a class="btn btn-light btn-white btn-lg" href="${pageContext.request.contextPath}/category">XEM NGAY</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate" 
                         data-animation-delay="100" data-animation-name="fadeInUpShorter">Khám Phá Sản Phẩm 
@@ -593,5 +592,4 @@
     </body>
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo4.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:29:31 GMT -->
 </html>

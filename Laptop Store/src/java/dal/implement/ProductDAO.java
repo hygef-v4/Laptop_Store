@@ -263,44 +263,130 @@ public class ProductDAO extends DBContext {
 
         return products;
     }
+
     // search by keyword or description 
     public Vector<Product> searchByKeyword(String keyword) {
-    Vector<Product> products = new Vector<>();
-    String sql = "SELECT * FROM [dbo].[tblProducts] WHERE productName LIKE ? OR description LIKE ?";
+        Vector<Product> products = new Vector<>();
+        String sql = "SELECT * FROM [dbo].[tblProducts] WHERE productName LIKE ? OR description LIKE ?";
 
-    try (PreparedStatement ptm = connection.prepareStatement(sql)) {
-        // Use '%' to allow for partial matches
-        String searchKeyword = "%" + keyword + "%";
-        ptm.setString(1, searchKeyword);
-        ptm.setString(2, searchKeyword);
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            // Use '%' to allow for partial matches
+            String searchKeyword = "%" + keyword + "%";
+            ptm.setString(1, searchKeyword);
+            ptm.setString(2, searchKeyword);
 
-        try (ResultSet rs = ptm.executeQuery()) {
-            while (rs.next()) {
-                Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
-                boolean isFeatured = rs.getBoolean(10);
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean(10);
 
-                Product p = new Product(
-                        rs.getInt(1), // productID
-                        rs.getString(2), // productName
-                        rs.getString(3), // image
-                        rs.getDouble(4), // price
-                        rs.getInt(5), // quantity
-                        rs.getString(6), // categoryID
-                        rs.getString(7), // brandID
-                        rs.getDate(8), // importDate
-                        warranty, // warrantyMonths
-                        isFeatured, // isFeatured
-                        rs.getString(11) // description
-                );
-                products.add(p);
+                    Product p = new Product(
+                            rs.getInt(1), // productID
+                            rs.getString(2), // productName
+                            rs.getString(3), // image
+                            rs.getDouble(4), // price
+                            rs.getInt(5), // quantity
+                            rs.getString(6), // categoryID
+                            rs.getString(7), // brandID
+                            rs.getDate(8), // importDate
+                            warranty, // warrantyMonths
+                            isFeatured, // isFeatured
+                            rs.getString(11) // description
+                    );
+                    products.add(p);
+                }
             }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Proper error handling
         }
-    } catch (SQLException ex) {
-        ex.printStackTrace(); // Proper error handling
+
+        return products;
     }
 
-    return products;
-}
+    public Vector<Product> findByPriceRange(double minPrice, double maxPrice) {
+        Vector<Product> products = new Vector<>();
+        String sql = "SELECT * FROM [dbo].[tblProducts] WHERE price BETWEEN ? AND ?";
 
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setDouble(1, minPrice);
+            ptm.setDouble(2, maxPrice);
+
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean(10);
+
+                    Product p = new Product(
+                            rs.getInt(1), // productID
+                            rs.getString(2), // productName
+                            rs.getString(3), // image
+                            rs.getDouble(4), // price
+                            rs.getInt(5), // quantity
+                            rs.getString(6), // categoryID
+                            rs.getString(7), // brandID
+                            rs.getDate(8), // importDate
+                            warranty, // warrantyMonths
+                            isFeatured, // isFeatured
+                            rs.getString(11) // description
+                    );
+                    products.add(p);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Proper error handling
+        }
+
+        return products;
+    }
+
+    public Vector<Product> sortProducts(String orderby) {
+        Vector<Product> products = new Vector<>();
+        String sql;
+
+        switch (orderby) {
+            case "featured":
+                sql = "SELECT * FROM [dbo].[tblProducts] ORDER BY isFeatured DESC, productID ASC";
+                break;
+            case "date":
+                sql = "SELECT * FROM [dbo].[tblProducts] ORDER BY importDate DESC";
+                break;
+            case "price":
+                sql = "SELECT * FROM [dbo].[tblProducts] ORDER BY price ASC";
+                break;
+            case "price-desc":
+                sql = "SELECT * FROM [dbo].[tblProducts] ORDER BY price DESC";
+                break;
+            default:
+                sql = "SELECT * FROM [dbo].[tblProducts]"; // Default sorting
+        }
+
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            try (ResultSet rs = ptm.executeQuery()) {
+                while (rs.next()) {
+                    Integer warranty = rs.getObject(9) != null ? rs.getInt(9) : null;
+                    boolean isFeatured = rs.getBoolean(10);
+
+                    Product p = new Product(
+                            rs.getInt(1), // productID
+                            rs.getString(2), // productName
+                            rs.getString(3), // image
+                            rs.getDouble(4), // price
+                            rs.getInt(5), // quantity
+                            rs.getString(6), // categoryID
+                            rs.getString(7), // brandID
+                            rs.getDate(8), // importDate
+                            warranty, // warrantyMonths
+                            isFeatured, // isFeatured
+                            rs.getString(11) // description
+                    );
+                    products.add(p);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return products;
+    }
 
 }
