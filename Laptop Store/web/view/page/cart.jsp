@@ -58,13 +58,13 @@
                     <div class="container">
                         <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
                             <li class="active">
-                                <a href="cart.jsp">Giỏ Hàng</a>
+                                <a href="${pageContext.request.contextPath}/view/page/cart.jsp">Giỏ Hàng</a>
                             </li>
                             <li>
-                                <a href="checkout.jsp">Thanh toán</a>
+                                <a href="${pageContext.request.contextPath}/view/page/checkout.jsp">Thanh toán</a>
                             </li>
                             <li class="disabled">
-                                <a href="cart.jsp">Hoàn tất thanh toán</a>
+                                <a href="${pageContext.request.contextPath}/view/page/cart.jsp">Hoàn tất thanh toán</a>
                             </li>
                         </ul>
 
@@ -185,8 +185,11 @@
                                 </table>
 
                                 <div class="checkout-methods">
-                                    <a href="checkout.jsp" class="btn btn-block btn-dark">Tiến hành thanh toán
-                                        <i class="fa fa-arrow-right"></i></a>
+                                    <form action="payment?action=check-out" method="POST">
+                                        <button type="submit" class="btn btn-block btn-dark">
+                                            Tiến hành thanh toán <i class="fa fa-arrow-right"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div><!-- End .cart-summary -->
                         </div><!-- End .col-lg-4 -->

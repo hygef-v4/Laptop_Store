@@ -114,14 +114,14 @@
                     <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
                 </div>
 
-                <a href="${pageContext.request.contextPath}/login" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="${pageContext.request.contextPath}/authen?action=login" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
                 <a href="${pageContext.request.contextPath}/view/page/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a href="${pageContext.request.contextPath}/payment" title="Cart">
                         <i class="minicart-icon"></i>
-                        <span class="cart-count badge-circle">3</span>
+<!--                        <span class="cart-count badge-circle">3</span>-->
                     </a>
 
                     <div class="cart-overlay"></div>

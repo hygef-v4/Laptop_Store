@@ -68,7 +68,7 @@ public class AuthenticationServlet extends HttpServlet {
         // check login
         if (userFound != null) {       // if login sucess forward to /home
             HttpSession session = request.getSession();
-            session.setAttribute("user", userFound);
+            session.setAttribute("user", userFound);  // set session user 
             URL = "home";
         } else {                        // if login failed then go alert error 
             request.setAttribute("loginError", "Username or password incorrect!!");
