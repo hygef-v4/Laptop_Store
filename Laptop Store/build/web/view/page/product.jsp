@@ -183,20 +183,24 @@
 
                                     <div class="product-add-form">
                                         <form action="payment?action=add-product" method="POST">
-                                            <input type="hidden" name="id" value="${product.productID}"/>
-                                            <div class="product-single-qty">
-                                                <input class="horizontal-quantity form-control" type="text">
-                                            </div> <br>
-                                            
+                                            <!-- Ensure product ID is properly set -->
+                                            <input type="hidden" name="productID" value="${product.productID}"/>
 
-                                            <a href="#" class="btn btn-dark add-cart mr-2" title="Add to Cart" onclick="return this.closest('form').submit();">
+                                            <div class="product-single-qty">
+                                                <input class="horizontal-quantity form-control" type="number" name="quantity" value="1">
+                                            </div> 
+                                            <br>
+
+                                            <a style="color: white" class="btn btn-dark add-cart mr-2" title="Add to Cart" onclick="return this.closest('form').submit();">
                                                 Thêm Vào Giỏ Hàng
                                             </a>
+                                            <a href="cart.jsp" class="btn btn-gray view-cart d-none">View cart</a>
                                         </form>
                                     </div>
 
 
-                                    <a href="cart.jsp" class="btn btn-gray view-cart d-none">View cart</a>
+
+                                    
                                 </div>
                                 <!-- End .product-action -->
 

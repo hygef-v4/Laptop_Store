@@ -10,6 +10,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.HashSet;
+import model.Order;
+import model.OrderDetails;
 
 /**
  *
@@ -17,28 +21,10 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class PaymentServlet extends HttpServlet {
 
- 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PaymentServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PaymentServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("view/page/cart.jsp").forward(request, response);
     }
 
     @Override
@@ -50,18 +36,77 @@ public class PaymentServlet extends HttpServlet {
             case "add-product":
                 addProduct(request, response);
                 break;
+            case "change-quantity":
+                changeQuantity(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
+        response.sendRedirect("payment");
     }
 
-    private void addProduct(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void addProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        //get session 
+        // get product id 
+        int id = Integer.parseInt(request.getParameter("productID"));
+
+        // get quantity
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+        // get cart tren session 
+        Order cart = (Order) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new Order();
+        }
+        OrderDetails orderDetail = new OrderDetails();
+        orderDetail.setProductID(id);
+        orderDetail.setQuantity(quantity);
+        // them order details vao cart
+        addOrderDetailsToOrder(orderDetail, cart);
+        // set new cart to session
+        session.setAttribute("cart", cart);
+
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    private void addOrderDetailsToOrder(OrderDetails orderDetail, Order cart) {
+        boolean isAdd = false;
+        for (OrderDetails od : cart.getListOrderDetails()) {
+            if (od.getProductID() == orderDetail.getProductID()) {
+                od.setQuantity(od.getQuantity() + orderDetail.getQuantity());  // update quantity when art new order to cart
+                isAdd = true;
+            }
+        }
+        if (isAdd == false) {  // neu chua add san pham nao 
+            cart.getListOrderDetails().add(orderDetail);
+        }
+    }
+
+    private void changeQuantity(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+
+        try {
+            // Get product id 
+            int id = Integer.parseInt(request.getParameter("id"));
+            // Get new quantity 
+            int quantity = Integer.parseInt(request.getParameter("quantity-input"));
+
+            // Get cart 
+            Order cart = (Order) session.getAttribute("cart");
+            if (cart != null) { // Ensure cart is not null
+                for (OrderDetails od : cart.getListOrderDetails()) {
+                    if (od.getProductID() == id) {
+                        od.setQuantity(quantity);
+                        break; // Stop loop after updating the correct product
+                    }
+                }
+                // Update session
+                session.setAttribute("cart", cart);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

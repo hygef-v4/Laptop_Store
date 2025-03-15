@@ -1,4 +1,3 @@
-
 package controller.page;
 
 import dal.implement.BrandDAO;
@@ -18,14 +17,14 @@ import model.Product;
 
 public class HomeServlet extends HttpServlet {
 
+    private static final String productListSQL = "SELECT * FROM [dbo].[tblProducts]";
     private static final String featureProductSQL = "SELECT * FROM [dbo].[tblProducts] WHERE isFeatured = 1";
     private static final String newProductsSQL = "SELECT top 10 * FROM [dbo].[tblProducts] order by importDate desc";
     private static final String categoryListSQL = "SELECT * FROM [dbo].[tblCategories]";
     private static final String brandListSQL = "SELECT * FROM [dbo].[tblBrands]";
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
-    BrandDAO brandDAO = new BrandDAO(); 
-    
+    BrandDAO brandDAO = new BrandDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,14 +36,19 @@ public class HomeServlet extends HttpServlet {
         // get list category
         Vector<Category> categoryList = categoryDAO.getAllCategory(categoryListSQL);
         // gete brandDAO
-         Vector<Brand> brandList = brandDAO.getAllBrands(brandListSQL);
+        Vector<Brand> brandList = brandDAO.getAllBrands(brandListSQL);
+        //get all product 
+        Vector<Product> productList = productDAO.getAllProduct(productListSQL);
+
         HttpSession session = request.getSession();
         session.setAttribute("featureProducts", featureProducts);
         session.setAttribute("newProducts", newProducts);
         session.setAttribute("categoryList", categoryList);
         session.setAttribute("brandList", brandList);
+        session.setAttribute("productList", productList);
+        
         request.getRequestDispatcher("view/page/home.jsp").forward(request, response);
-    
+
     }
 
     @Override
