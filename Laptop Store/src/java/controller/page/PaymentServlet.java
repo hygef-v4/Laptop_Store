@@ -39,6 +39,9 @@ public class PaymentServlet extends HttpServlet {
             case "change-quantity":
                 changeQuantity(request, response);
                 break;
+            case "delete":
+                deleteProduct(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -107,6 +110,24 @@ public class PaymentServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("productID"));
+        HttpSession session = request.getSession();
+        // get cart from session 
+        Order cart = (Order) session.getAttribute("cart");
+        // loop through to remove product that has same id in order detail 
+        OrderDetails productFind = null;
+        for (OrderDetails od : cart.getListOrderDetails()) {
+            if (od.getProductID() == id) {
+                productFind = od;
+                break;
+            }
+        }
+        cart.getListOrderDetails().remove(productFind); // delete from order detail list
+        session.setAttribute("cart", cart); // update session  
+
     }
 
 }

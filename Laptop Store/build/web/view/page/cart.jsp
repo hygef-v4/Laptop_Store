@@ -94,8 +94,11 @@
                                                         <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="product-image">
                                                             <img src="${p.image}" alt="product">
                                                         </a>
+                                                        <form action="payment?action=delete" method="POST">
+                                                            <input type="hidden" name="productID" value="${p.productID}">
 
-                                                        <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                                            <a href="#" onclick="return this.closest('form').submit()" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                                        </form>
                                                     </figure>
                                                 </td>
                                                 <td class="product-col">
@@ -252,29 +255,29 @@
 
         <!--        tinh subtotal-->
         <script>
-            window.onload = updateSubTotal;
+                                                                window.onload = updateSubTotal;
 
-            function updateSubTotal() {
-                let subtotalElements = document.querySelectorAll(".subtotal-price");
-                let total = 0;
+                                                                function updateSubTotal() {
+                                                                    let subtotalElements = document.querySelectorAll(".subtotal-price");
+                                                                    let total = 0;
 
-                subtotalElements.forEach(e => {
-                    let priceText = e.textContent.trim().replace("₫", "").replace(/,/g, "");
-                    let totalPrice = parseFloat(priceText) || 0;
-                    total += totalPrice;
-                });
+                                                                    subtotalElements.forEach(e => {
+                                                                        let priceText = e.textContent.trim().replace("₫", "").replace(/,/g, "");
+                                                                        let totalPrice = parseFloat(priceText) || 0;
+                                                                        total += totalPrice;
+                                                                    });
 
-                let discountText = document.getElementById("discount").textContent.trim().replace("₫", "").replace(/,/g, "");
-                let discount = parseFloat(discountText) || 0; // Get discount value from the element
+                                                                    let discountText = document.getElementById("discount").textContent.trim().replace("₫", "").replace(/,/g, "");
+                                                                    let discount = parseFloat(discountText) || 0; // Get discount value from the element
 
-                let finalTotal = total - discount;
+                                                                    let finalTotal = total - discount;
 
-                document.getElementById("sub-total").textContent =
-                        new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(total);
+                                                                    document.getElementById("sub-total").textContent =
+                                                                            new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(total);
 
-                document.getElementById("total-cart").textContent =
-                        new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(finalTotal);
-            }
+                                                                    document.getElementById("total-cart").textContent =
+                                                                            new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(finalTotal);
+                                                                }
 
 
         </script>
