@@ -43,7 +43,7 @@ public class HomeServlet extends HttpServlet {
         session.setAttribute("newProducts", newProducts);
         session.setAttribute("categoryList", categoryList);
         session.setAttribute("brandList", brandList);
-        request.getRequestDispatcher("view/home.jsp").forward(request, response);
+        request.getRequestDispatcher("view/page/home.jsp").forward(request, response);
     
     }
 

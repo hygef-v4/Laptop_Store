@@ -60,7 +60,7 @@ public class ProductsServlet extends HttpServlet {
         request.setAttribute("brandName", brandName);
         request.setAttribute("productDetail", productDetail);
        
-        request.getRequestDispatcher("view/product.jsp").forward(request, response);
+        request.getRequestDispatcher("view/page/product.jsp").forward(request, response);
     }
 
     @Override

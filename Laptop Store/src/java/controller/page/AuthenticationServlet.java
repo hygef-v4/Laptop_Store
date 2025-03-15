@@ -26,7 +26,7 @@ public class AuthenticationServlet extends HttpServlet {
         String URL;
         switch (action) {
             case "login":
-                URL = "view/login.jsp";
+                URL = "view/page/login.jsp";
                 break;
             case "logout":
                 URL = logOutDoGet(request, response);    // xu ly o doGet vi chuyen logout tu the <a> 
@@ -72,7 +72,7 @@ public class AuthenticationServlet extends HttpServlet {
             URL = "home";
         } else {                        // if login failed then go alert error 
             request.setAttribute("loginError", "Username or password incorrect!!");
-            URL = "view/login.jsp";
+            URL = "view/page/login.jsp";
         }
         return URL;
 
@@ -96,7 +96,7 @@ public class AuthenticationServlet extends HttpServlet {
         // if exist then error
         if (isUserExist) {
             request.setAttribute("registerError", "Username exist !! Try another username");
-            URL = "view/login.jsp";
+            URL = "view/page/login.jsp";
         } else {
             //else add user to db and go back to /home 
             User newUser = User.builder()

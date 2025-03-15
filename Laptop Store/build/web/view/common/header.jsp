@@ -18,10 +18,10 @@
                     <div class="header-menu">
                         <ul>
                             <c:if test="${user != null}">
-                                <li><a href="${pageContext.request.contextPath}/view/dashboard.jsp">Tài khoản</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/page/account.jsp">Tài khoản</a></li>
                                 </c:if>
-                            <li><a href="${pageContext.request.contextPath}/view/wishlist.jsp">Yêu thích</a></li>
-                            <li><a href="${pageContext.request.contextPath}/view/cart.jsp">Giỏ hàng</a></li>
+                            <li><a href="${pageContext.request.contextPath}/view/page/wishlist.jsp">Yêu thích</a></li>
+                            <li><a href="${pageContext.request.contextPath}/view/page/cart.jsp">Giỏ hàng</a></li>
                                 <c:choose>
                                     <c:when test="${user == null}">
                                         <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
@@ -114,9 +114,9 @@
                     <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
                 </div>
 
-                <a href="${pageContext.request.contextPath}/view/login.jsp" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="${pageContext.request.contextPath}/login" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="${pageContext.request.contextPath}/view/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="${pageContext.request.contextPath}/view/page/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -126,97 +126,7 @@
 
                     <div class="cart-overlay"></div>
 
-                    <div class="dropdown-menu mobile-cart">
-                        <a href="#" title="Close (Esc)" class="btn-close">×</a>
-
-                        <div class="dropdownmenu-wrapper custom-scrollbar">
-                            <div class="dropdown-cart-header">Shopping Cart</div>
-                            <!-- End .dropdown-cart-header -->
-
-                            <div class="dropdown-cart-products">
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="${pageContext.request.contextPath}/view/product.jsp">Ultimate 3D Bluetooth Speaker</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $99.00
-                                        </span>
-                                    </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="product.jsp" class="product-image">
-                                            <img src="${pageContext.request.contextPath}/assets/images/products/product-1.jpg" alt="product" width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="product.jsp">Brown Women Casual HandBag</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
-                                        </span>
-                                    </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="product.jsp" class="product-image">
-                                            <img src="${pageContext.request.contextPath}/assets/images/products/product-2.jpg" alt="product" width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="product.jsp">Circled Ultimate 3D Speaker</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
-                                        </span>
-                                    </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="product.jsp" class="product-image">
-                                            <img src="${pageContext.request.contextPath}/assets/images/products/product-3.jpg" alt="product" width="80" height="80">
-                                        </a>
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
-                            </div>
-                            <!-- End .cart-product -->
-
-                            <div class="dropdown-cart-total">
-                                <span>SUBTOTAL:</span>
-
-                                <span class="cart-total-price float-right">$134.00</span>
-                            </div>
-                            <!-- End .dropdown-cart-total -->
-
-                            <div class="dropdown-cart-action">
-                                <a href="cart.jsp" class="btn btn-gray btn-block view-cart">View
-                                    Cart</a>
-                                <a href="checkout.jsp" class="btn btn-dark btn-block">Checkout</a>
-                            </div>
-                            <!-- End .dropdown-cart-total -->
-                        </div>
-                        <!-- End .dropdownmenu-wrapper -->
-                    </div>
+                    
                     <!-- End .dropdown-menu -->
                 </div>
                 <!-- End .dropdown -->
@@ -310,7 +220,7 @@
                             <li><a href="wishlist.jsp">Danh sách yêu thích</a></li>
                             <li><a href="cart.jsp">Giỏ hàng</a></li>
                             <li><a href="checkout.jsp">Thanh toán</a></li>
-                            <li><a href="dashboard.jsp">Bảng điều khiển</a></li>
+                            <li><a href="account.jsp">Bảng điều khiển</a></li>
                             <li><a href="login.jsp">Đăng nhập</a></li>
                             <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>
                         </ul>
