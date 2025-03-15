@@ -1,4 +1,4 @@
-package controller;
+package controller.page;
 
 import dal.implement.UserDAO;
 import java.io.IOException;

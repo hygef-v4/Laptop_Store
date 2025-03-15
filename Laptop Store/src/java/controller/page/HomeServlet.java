@@ -1,5 +1,5 @@
 
-package controller;
+package controller.page;
 
 import dal.implement.BrandDAO;
 import dal.implement.CategoryDAO;
