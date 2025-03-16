@@ -74,9 +74,19 @@ public class PaymentServlet extends HttpServlet {
         //set order to check out 
         cart.setUserID(userID);
         cart.setAmount(amount);
-        cart.setFullname(user.getFullName());
-        cart.setAddress(user.getAddress());
-        cart.setPhone(user.getPhone());
+
+        cart.setFullname(request.getParameter("fullname"));
+        cart.setAddress(request.getParameter("address"));
+        cart.setPhone(request.getParameter("phone"));
+
+        String note = request.getParameter("order-note");
+
+        if (note == null || note.trim().isEmpty()) {
+            note = "không có ghi chú";
+        } else {
+            note = note.trim(); // Still trim to remove leading/trailing spaces
+        }
+        cart.setNote(note);
 
         // insert order 
         int orderId = orderDao.insertOrder(cart); // return order id 

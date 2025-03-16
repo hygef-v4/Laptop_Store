@@ -31,6 +31,9 @@ public class AuthenticationServlet extends HttpServlet {
             case "logout":
                 URL = logOutDoGet(request, response);    // xu ly o doGet vi chuyen logout tu the <a> 
                 break;
+            case "forgot-password":
+                URL = "view/page/forgot-password.jsp";
+                break;
             default:
                 URL = "home";   // chuyen sang DO POST cua /home 
         }

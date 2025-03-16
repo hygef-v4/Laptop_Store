@@ -98,7 +98,7 @@
                                             <div class="form-footer">
 
 
-                                                <a href="forgot-password.jsp"
+                                                <a href="${pageContext.request.contextPath}/authen?action=forgot-password"
                                                    class="forget-password text-dark form-footer-right">Quên mật khẩu?</a>
                                             </div>
                                             <button type="submit" class="btn btn-dark btn-md w-100">

@@ -27,4 +27,5 @@ public class Order {
     String fullname; 
     String address; 
     String phone; 
+    String note; // ghi chu 
 }

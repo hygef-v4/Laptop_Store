@@ -85,14 +85,14 @@
                                 <li>
                                     <h2 class="step-title">Chi tiết thanh toán</h2>
 
-                                    <form action="#" id="checkout-form">
+                                     <form id="checkout-form" action="payment?action=check-out" method="POST">
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="form-group">
                                                     <label>Họ và tên
                                                         <abbr class="required" title="required"></abbr>
                                                     </label>
-                                                    <input type="text" value="${user.fullName}" readonly class="form-control" required />
+                                                    <input readonly name="fullname" type="text" value="${user.fullName}" class="form-control" required />
                                                 </div>
                                             </div>
 
@@ -106,7 +106,7 @@
                                         <div class="form-group mb-1 pb-2">
                                             <label>Địa chỉ
                                                 <abbr class="required" title="required"></abbr></label>
-                                            <input type="text" class="form-control" value="${user.address}" readonly placeholder="Số nhà và tên phố" required />
+                                            <input name="address" type="text" class="form-control" value="${user.address}" placeholder="Số nhà và tên phố" required />
                                         </div>
 
 
@@ -116,28 +116,15 @@
 
                                         <div class="form-group">
                                             <label>Số điện thoại <abbr class="required" title="required"></abbr></label>
-                                            <input type="tel" class="form-control" value="${user.phone}" readonly id="phone" maxlength="11" placeholder="" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                                            <input name="phone" type="tel" class="form-control" value="${user.phone}" id="phone" maxlength="11" placeholder="" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
 
                                         </div>
-
-<!--                                        <div class="form-group">
-                                            <label>Email
-                                                <abbr class="required" title="required"></abbr></label>
-                                            <input type="email" class="form-control" value="${user.email}" readonly required />
-                                        </div>-->
-
-
-
-
-
-
-
 
                                         <div class="form-group">
                                             <label class="order-comments">Ghi chú đơn hàng (nếu có)</label>
                                             <textarea name="order-note" class="form-control" placeholder="Ghi chú về đơn hàng của bạn, ví dụ ghi chú đặc biệt về việc giao hàng."></textarea>
                                         </div>
-                                    </form>
+                                   
                                 </li>
                             </ul>
                         </div>
@@ -244,7 +231,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <form id="checkout-form" action="payment?action=check-out" method="POST">
+                               
                                     <!-- Your input fields here -->
                                     <button type="submit" class="btn btn-dark btn-place-order">
                                         Đặt hàng
