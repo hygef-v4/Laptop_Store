@@ -51,6 +51,9 @@ public class AuthenticationServlet extends HttpServlet {
             case "register":
                 url = signUpDoPost(request, response);
                 break;
+            case "change-password":
+                url = changePasswordDoPost(request, response);
+                break;
 
             default:
                 url = "home";
@@ -118,26 +121,44 @@ public class AuthenticationServlet extends HttpServlet {
 
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AuthenticationServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AuthenticationServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    private String changePasswordDoPost(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String currentPassword = request.getParameter("acc-password");
+        String newPassword = request.getParameter("acc-new-password");
+        String confirmPassword = request.getParameter("acc-confirm-password");
+        if (user == null) {
+            // Redirect to login page (or handle as appropriate)
+            return "view/page/login.jsp"; // Or wherever your login page is
         }
-    }
+        // 2. Verify current password
+        if (!userDAO.checkPassword(user.getUsername(), currentPassword)) {
+            request.setAttribute("changePasswordError", "Mật khẩu hiện tại sai.");
+            return "view/page/account.jsp"; // Assuming dashboard.jsp has the change password form
+        }
+        // 3. Check if new password and confirm password match
+        if (!newPassword.equals(confirmPassword)) {
+            request.setAttribute("changePasswordError", "Mật khẩu xác nhận không đúng.");
+            return "view/page/account.jsp"; // Return to the form with an error
+        }
+        //4. Check new password and current password are same or not
+        if (newPassword.equals(currentPassword)) {
+            request.setAttribute("changePasswordError", "Mật khẩu mới phải khác mật khẩu hiện tại.");
+            return "view/page/account.jsp";
+        }
+        // 5. Update password in the database
+        if (userDAO.changePassword(user.getUsername(), newPassword)) {
+            // Success!  Update the user object in the session (optional, but good practice)
+            user.setPassword(newPassword); // Keep session data consistent
+            session.setAttribute("user", user);
+            session.setAttribute("changePasswordSuccess", "Mật khẩu thay đổi thành công.");
+            return "view/page/account.jsp";
+        } else {
+            // Database update failed.  Handle the error appropriately.
+            request.setAttribute("changePasswordError", "Lỗi đổi mật khẩu.");
+            return "view/page/account.jsp"; // Return to form
+        }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    }
 
 }

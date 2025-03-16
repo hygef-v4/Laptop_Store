@@ -74,7 +74,9 @@ public class PaymentServlet extends HttpServlet {
         //set order to check out 
         cart.setUserID(userID);
         cart.setAmount(amount);
-        // get list product
+        cart.setFullname(user.getFullName());
+        cart.setAddress(user.getAddress());
+        cart.setPhone(user.getPhone());
 
         // insert order 
         int orderId = orderDao.insertOrder(cart); // return order id 

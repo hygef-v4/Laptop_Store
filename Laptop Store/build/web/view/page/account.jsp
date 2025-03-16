@@ -61,16 +61,16 @@
                             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                                 <div class="container">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="category.html">Shop</a></li>
+                                        <li class="breadcrumb-item"><a href="demo4.html">Trang chủ</a></li>
+                                        <li class="breadcrumb-item"><a href="category.html">Cửa hàng</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            My Account
+                                            Tài khoản
                                         </li>
                                     </ol>
                                 </div>
                             </nav>
 
-                            <h1>My Account</h1>
+                            <h1>Tài khoản</h1>
 
                         </div>
                     </div>
@@ -93,13 +93,13 @@
                 <div class="container account-container custom-account-container">
                     <div class="row">
                         <div class="sidebar widget widget-dashboard mb-lg-0 mb-3 col-lg-3 order-0">
-                            <h2 class="text-uppercase">My Account</h2>
+                            <h2 class="text-uppercase">Tài khoản</h2>
                             <ul class="nav nav-tabs list flex-column mb-0" role="tablist">
 
 
                                 <li class="nav-item">
                                     <a class="nav-link" id="order-tab" data-toggle="tab" href="#order" role="tab"
-                                       aria-controls="order" aria-selected="true">Orders</a>
+                                       aria-controls="order" aria-selected="true">Đơn hàng</a>
                                 </li>
 
 
@@ -107,37 +107,31 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab"
-                                       aria-controls="edit" aria-selected="false">Account
-                                        details</a>
+                                       aria-controls="edit" aria-selected="false">Thông tin cá nhân</a>
                                 </li>
+
+
                                 <li class="nav-item">
-                                    <a class="nav-link" id="shop-address-tab" data-toggle="tab" href="#shipping" role="tab"
-                                       aria-controls="edit" aria-selected="false">Shopping Addres</a>
-                                </li>
-                                <!--                                <li class="nav-item">
-                                                                    <a class="nav-link" href="wishlist.html">Wishlist</a>
-                                                                </li>-->
-                                <li class="nav-item">
-                                    <a class="nav-link" href="login.html">Logout</a>
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/authen?action=logout">Đăng xuất</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-lg-9 order-lg-last order-1 tab-content">
 
 
-                            <div class="tab-pane fade show active" id="order" role="tabpanel">
+                            <div class="tab-pane fade " id="order" role="tabpanel">
                                 <div class="order-content">
                                     <h3 class="account-sub-title d-none d-md-block"><i
-                                            class="sicon-social-dropbox align-middle mr-3"></i>Orders</h3>
+                                            class="sicon-social-dropbox align-middle mr-3"></i>Đơn hàng đã mua</h3>
                                     <div class="order-table-container text-center">
                                         <table class="table table-order text-left">
                                             <thead>
                                                 <tr>
-                                                    <th class="order-id">ORDER</th>
-                                                    <th class="order-date">DATE</th>
-                                                    <th class="order-status">STATUS</th>
-                                                    <th class="order-price">TOTAL</th>
-                                                    <th class="order-action">ACTIONS</th>
+                                                    <th class="order-id">Đơn hàng</th>
+                                                    <th class="order-date">Ngày mua</th>
+                                                    <th class="order-status">Tình trạng</th>
+                                                    <th class="order-price">Tổng tiền</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -170,76 +164,95 @@
 
 
 
-                            <div class="tab-pane fade" id="edit" role="tabpanel">
+                            <div class="tab-pane fade show active" id="edit" role="tabpanel">
                                 <h3 class="account-sub-title d-none d-md-block mt-0 pt-1 ml-1"><i
-                                        class="icon-user-2 align-middle mr-3 pr-1"></i>Account Details</h3>
+                                        class="icon-user-2 align-middle mr-3 pr-1"></i>Thông tin cá nhân</h3>
                                 <div class="account-content">
                                     <form action="#">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="acc-name">First name <span class="required">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="Editor"
-                                                           id="acc-name" name="acc-name" required />
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-6">
+
+                                            <div class="col-md">
                                                 <div class="form-group">
-                                                    <label for="acc-lastname">Last name <span
+                                                    <label for="acc-lastname">Họ và tên <span
                                                             class="required">*</span></label>
                                                     <input type="text" class="form-control" id="acc-lastname"
-                                                           name="acc-lastname" required />
+                                                           name="acc-lastname" value="${user.fullName}" required />
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-2">
-                                            <label for="acc-text">Display name <span class="required">*</span></label>
+                                            <label for="acc-text">Username <span class="required">*</span></label>
                                             <input type="text" class="form-control" id="acc-text" name="acc-text"
-                                                   placeholder="Editor" required />
-                                            <p>This will be how your name will be displayed in the account section and
-                                                in
-                                                reviews</p>
+                                                   placeholder="Editor" value="${user.username}" readonly required />
+
                                         </div>
 
 
                                         <div class="form-group mb-4">
-                                            <label for="acc-email">Email address <span class="required">*</span></label>
+                                            <label for="acc-email">Email<span class="required">*</span></label>
                                             <input type="email" class="form-control" id="acc-email" name="acc-email"
-                                                   placeholder="editor@gmail.com" required />
+                                                   placeholder="editor@gmail.com" value="${user.email}" required />
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Số điện thoại <abbr class="required" title="required"></abbr></label>
+                                            <input type="tel" class="form-control" value="${user.phone}" id="phone" maxlength="11" placeholder="" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+
+                                        </div>
+                                        <div class="form-footer mt-3 mb-0">
+                                            <button type="submit" class="btn btn-dark mr-0">
+                                                Cập nhật
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <!--                                            change password-->
+                                    <form action="${pageContext.request.contextPath}/authen" method="POST">
+                                        <input type="hidden" name="action" value="change-password">
                                         <div class="change-password">
-                                            <h3 class="text-uppercase mb-2">Password Change</h3>
+                                            <h3 class="text-uppercase mb-2">Thay đổi mật khẩu</h3>
 
                                             <div class="form-group">
-                                                <label for="acc-password">Current Password (leave blank to leave
-                                                    unchanged)</label>
-                                                <input type="password" class="form-control" id="acc-password"
+                                                <label for="acc-password">Mật khẩu hiện tại</label>
+                                                <input required type="password" class="form-control" id="acc-password"
                                                        name="acc-password" />
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="acc-password">New Password (leave blank to leave
-                                                    unchanged)</label>
-                                                <input type="password" class="form-control" id="acc-new-password"
+                                                <label for="acc-password">Mật khẩu mới</label>
+                                                <input required type="password" class="form-control" id="acc-new-password"
                                                        name="acc-new-password" />
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="acc-password">Confirm New Password</label>
-                                                <input type="password" class="form-control" id="acc-confirm-password"
+                                                <label for="acc-password">Nhập lại mật khẩu mới</label>
+                                                <input required type="password" class="form-control" id="acc-confirm-password"
                                                        name="acc-confirm-password" />
                                             </div>
                                         </div>
+                                        <c:if test="${not empty changePasswordError}">
+                                            <div class="alert alert-danger" role="alert">
+                                                <c:out value="${changePasswordError}" />
+                                            </div>
+                                            <% session.removeAttribute("changePasswordError"); %>
+                                        </c:if>
+
+                                        <c:if test="${not empty changePasswordSuccess}">
+
+                                            <div class="alert alert-success" role="alert">
+                                                <c:out value="${changePasswordSuccess}" />
+                                            </div>
+                                            <% session.removeAttribute("changePasswordSuccess"); %>
+                                        </c:if>
 
                                         <div class="form-footer mt-3 mb-0">
                                             <button type="submit" class="btn btn-dark mr-0">
-                                                Save changes
+                                                Thay đổi mật khẩu
                                             </button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div><!-- End .tab-pane -->
 

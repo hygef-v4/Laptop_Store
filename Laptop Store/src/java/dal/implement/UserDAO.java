@@ -113,4 +113,33 @@ public class UserDAO extends DBContext {
         return n;
     }
 
+    public boolean checkPassword(String username, String password) {
+        String sql = "SELECT COUNT(*) FROM [dbo].[tblUsers] WHERE username = ? AND password = ?";
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, username);
+            ptm.setString(2, password);
+            try (ResultSet rs = ptm.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // Returns true if count > 0, false otherwise
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Log the exception properly
+        }
+        return false; // Return false in case of an error
+    }
+
+    public boolean changePassword(String username, String newPassword) {
+        String sql = "UPDATE [dbo].[tblUsers] SET password = ? WHERE username = ?";
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, newPassword);
+            ptm.setString(2, username);
+            int rowsAffected = ptm.executeUpdate();
+            return rowsAffected > 0; // Returns true if update was successful, false otherwise
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Log the exception properly
+            return false; // Return false in case of an error
+        }
+    }
+
 }

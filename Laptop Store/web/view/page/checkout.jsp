@@ -120,11 +120,11 @@
 
                                         </div>
 
-                                        <div class="form-group">
+<!--                                        <div class="form-group">
                                             <label>Email
                                                 <abbr class="required" title="required"></abbr></label>
                                             <input type="email" class="form-control" value="${user.email}" readonly required />
-                                        </div>
+                                        </div>-->
 
 
 

@@ -13,9 +13,12 @@
             <!-- End .header-left -->
 
             <div class="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
+               
                 <div class="header-dropdown dropdown-expanded d-none d-lg-block">
                     <a href="#">Links</a>
                     <div class="header-menu">
+
+
                         <ul>
                             <c:if test="${user != null}">
                                 <li><a href="${pageContext.request.contextPath}/view/page/account.jsp">Tài khoản</a></li>
@@ -24,10 +27,10 @@
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
                                 <c:choose>
                                     <c:when test="${user == null}">
-                                        <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
                                     </c:when>
                                     <c:otherwise>
-                                        <li><a href="${pageContext.request.contextPath}/authen?action=logout">Đăng xuất</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/authen?action=logout">Đăng xuất</a></li>
                                     </c:otherwise>
                                 </c:choose>
                         </ul>
@@ -121,12 +124,12 @@
                 <div class="dropdown cart-dropdown">
                     <a href="${pageContext.request.contextPath}/cart" title="Cart">
                         <i class="minicart-icon"></i>
-<!--                        <span class="cart-count badge-circle">3</span>-->
+                        <!--                        <span class="cart-count badge-circle">3</span>-->
                     </a>
 
                     <div class="cart-overlay"></div>
 
-                    
+
                     <!-- End .dropdown-menu -->
                 </div>
                 <!-- End .dropdown -->
@@ -219,7 +222,7 @@
                         <ul>
                             <li><a href="wishlist.jsp">Danh sách yêu thích</a></li>
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
-                            
+
                             <li><a href="account.jsp">Bảng điều khiển</a></li>
                             <li><a href="login.jsp">Đăng nhập</a></li>
                             <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>

@@ -24,5 +24,7 @@ public class Order {
     private Integer userID; // Nullable field
     private Timestamp orderDate; 
     Vector<OrderDetails> listOrderDetails = new Vector<>();
-
+    String fullname; 
+    String address; 
+    String phone; 
 }
