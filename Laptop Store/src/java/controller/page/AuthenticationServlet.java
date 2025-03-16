@@ -1,13 +1,17 @@
 package controller.page;
 
+import controller.control.GoogleLogin;
 import dal.implement.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.GoogleAccount;
 import model.User;
 
 /**
@@ -15,6 +19,8 @@ import model.User;
  * @author hungs
  */
 public class AuthenticationServlet extends HttpServlet {
+
+    private static final Logger LOGGER = Logger.getLogger(AuthenticationServlet.class.getName());
 
     // DAO declare 
     UserDAO userDAO = new UserDAO();
@@ -33,6 +39,9 @@ public class AuthenticationServlet extends HttpServlet {
                 break;
             case "forgot-password":
                 URL = "view/page/forgot-password.jsp";
+                break;
+            case "login-google":
+                URL = loginGoogleDoGet(request, response);
                 break;
             default:
                 URL = "home";   // chuyen sang DO POST cua /home 
@@ -208,4 +217,37 @@ public class AuthenticationServlet extends HttpServlet {
         return "view/page/account.jsp";
 
     }
+
+    private String loginGoogleDoGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String URL = null;
+        String code = request.getParameter("code");
+        GoogleLogin gg = new GoogleLogin();
+        String accessToken = gg.getToken(code);
+        GoogleAccount acc = gg.getUserInfo(accessToken);
+        String email = acc.getEmail();
+        // Get current session or create one if not exists
+        HttpSession session = request.getSession();
+
+        // Check if user with this email already exists
+        User userFound = userDAO.findByEmail(email);
+        if (userFound != null) {
+            // User exists: Log them in
+            session.setAttribute("user", userFound);
+            URL = "home";
+        } else {
+            request.setAttribute("loginError", "Username or password incorrect!!");
+            URL = "view/page/login.jsp";
+        }
+        return URL;
+//        response.setContentType("text/html");
+//        PrintWriter out = response.getWriter();
+//        out.println("<html><head><title>Google Account Info</title></head><body>");
+//        out.println("<h2>Acc:</h2><p>" + acc + "</p>");
+//        out.println("<h2>Email:</h2><p>" + email + "</p>");
+//        out.println("</body></html>");
+//         Return null if you're handling the response completely here.
+//        return null;  // debug 
+
+    }
+
 }

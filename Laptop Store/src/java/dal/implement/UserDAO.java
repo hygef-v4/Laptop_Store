@@ -174,4 +174,29 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public User findByEmail(String email) {
+        String sql = "SELECT * FROM [dbo].[tblUsers] WHERE email = ?";
+        try {
+            PreparedStatement ptm = connection.prepareStatement(sql);
+            ptm.setString(1, email);
+            ResultSet rs = ptm.executeQuery();
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("userID"),
+                        rs.getString("fullName"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("roleID"),
+                        rs.getString("address"),
+                        rs.getString("phone"),
+                        rs.getString("email"),
+                        rs.getBoolean("activate")
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }
