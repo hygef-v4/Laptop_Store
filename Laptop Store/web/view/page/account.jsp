@@ -168,23 +168,26 @@
                                 <h3 class="account-sub-title d-none d-md-block mt-0 pt-1 ml-1"><i
                                         class="icon-user-2 align-middle mr-3 pr-1"></i>Thông tin cá nhân</h3>
                                 <div class="account-content">
-                                    <form action="#">
+                                    <!--                                    change user info-->
+                                    <form method="POST" action="${pageContext.request.contextPath}/authen">
+                                        <input type="hidden" name="action" value="change-info">
+
                                         <div class="row">
 
 
                                             <div class="col-md">
                                                 <div class="form-group">
-                                                    <label for="acc-lastname">Họ và tên <span
+                                                    <label for="acc-fullname">Họ và tên <span
                                                             class="required">*</span></label>
-                                                    <input type="text" class="form-control" id="acc-lastname"
-                                                           name="acc-lastname" value="${user.fullName}" required />
+                                                    <input type="text" class="form-control" id="acc-fullname"
+                                                           name="acc-fullname" value="${user.fullName}" required />
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-2">
                                             <label for="acc-text">Username <span class="required">*</span></label>
-                                            <input type="text" class="form-control" id="acc-text" name="acc-text"
+                                            <input type="text" class="form-control" id="acc-text" name="acc-username"
                                                    placeholder="Editor" value="${user.username}" readonly required />
 
                                         </div>
@@ -193,14 +196,31 @@
                                         <div class="form-group mb-4">
                                             <label for="acc-email">Email<span class="required">*</span></label>
                                             <input type="email" class="form-control" id="acc-email" name="acc-email"
-                                                   placeholder="editor@gmail.com" value="${user.email}" required />
+                                                   placeholder="" value="${user.email}" required />
                                         </div>
 
                                         <div class="form-group">
                                             <label>Số điện thoại <abbr class="required" title="required"></abbr></label>
-                                            <input type="tel" class="form-control" value="${user.phone}" id="phone" maxlength="11" placeholder="" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                                            <input name="acc-phone" type="tel" class="form-control" value="${user.phone}" id="phone" maxlength="11" placeholder="" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
 
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Địa chỉ <abbr class="required" title="required"></abbr></label>
+                                            <input name="acc-address" type="text" class="form-control" value="${user.address}" placeholder="số nhà, tên phường, tỉnh/thành phố" required" />
+
+                                        </div>
+<!--                                            alert message-->
+                                        <c:if test="${not empty changeInfoSuccess}">
+                                            <div class="alert alert-success">${changeInfoSuccess}</div>
+                                            <% session.removeAttribute("changeInfoSuccess"); %>
+                                        </c:if>
+
+                                        <c:if test="${not empty changeInfoError}">
+                                            <div class="alert alert-danger">${changeInfoError}</div>
+                                            <% session.removeAttribute("changeInfoError"); %>
+
+                                        </c:if>
                                         <div class="form-footer mt-3 mb-0">
                                             <button type="submit" class="btn btn-dark mr-0">
                                                 Cập nhật
@@ -325,7 +345,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Email address <span class="required">*</span></label>
-                                            <input type="email" class="form-control" placeholder="editor@gmail.com"
+                                            <input type="email" class="form-control" placeholder="sample@gmail.com"
                                                    required />
                                         </div>
 

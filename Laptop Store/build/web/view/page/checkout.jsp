@@ -135,7 +135,7 @@
 
                                         <div class="form-group">
                                             <label class="order-comments">Ghi chú đơn hàng (nếu có)</label>
-                                            <textarea class="form-control" placeholder="Ghi chú về đơn hàng của bạn, ví dụ ghi chú đặc biệt về việc giao hàng."></textarea>
+                                            <textarea name="order-note" class="form-control" placeholder="Ghi chú về đơn hàng của bạn, ví dụ ghi chú đặc biệt về việc giao hàng."></textarea>
                                         </div>
                                     </form>
                                 </li>

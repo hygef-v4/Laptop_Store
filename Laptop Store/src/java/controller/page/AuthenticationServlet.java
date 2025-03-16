@@ -54,6 +54,9 @@ public class AuthenticationServlet extends HttpServlet {
             case "change-password":
                 url = changePasswordDoPost(request, response);
                 break;
+            case "change-info": // New case for changing user info
+                url = changeInfoDoPost(request, response);
+                break;
 
             default:
                 url = "home";
@@ -161,4 +164,45 @@ public class AuthenticationServlet extends HttpServlet {
 
     }
 
+    private String changeInfoDoPost(HttpServletRequest request, HttpServletResponse response) {
+
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+        // Check if the user is logged in
+        if (user == null) {
+            return "view/page/login.jsp"; // Redirect to login page if not logged in
+        }
+        String fullName = request.getParameter("acc-fullname").trim();
+        String email = request.getParameter("acc-email").trim();
+        String phone = request.getParameter("acc-phone").trim();
+        String address = request.getParameter("acc-address").trim();
+
+        if (fullName.isEmpty()) {
+            request.setAttribute("changeInfoError", "Họ và tên không được để trống.");
+            return "view/page/account.jsp";
+        }
+
+        // Check if the email is already used by another user
+        if (userDAO.isEmailExistForOtherUser(email, user.getUserID())) {
+            request.setAttribute("changeInfoError", "Email đã được sử dụng bởi người dùng khác.");
+            return "view/page/account.jsp";
+        }
+        // Update user info in the database
+        boolean updateSuccess = userDAO.updateUserInfo(user.getUserID(), fullName, email, phone, address);
+        if (updateSuccess) {
+            // Update the user object in the session
+            user.setFullName(fullName);
+            user.setEmail(email);
+            user.setPhone(phone);
+            user.setAddress(address);
+            session.setAttribute("user", user);
+            session.setAttribute("changeInfoSuccess", "Thông tin đã được cập nhật thành công.");
+        } else {
+            request.setAttribute("changeInfoError", "Cập nhật thông tin thất bại. Vui lòng thử lại.");
+        }
+
+        return "view/page/account.jsp";
+
+    }
 }

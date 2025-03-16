@@ -142,4 +142,36 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public boolean isEmailExistForOtherUser(String email, int userID) {
+        String sql = "SELECT COUNT(*) FROM [dbo].[tblUsers] WHERE email = ? AND userID != ?";
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, email);
+            ptm.setInt(2, userID);
+            try (ResultSet rs = ptm.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // True if email exists for another user
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false; // False if no match or an error occurred
+    }
+
+    public boolean updateUserInfo(int userID, String fullName, String email, String phone, String address) {
+        String sql = "UPDATE [dbo].[tblUsers] SET fullName = ?, email = ?, phone = ?, address = ? WHERE userID = ?";
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {
+            ptm.setString(1, fullName);
+            ptm.setString(2, email);
+            ptm.setString(3, phone);
+            ptm.setString(4, address);
+            ptm.setInt(5, userID);
+            int rowsAffected = ptm.executeUpdate();
+            return rowsAffected > 0; // True if update succeeded
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false; // False if an error occurred
+        }
+    }
+
 }
