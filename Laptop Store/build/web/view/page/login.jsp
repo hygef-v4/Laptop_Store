@@ -44,7 +44,7 @@
         <!-- Main CSS File -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/vendor/fontawesome-free/css/all.min.css">
-  
+
     </head>
 
     <body>
@@ -189,9 +189,16 @@
                                             function checkCapcha() {
                                                 var form = document.getElementById("login-form");   // lay form login 
                                                 var error = document.getElementById("error");       // lay div thong bao loi 
-
+                                                var username = document.getElementById("login-email").value.trim(); // Get username value
+                                                var password = document.getElementById("login-password").value.trim(); // Get password value
                                                 const response = grecaptcha.getResponse();      // lay key khi tich vao recapcha
-                                                console.log(response);
+                                                // Check if username and password are empty
+                                                if (username === "" || password === "") {
+                                                    error.textContent = "Tên đăng nhập và mật khẩu không được để trống!";
+                                                    return; // Stop submission
+                                                }
+//                                                alert("reCAPTCHA response: " + response); // Force alert to show value
+
                                                 if (response) {                                 // neu co capcha
                                                     form.submit();
                                                 } else {
