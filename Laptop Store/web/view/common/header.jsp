@@ -21,7 +21,7 @@
                                 <li><a href="${pageContext.request.contextPath}/view/page/account.jsp">Tài khoản</a></li>
                                 </c:if>
                             <li><a href="${pageContext.request.contextPath}/view/page/wishlist.jsp">Yêu thích</a></li>
-                            <li><a href="${pageContext.request.contextPath}/view/page/cart.jsp">Giỏ hàng</a></li>
+                            <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
                                 <c:choose>
                                     <c:when test="${user == null}">
                                         <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
@@ -119,7 +119,7 @@
                 <a href="${pageContext.request.contextPath}/view/page/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="${pageContext.request.contextPath}/payment" title="Cart">
+                    <a href="${pageContext.request.contextPath}/cart" title="Cart">
                         <i class="minicart-icon"></i>
 <!--                        <span class="cart-count badge-circle">3</span>-->
                     </a>
@@ -218,8 +218,8 @@
                         <a href="#">Trang</a>
                         <ul>
                             <li><a href="wishlist.jsp">Danh sách yêu thích</a></li>
-                            <li><a href="cart.jsp">Giỏ hàng</a></li>
-                            <li><a href="checkout.jsp">Thanh toán</a></li>
+                            <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
+                            
                             <li><a href="account.jsp">Bảng điều khiển</a></li>
                             <li><a href="login.jsp">Đăng nhập</a></li>
                             <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>

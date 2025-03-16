@@ -5,14 +5,16 @@
         <group>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/page/cart.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/page/AuthenticationServlet.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/ProductDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/UserDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Order.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/Product.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/OrderDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/dal/implement/CategoryDAO.java</file>
-            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/OrderDetails.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/page/CartServlet.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/page/checkout.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/page/account.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/footer.jsp</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/model/User.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/page/DashboadServlet.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/WEB-INF/web.xml</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/web/view/common/header.jsp</file>
             <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/page/PaymentServlet.java</file>
+            <file>file:/F:/code/git/prj301%20project/prj301-project/Laptop%20Store/src/java/controller/admin/DashboardServlet.java</file>
         </group>
     </open-files>
 </project-private>

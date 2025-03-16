@@ -59,67 +59,69 @@
                         <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
                             <li class="active">
                                 <a href="${pageContext.request.contextPath}/view/page/cart.jsp">Giỏ Hàng</a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/view/page/checkout.jsp">Thanh toán</a>
-                            </li>
-                            <li class="disabled">
-                                <a href="${pageContext.request.contextPath}/view/page/cart.jsp">Hoàn tất thanh toán</a>
-                            </li>
-                        </ul>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/view/page/checkout.jsp">Thanh toán</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="${pageContext.request.contextPath}/view/page/cart.jsp">Hoàn tất thanh toán</a>
+                        </li>
+                    </ul>
 
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="cart-table-container">
-                                    <table class="table table-cart">
-                                        <thead>
-                                            <tr>
-                                                <th class="thumbnail-col"></th>
-                                                <th class="product-col">Sản phẩm</th>
-                                                <th class="price-col">Giá tiền</th>
-                                                <th class="qty-col">Số lượng</th>
-                                                <th class="text-right">Tổng tiền</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <c:forEach var="od" items="${cart.listOrderDetails}">
-                                            <c:forEach var="product" items="${productList}">
-                                                <c:if test="${product.productID == od.productID}">
-                                                    <c:set var="p" value="${product}"> </c:set>
-                                                </c:if>
-                                            </c:forEach>
-                                            <tr class="product-row">
-                                                <td>
-                                                    <figure class="product-image-container">
-                                                        <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="product-image">
-                                                            <img src="${p.image}" alt="product">
-                                                        </a>
-                                                        <form action="payment?action=delete" method="POST">
-                                                            <input type="hidden" name="productID" value="${p.productID}">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="cart-table-container">
+                                <table class="table table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="thumbnail-col"></th>
+                                            <th class="product-col">Sản phẩm</th>
+                                            <th class="price-col">Giá tiền</th>
+                                            <th class="qty-col">Số lượng</th>
+                                            <th class="text-right">Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <p></p>
 
-                                                            <a href="#" onclick="return this.closest('form').submit()" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                                        </form>
-                                                    </figure>
-                                                </td>
-                                                <td class="product-col">
-                                                    <h5 class="product-title">
-                                                        <a href="${pageContext.request.contextPath}/products?productID=${p.productID}">${p.productName}</a>
-                                                    </h5>
-                                                </td>
-                                                <td><fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></td>
-
-                                                <td>
-                                                    <div class="product-single-qty">
-                                                        <form action="payment?action=change-quantity" method="POST">
-                                                            <input type="hidden" name="id" value="${p.productID}">
-                                                            <input name="quantity-input" onchange="return this.closest('form').submit()" class="horizontal-quantity form-control" type="number" value="${od.quantity}">
-                                                        </form>
-                                                    </div><!-- End .product-single-qty -->
-                                                </td>
-                                                <td class="text-right"><span class="subtotal-price"><fmt:formatNumber value="${p.price * od.quantity}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></span></td>
-                                            </tr>
-
+                                    <c:forEach var="od" items="${cart.listOrderDetails}">
+                                        <c:forEach var="product" items="${productList}">
+                                            <c:if test="${product.productID == od.productID}">
+                                                <c:set var="p" value="${product}"> </c:set>
+                                            </c:if>
                                         </c:forEach>
+                                        <tr class="product-row">
+                                            <td>
+                                                <figure class="product-image-container">
+                                                    <a href="${pageContext.request.contextPath}/products?productID=${p.productID}" class="product-image">
+                                                        <img src="${p.image}" alt="product">
+                                                    </a>
+                                                    <form action="cart?action=delete" method="POST">
+                                                        <input type="hidden" name="productID" value="${p.productID}">
+
+                                                        <a href="#" onclick="return this.closest('form').submit()" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                                    </form>
+                                                </figure>
+                                            </td>
+                                            <td class="product-col">
+                                                <h5 class="product-title">
+                                                    <a href="${pageContext.request.contextPath}/products?productID=${p.productID}">${p.productName}</a>
+                                                </h5>
+                                            </td>
+                                            <td><fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></td>
+
+                                            <td>
+                                                <div class="product-single-qty">
+                                                    <form action="cart?action=change-quantity" method="POST">
+                                                        <input type="hidden" name="id" value="${p.productID}">
+                                                        <input name="quantity-input" onchange="return this.closest('form').submit()" class="horizontal-quantity form-control" type="number" value="${od.quantity}">
+                                                    </form>
+                                                </div><!-- End .product-single-qty -->
+                                            </td>
+                                            <td class="text-right"><span class="subtotal-price"><fmt:formatNumber value="${p.price * od.quantity}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></span></td>
+                                        </tr>
+
+                                    </c:forEach>
 
 
                                     </tbody>
@@ -185,12 +187,28 @@
                                 </table>
 
                                 <div class="checkout-methods">
-                                    <form action="payment?action=check-out" method="POST">
-                                        <button type="submit" class="btn btn-block btn-dark">
-                                            Tiến hành thanh toán <i class="fa fa-arrow-right"></i>
-                                        </button>
-                                    </form>
+                                    <c:if test="${sessionScope.user == null}">
+                                        <!-- Show red warning text -->
+                                        <p style="color: red; font-weight: bold;">
+                                            Bạn cần đăng ký hoặc đăng nhập để tiếp tục thanh toán!
+                                        </p>
+                                        <!-- Register/Login Button with Black Background -->
+                                        <a href="authen?action=login" class="btn btn-block" style="background-color: black; color: white;">
+                                            Đăng ký / Đăng nhập
+                                        </a>
+                                    </c:if>
+
+                                    <c:if test="${sessionScope.user != null}">
+                                        <!-- If the user is logged in, show the checkout button -->
+                                        <form action="payment" method="GET">
+                                            <button type="submit" class="btn btn-block btn-dark">
+                                                Tiến hành thanh toán <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </form>
+                                    </c:if>
                                 </div>
+
+
                             </div><!-- End .cart-summary -->
                         </div><!-- End .col-lg-4 -->
                     </div><!-- End .row -->
@@ -258,29 +276,29 @@
 
         <!--        tinh subtotal-->
         <script>
-                                                                window.onload = updateSubTotal;
+                                                            window.onload = updateSubTotal;
 
-                                                                function updateSubTotal() {
-                                                                    let subtotalElements = document.querySelectorAll(".subtotal-price");
-                                                                    let total = 0;
+                                                            function updateSubTotal() {
+                                                                let subtotalElements = document.querySelectorAll(".subtotal-price");
+                                                                let total = 0;
 
-                                                                    subtotalElements.forEach(e => {
-                                                                        let priceText = e.textContent.trim().replace("₫", "").replace(/,/g, "");
-                                                                        let totalPrice = parseFloat(priceText) || 0;
-                                                                        total += totalPrice;
-                                                                    });
+                                                                subtotalElements.forEach(e => {
+                                                                    let priceText = e.textContent.trim().replace("₫", "").replace(/,/g, "");
+                                                                    let totalPrice = parseFloat(priceText) || 0;
+                                                                    total += totalPrice;
+                                                                });
 
-                                                                    let discountText = document.getElementById("discount").textContent.trim().replace("₫", "").replace(/,/g, "");
-                                                                    let discount = parseFloat(discountText) || 0; // Get discount value from the element
+                                                                let discountText = document.getElementById("discount").textContent.trim().replace("₫", "").replace(/,/g, "");
+                                                                let discount = parseFloat(discountText) || 0; // Get discount value from the element
 
-                                                                    let finalTotal = total - discount;
+                                                                let finalTotal = total - discount;
 
-                                                                    document.getElementById("sub-total").textContent =
-                                                                            new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(total);
+                                                                document.getElementById("sub-total").textContent =
+                                                                        new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(total);
 
-                                                                    document.getElementById("total-cart").textContent =
-                                                                            new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(finalTotal);
-                                                                }
+                                                                document.getElementById("total-cart").textContent =
+                                                                        new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(finalTotal);
+                                                            }
 
 
         </script>

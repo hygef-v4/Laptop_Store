@@ -182,7 +182,7 @@
                                     <!-- End .product-single-qty -->
 
                                     <div class="product-add-form">
-                                        <form action="payment?action=add-product" method="POST">
+                                        <form action="cart?action=add-product" method="POST">
                                             <!-- Ensure product ID is properly set -->
                                             <input type="hidden" name="productID" value="${product.productID}"/>
 

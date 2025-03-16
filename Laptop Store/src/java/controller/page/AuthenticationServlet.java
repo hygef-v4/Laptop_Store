@@ -82,6 +82,7 @@ public class AuthenticationServlet extends HttpServlet {
         // delete session user 
         HttpSession session = request.getSession();
         session.removeAttribute("user");
+        session.removeAttribute("cart");  // xoa cart session
         return "home";   // quay ve hom sau khi logout
     }
 
