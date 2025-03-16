@@ -82,7 +82,7 @@
                                             <h2 class="title">Đăng nhập</h2>
                                         </div>
 
-                                        <form action="authen?action=login" method="POST">
+                                        <form id="login-form" action="authen?action=login" method="POST">
                                             <label for="login-email">
                                                 Tên đăng nhập 
                                                 <span class="required">*</span>
@@ -94,17 +94,19 @@
                                                 <span class="required">*</span>
                                             </label>
                                             <input type="password" name="password" class="form-input form-wide" id="login-password" required />
-
+                                            <!--                                            recapcha-->
+                                            <div class="g-recaptcha" data-sitekey="6Lfw_fUqAAAAAHdeOcH_4SyLw_5q_VzRg1Bgl4UR"></div>
+                                            <div id="error" style="color:red"></div>
                                             <div class="form-footer">
 
 
                                                 <a href="${pageContext.request.contextPath}/authen?action=forgot-password"
-                                                   class="forget-password text-dark form-footer-right">Quên mật khẩu?</a>
-                                            </div>
-                                            <button type="submit" class="btn btn-dark btn-md w-100">
-                                                ĐĂNG NHẬP
-                                            </button>
-                                            <p style="color:red; margin-top: 4%;">${loginError}</p>
+                                               class="forget-password text-dark form-footer-right">Quên mật khẩu?</a>
+                                        </div>
+                                        <button type="button"  onclick="checkCapcha()"  class="btn btn-dark btn-md w-100">
+                                            ĐĂNG NHẬP
+                                        </button>
+                                        <p style="color:red; margin-top: 4%;">${loginError}</p>
                                     </form>
                                 </div>
 
@@ -170,8 +172,23 @@
 
         <!-- Main JS File -->
         <script src="${pageContext.request.contextPath}/assets/js/main.min.js"></script>
+        <!--        recapcha-->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script type="text/javascript">
+                                            function checkCapcha() {
+                                                var form = document.getElementById("login-form");   // lay form login 
+                                                var error = document.getElementById("error");       // lay div thong bao loi 
+
+                                                const response = grecaptcha.getResponse();      // lay key khi tich vao recapcha
+                                                console.log(response);                          
+                                                if (response) {                                 // neu co capcha
+                                                    form.submit();                 
+                                                } else {
+                                                    error.textContent = 'Bạn chưa xác thực capcha!';   // neu chua tick
+                                                }
+                                            }
+        </script>
     </body>
 
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/login.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 03:27:42 GMT -->
 </html>
