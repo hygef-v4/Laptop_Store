@@ -199,13 +199,31 @@
                                     </c:if>
 
                                     <c:if test="${sessionScope.user != null}">
-                                        <!-- If the user is logged in, show the checkout button -->
-                                        <form action="payment" method="GET">
-                                            <button type="submit" class="btn btn-block btn-dark">
-                                                Tiến hành thanh toán <i class="fa fa-arrow-right"></i>
-                                            </button>
-                                        </form>
+                                        <c:choose>
+                                            <c:when test="${empty sessionScope.cart || (not empty sessionScope.cart and sessionScope.cart.listOrderDetails.size() == 0)}">
+
+                                                <!-- If the cart is empty, show a message and a link to the category page -->
+                                                <p style="color: red; font-weight: bold;">
+                                                    Giỏ hàng của bạn đang trống!
+                                                </p>
+                                                <form action="category" method="GET">
+                                                    <button type="submit" class="btn btn-block btn-dark">
+                                                        Thêm sản phẩm vào giỏ hàng <i class="fa fa-arrow-right"></i>
+                                                    </button>
+                                                </form>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <!-- If the cart is NOT empty and user logged in, show the checkout button -->
+                                                <form action="payment" method="GET">
+                                                    <button type="submit" class="btn btn-block btn-dark">
+                                                        Tiến hành thanh toán <i class="fa fa-arrow-right"></i>
+                                                    </button>
+                                                </form>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:if>
+
+
                                 </div>
 
 

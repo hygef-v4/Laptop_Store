@@ -176,55 +176,17 @@
                     <li>
 
                         <a href="${pageContext.request.contextPath}/products?productID=1">SẢN PHẨM</a>
-                        <!--                        <div class="megamenu megamenu-fixed-width">
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <a href="#" class="nolink">PRODUCT PAGES</a>
-                                                            <ul class="submenu">
-                                                                <li><a href="product.jsp">SIMPLE PRODUCT</a></li>
-                                                                
-                                                            </ul>
-                                                        </div>
-                                                         End .col-lg-4 
                         
-                                                        <div class="col-lg-4">
-                                                            <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                                            <ul class="submenu">
-                                                                <li><a href="product-extended-layout.jsp">EXTENDED LAYOUT</a></li>
-                                                                
-                                                            </ul>
-                                                        </div>
-                                                         End .col-lg-4 
-                        
-                                                        <div class="col-lg-4 p-0">
-                                                            <div class="menu-banner menu-banner-2">
-                                                                <figure>
-                                                                    <img src="${pageContext.request.contextPath}/assets/images/menu-banner-1.jpg" width="182" height="317" alt="Menu banner" class="product-promo">
-                                                                </figure>
-                                                                <i>OFF</i>
-                                                                <div class="banner-content">
-                                                                    <h4>
-                                                                        <span class="">UP TO</span><br />
-                                                                        <b class="">50%</b>
-                                                                    </h4>
-                                                                </div>
-                                                                <a href="category.jsp" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                                            </div>
-                                                        </div>
-                                                         End .col-lg-4 
-                                                    </div>
-                                                     End .row 
-                                                </div>-->
                         <!-- End .megamenu -->
                     </li>
                     <li>
                         <a href="#">Trang</a>
                         <ul>
-                            <li><a href="wishlist.jsp">Danh sách yêu thích</a></li>
+                  
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
 
-                            <li><a href="account.jsp">Bảng điều khiển</a></li>
-                            <li><a href="login.jsp">Đăng nhập</a></li>
+                            <li><a href="${pageContext.request.contextPath}/dashboard">Tài khoản</a></li>
+                            <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
                             <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>
                         </ul>
                     </li>
