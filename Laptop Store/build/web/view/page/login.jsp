@@ -184,7 +184,7 @@
                                                 if (response) {                                 // neu co capcha
                                                     form.submit();                 
                                                 } else {
-                                                    error.textContent = 'Bạn chưa xác thực capcha!';   // neu chua tick
+                                                    error.textContent = 'Bạn chưa xác thực captcha!';   // neu chua tick
                                                 }
                                             }
         </script>
