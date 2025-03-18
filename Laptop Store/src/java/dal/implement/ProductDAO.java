@@ -389,4 +389,15 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
+    public void updateProductQuantity(int productID, int newQuantity) {
+        String sql = "UPDATE tblProducts SET quantity = ? WHERE productID = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, newQuantity);
+            ps.setInt(2, productID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log the error for debugging
+        }
+    }
+
 }

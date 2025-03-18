@@ -2,17 +2,21 @@ package controller.page;
 
 import dal.implement.OrderDAO;
 import dal.implement.OrderDetailDAO;
+import dal.implement.ProductDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.HashSet;
 
 import model.Order;
 import model.OrderDetails;
 import model.User;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Product;
 
 /**
@@ -23,6 +27,7 @@ public class PaymentServlet extends HttpServlet {
 
     OrderDAO orderDao = new OrderDAO();
     OrderDetailDAO OrderDetailDao = new OrderDetailDAO();
+    ProductDAO productDAO = new ProductDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,7 +63,7 @@ public class PaymentServlet extends HttpServlet {
 
     }
 
-    private void checkOut(HttpServletRequest request, HttpServletResponse response) {
+    private void checkOut(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // get cart 
         HttpSession session = request.getSession();
         // get cart from session 
@@ -88,13 +93,28 @@ public class PaymentServlet extends HttpServlet {
         }
         cart.setNote(note);
 
+        // Check stock before proceeding
+        for (OrderDetails od : cart.getListOrderDetails()) {
+            Product product = productDAO.searchProduct(od.getProductID());
+            if (product == null || product.getQuantity() < od.getQuantity()) {
+                // Product is either not found or stock is insufficient
+                session.setAttribute("errorPaymentMsg", "Sản phẩm " + product.getProductName() + " không đủ hàng trong kho.");
+              
+                return; // Stop execution immediately to prevent response conflicts
+            }
+        }
+
         // insert order 
         int orderId = orderDao.insertOrder(cart); // return order id 
         for (OrderDetails od : cart.getListOrderDetails()) {
             od.setOrderID(orderId);   // cap nhat order id cho tung sp mua 
             OrderDetailDao.insert(od);
+            // tru di so luong san pham trong db 
+            Product product = productDAO.searchProduct(od.getProductID());
+            int newQuantity = product.getQuantity() - od.getQuantity();
+            productDAO.updateProductQuantity(product.getProductID(), newQuantity);
+
         }
-        // tru di so luong san pham trong db 
 
         // remove cart 
         session.removeAttribute("cart");

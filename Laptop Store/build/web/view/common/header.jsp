@@ -13,7 +13,7 @@
             <!-- End .header-left -->
 
             <div class="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
-               
+
                 <div class="header-dropdown dropdown-expanded d-none d-lg-block">
                     <a href="#">Links</a>
                     <div class="header-menu">
@@ -21,8 +21,15 @@
 
                         <ul>
                             <c:if test="${user != null}">
-                                <li><a href="${pageContext.request.contextPath}/view/page/account.jsp">Tài khoản</a></li>
+                                <c:if test="${user.roleID == 2}">
+                                    <li><a href="${pageContext.request.contextPath}/dashboard">Tài khoản</a></li>
+                                    </c:if>
+
+                                <c:if test="${user.roleID == 1}">
+                                    <li><a href="${pageContext.request.contextPath}/admin/dashboard">Admin</a></li>
+                                    </c:if>
                                 </c:if>
+
                             <li><a href="${pageContext.request.contextPath}/view/page/wishlist.jsp">Yêu thích</a></li>
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
                                 <c:choose>
@@ -176,13 +183,13 @@
                     <li>
 
                         <a href="${pageContext.request.contextPath}/products?productID=1">SẢN PHẨM</a>
-                        
+
                         <!-- End .megamenu -->
                     </li>
                     <li>
                         <a href="#">Trang</a>
                         <ul>
-                  
+
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
 
                             <li><a href="${pageContext.request.contextPath}/dashboard">Tài khoản</a></li>
