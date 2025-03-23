@@ -47,6 +47,17 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/vendor/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
+        <style>
+            .badge {
+                min-width: 130px;   /* Set a fixed width */
+                text-align: center; /* Center text */
+                font-weight: bold;  /* Make text bold */
+                padding: 10px 15px; /* Add padding for a balanced look */
+                border-radius: 8px; /* Smooth corners */
+                font-size: 13px
+            }
+
+        </style>
     </head>
 
     <body>
@@ -148,10 +159,15 @@
                                                                 <td>#${order.orderID}</td>
                                                                 <td><fmt:formatDate value="${order.formattedDate}" pattern="yyyy-MM-dd" /></td>
                                                                 <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
-                                                                <td>${order.statusText}</td> 
+                                                                <td>
+                                                                    <span class="badge ${order.status ? 'bg-success text-white' : 'bg-danger text-white'}">
+                                                                        ${order.status ? 'Đã xác nhận' : 'Chưa xác nhận'}
+                                                                    </span>
+                                                                </td>
+
 
                                                                 <td>
-                                                                    <button class="btn btn-info" data-toggle="collapse" data-target="#details-${order.orderID}">
+                                                                    <button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#details-${order.orderID}">
                                                                         Xem Chi Tiết
                                                                     </button>
                                                                 </td>
@@ -386,6 +402,9 @@
 
         <!-- Main JS File -->
         <script src="${pageContext.request.contextPath}/assets/js/main.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 
 

@@ -39,7 +39,50 @@
 
         <!-- Theme Config js (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets//js/config.js"></script>
+        <style>
+            .custom-dropdown {
+                width: 140px; /* Set width */
+                border-radius: 8px; /* Rounded corners */
+                padding: 8px; /* Space inside */
+                background: white;
+                border: 1px solid #ddd;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            }
 
+            .custom-dropdown:focus {
+                border-color: #28a745;
+                box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+            }
+
+            .custom-dropdown option {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .custom-dropdown option[value="true"] {
+                background-color: #d4edda;
+                color: #155724;
+            }
+
+            .custom-dropdown option[value="false"] {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            .badge {
+                font-size: 12px;
+                padding: 8px 10px;
+                border-radius: 8px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .table-responsive {
+                overflow-x: hidden !important;  /* Hide horizontal scroll */
+                white-space: nowrap;            /* Prevent text wrapping */
+            }
+
+
+        </style>
     </head>
     <body>
         <!-- START Wrapper -->
@@ -682,12 +725,32 @@
                                                     <td>${order.phone}</td> 
                                                     <td>${order.address}</td> 
                                                     <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
-                                                    <td>${order.statusText}</td> 
+                                                    <td>
+                                                        <span class="badge ${order.status ? 'bg-success' : 'bg-danger'}">
+                                                            ${order.status ? 'Đã xác nhận' : 'Chưa xác nhận'}
+                                                        </span>
+                                                    </td>
+
                                                     <td>
                                                         <button class="btn btn-info" data-toggle="collapse" data-target="#details-${order.orderID}">
                                                             Xem Chi Tiết
                                                         </button>
                                                     </td>
+                                                    <!-- Action Button (Change Order Status) -->
+
+                                                    <td>
+                                                        <select class="form-select status-dropdown custom-dropdown" onchange="location.href = this.value;">
+                                                            <option value="#" disabled selected>${order.statusText}</option>
+                                                            <option value="${pageContext.request.contextPath}/admin/dashboard?action=update-status&orderID=${order.orderID}&status=true">
+                                                                ✅ Đã xác nhận
+                                                            </option>
+                                                            <option value="${pageContext.request.contextPath}/admin/dashboard?action=update-status&orderID=${order.orderID}&status=false">
+                                                                ⏳ Chưa xác nhận
+                                                            </option>
+                                                        </select>
+                                                    </td>
+
+
                                                 </tr>
                                                 <!-- Order Details Section -->
                                                 <!-- Order Details Collapsible Section -->
@@ -810,6 +873,9 @@
         <!-- Bootstrap JS (Include this before closing </body>) -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 
     </body>
 

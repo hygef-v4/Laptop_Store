@@ -99,7 +99,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <h6 class="dropdown-header">Welcome Gaston!</h6>
+                            <h6 class="dropdown-header">Welcome ${user.username}!</h6>
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/dashboard">
                                 <i
                                     class="bx bx-user-circle text-muted fs-18 align-middle me-1"

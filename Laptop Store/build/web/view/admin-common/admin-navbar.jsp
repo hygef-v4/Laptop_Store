@@ -49,13 +49,13 @@
                                 >
                             </li>
 
-                            <li class="sub-nav-item">
+<!--                            <li class="sub-nav-item">
                                 <a
                                     class="sub-nav-link"
                                     href="apps-ecommerce-customer-list.html"
                                     >Khách hàng</a
                                 >
-                            </li>
+                            </li>-->
 
 
 

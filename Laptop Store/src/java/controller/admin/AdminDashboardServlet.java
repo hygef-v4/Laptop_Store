@@ -71,6 +71,9 @@ public class AdminDashboardServlet extends HttpServlet {
             case "product-list":
                 request.getRequestDispatcher("/view/admin/productList.jsp").forward(request, response);
                 break;
+            case "update-status":
+                updateOrderStatus(request, response);
+                break;
             default:
                 request.getRequestDispatcher("/view/admin/productList.jsp").forward(request, response);
                 break;
@@ -78,9 +81,27 @@ public class AdminDashboardServlet extends HttpServlet {
     }
 
     @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String action = request.getParameter("action") != null ? request.getParameter("action") : "";
+
+    }
+
+    private void updateOrderStatus(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        try {
+            int orderId = Integer.parseInt(request.getParameter("orderID"));
+            boolean newStatus = Boolean.parseBoolean(request.getParameter("status"));
+
+            orderDAO.updateOrderStatus(orderId, newStatus); // Update status in DB
+
+            // Redirect back to order list page after update
+            response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=order-list");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=order-list&error=true");
+        }
     }
 
     @Override
