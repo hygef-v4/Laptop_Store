@@ -10,8 +10,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html lang="en">
-    
-<head>
+
+    <head>
         <!-- Title Meta -->
         <meta charset="utf-8" />
         <title>Create Product | Reback - Responsive Admin Dashboard Template</title>
@@ -19,7 +19,7 @@
         <meta
             name="description"
             content="A fully responsive premium admin dashboard template"
-        />
+            />
         <meta name="author" content="Techzaa" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -47,195 +47,195 @@
             <jsp:include page="/view/admin-common/admin-header.jsp"></jsp:include>
 
 
-            <!-- Activity Timeline -->
-            <div>
-                <div
-                    class="offcanvas offcanvas-end border-0"
-                    tabindex="-1"
-                    id="theme-activity-offcanvas"
-                    style="max-width: 450px; width: 100%"
-                >
-                    <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
-                        <h5 class="text-white m-0 fw-semibold">Activity Stream</h5>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white ms-auto"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"
-                        ></button>
-                    </div>
+                <!-- Activity Timeline -->
+                <div>
+                    <div
+                        class="offcanvas offcanvas-end border-0"
+                        tabindex="-1"
+                        id="theme-activity-offcanvas"
+                        style="max-width: 450px; width: 100%"
+                        >
+                        <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                            <h5 class="text-white m-0 fw-semibold">Activity Stream</h5>
+                            <button
+                                type="button"
+                                class="btn-close btn-close-white ms-auto"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Close"
+                                ></button>
+                        </div>
 
-                    <div class="offcanvas-body p-0">
-                        <div data-simplebar class="h-100 p-4">
-                            <div class="position-relative ms-2">
-                                <span
-                                    class="position-absolute start-0 top-0 border border-dashed h-100"
-                                ></span>
-                                <div class="position-relative ps-4">
-                                    <div class="mb-4">
-                                        <span
-                                            class="position-absolute start-0 avatar-sm translate-middle-x bg-danger d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
-                                            ><iconify-icon
-                                                icon="iconamoon:folder-check-duotone"
-                                            ></iconify-icon
+                        <div class="offcanvas-body p-0">
+                            <div data-simplebar class="h-100 p-4">
+                                <div class="position-relative ms-2">
+                                    <span
+                                        class="position-absolute start-0 top-0 border border-dashed h-100"
                                         ></span>
-                                        <div class="ms-2">
-                                            <h5
-                                                class="mb-1 text-dark fw-semibold fs-15 lh-base"
-                                            >
-                                                Report-Fix / Update
-                                            </h5>
-                                            <p class="d-flex align-items-center">
-                                                Add 3 files to
-                                                <span
-                                                    class="d-flex align-items-center text-primary ms-1"
-                                                    ><iconify-icon
-                                                        icon="iconamoon:file-light"
-                                                    ></iconify-icon>
-                                                    Tasks</span
-                                                >
-                                            </p>
-                                            <div
-                                                class="bg-light bg-opacity-50 rounded-2 p-2"
-                                            >
-                                                <div class="row">
-                                                    <div
-                                                        class="col-lg-6 border-end border-light"
+                                    <div class="position-relative ps-4">
+                                        <div class="mb-4">
+                                            <span
+                                                class="position-absolute start-0 avatar-sm translate-middle-x bg-danger d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
+                                                ><iconify-icon
+                                                    icon="iconamoon:folder-check-duotone"
+                                                    ></iconify-icon
+                                                ></span>
+                                            <div class="ms-2">
+                                                <h5
+                                                    class="mb-1 text-dark fw-semibold fs-15 lh-base"
                                                     >
-                                                        <div
-                                                            class="d-flex align-items-center gap-2"
-                                                        >
-                                                            <i
-                                                                class="bx bxl-figma fs-20 text-red"
-                                                            ></i>
-                                                            <a
-                                                                href="#!"
-                                                                class="text-dark fw-medium"
-                                                                >Concept.fig</a
-                                                            >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div
-                                                            class="d-flex align-items-center gap-2"
-                                                        >
-                                                            <i
-                                                                class="bx bxl-file-doc fs-20 text-success"
-                                                            ></i>
-                                                            <a
-                                                                href="#!"
-                                                                class="text-dark fw-medium"
-                                                                >reback.docs</a
-                                                            >
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h6 class="mt-2 text-muted">
-                                                Monday , 4:24 PM
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="position-relative ps-4">
-                                    <div class="mb-4">
-                                        <span
-                                            class="position-absolute start-0 avatar-sm translate-middle-x bg-success d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
-                                            ><iconify-icon
-                                                icon="iconamoon:check-circle-1-duotone"
-                                            ></iconify-icon
-                                        ></span>
-                                        <div class="ms-2">
-                                            <h5
-                                                class="mb-1 text-dark fw-semibold fs-15 lh-base"
-                                            >
-                                                Project Status
-                                            </h5>
-                                            <p class="d-flex align-items-center mb-0">
-                                                Marked<span
-                                                    class="d-flex align-items-center text-primary mx-1"
-                                                    ><iconify-icon
-                                                        icon="iconamoon:file-light"
-                                                    ></iconify-icon>
-                                                    Design
-                                                </span>
-                                                as
-                                                <span
-                                                    class="badge bg-success-subtle text-success px-2 py-1 ms-1"
-                                                >
-                                                    Completed</span
-                                                >
-                                            </p>
-                                            <div
-                                                class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2"
-                                            >
-                                                <a href="#!" class="fw-medium text-dark"
-                                                    >UI/UX Figma Design</a
-                                                >
-                                                <div class="ms-auto">
-                                                    <a
-                                                        href="#!"
-                                                        class="fw-medium text-primary fs-18"
-                                                        data-bs-toggle="tooltip"
-                                                        data-bs-title="Download"
-                                                        data-bs-placement="bottom"
+                                                    Report-Fix / Update
+                                                </h5>
+                                                <p class="d-flex align-items-center">
+                                                    Add 3 files to
+                                                    <span
+                                                        class="d-flex align-items-center text-primary ms-1"
                                                         ><iconify-icon
-                                                            icon="iconamoon:cloud-download-duotone"
-                                                        ></iconify-icon
-                                                    ></a>
+                                                            icon="iconamoon:file-light"
+                                                            ></iconify-icon>
+                                                        Tasks</span
+                                                    >
+                                                </p>
+                                                <div
+                                                    class="bg-light bg-opacity-50 rounded-2 p-2"
+                                                    >
+                                                    <div class="row">
+                                                        <div
+                                                            class="col-lg-6 border-end border-light"
+                                                            >
+                                                            <div
+                                                                class="d-flex align-items-center gap-2"
+                                                                >
+                                                                <i
+                                                                    class="bx bxl-figma fs-20 text-red"
+                                                                    ></i>
+                                                                <a
+                                                                    href="#!"
+                                                                    class="text-dark fw-medium"
+                                                                    >Concept.fig</a
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div
+                                                                class="d-flex align-items-center gap-2"
+                                                                >
+                                                                <i
+                                                                    class="bx bxl-file-doc fs-20 text-success"
+                                                                    ></i>
+                                                                <a
+                                                                    href="#!"
+                                                                    class="text-dark fw-medium"
+                                                                    >reback.docs</a
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <h6 class="mt-2 text-muted">
+                                                    Monday , 4:24 PM
+                                                </h6>
                                             </div>
-                                            <h6 class="mt-3 text-muted">
-                                                Monday , 3:00 PM
-                                            </h6>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="position-relative ps-4">
-                                    <div class="mb-4">
-                                        <span
-                                            class="position-absolute start-0 avatar-sm translate-middle-x bg-primary d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-16"
-                                            >UI</span
-                                        >
-                                        <div class="ms-2">
-                                            <h5 class="mb-1 text-dark fw-semibold fs-15">
-                                                Reback Application UI v2.0.0
-                                                <span
-                                                    class="badge bg-primary-subtle text-primary px-2 py-1 ms-1"
-                                                >
-                                                    Latest</span
-                                                >
-                                            </h5>
-                                            <p>
-                                                Get access to over 20+ pages including a
-                                                dashboard layout, charts, kanban board,
-                                                calendar, and pre-order E-commerce &
-                                                Marketing pages.
-                                            </p>
-                                            <div class="mt-2">
-                                                <a href="#!" class="btn btn-light btn-sm"
-                                                    >Download Zip</a
-                                                >
+                                    <div class="position-relative ps-4">
+                                        <div class="mb-4">
+                                            <span
+                                                class="position-absolute start-0 avatar-sm translate-middle-x bg-success d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
+                                                ><iconify-icon
+                                                    icon="iconamoon:check-circle-1-duotone"
+                                                    ></iconify-icon
+                                                ></span>
+                                            <div class="ms-2">
+                                                <h5
+                                                    class="mb-1 text-dark fw-semibold fs-15 lh-base"
+                                                    >
+                                                    Project Status
+                                                </h5>
+                                                <p class="d-flex align-items-center mb-0">
+                                                    Marked<span
+                                                        class="d-flex align-items-center text-primary mx-1"
+                                                        ><iconify-icon
+                                                            icon="iconamoon:file-light"
+                                                            ></iconify-icon>
+                                                        Design
+                                                    </span>
+                                                    as
+                                                    <span
+                                                        class="badge bg-success-subtle text-success px-2 py-1 ms-1"
+                                                        >
+                                                        Completed</span
+                                                    >
+                                                </p>
+                                                <div
+                                                    class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2"
+                                                    >
+                                                    <a href="#!" class="fw-medium text-dark"
+                                                       >UI/UX Figma Design</a
+                                                    >
+                                                    <div class="ms-auto">
+                                                        <a
+                                                            href="#!"
+                                                            class="fw-medium text-primary fs-18"
+                                                            data-bs-toggle="tooltip"
+                                                            data-bs-title="Download"
+                                                            data-bs-placement="bottom"
+                                                            ><iconify-icon
+                                                                icon="iconamoon:cloud-download-duotone"
+                                                                ></iconify-icon
+                                                            ></a>
+                                                    </div>
+                                                </div>
+                                                <h6 class="mt-3 text-muted">
+                                                    Monday , 3:00 PM
+                                                </h6>
                                             </div>
-                                            <h6 class="mt-3 text-muted">
-                                                Monday , 2:10 PM
-                                            </h6>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="position-relative ps-4">
-                                    <div class="mb-4">
-                                        <span
-                                            class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
-                                            ><img
-                                                src="${pageContext.request.contextPath}/admin-assets//images/users/avatar-7.jpg"
+                                    <div class="position-relative ps-4">
+                                        <div class="mb-4">
+                                            <span
+                                                class="position-absolute start-0 avatar-sm translate-middle-x bg-primary d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-16"
+                                                >UI</span
+                                            >
+                                            <div class="ms-2">
+                                                <h5 class="mb-1 text-dark fw-semibold fs-15">
+                                                    Reback Application UI v2.0.0
+                                                    <span
+                                                        class="badge bg-primary-subtle text-primary px-2 py-1 ms-1"
+                                                        >
+                                                        Latest</span
+                                                    >
+                                                </h5>
+                                                <p>
+                                                    Get access to over 20+ pages including a
+                                                    dashboard layout, charts, kanban board,
+                                                    calendar, and pre-order E-commerce &
+                                                    Marketing pages.
+                                                </p>
+                                                <div class="mt-2">
+                                                    <a href="#!" class="btn btn-light btn-sm"
+                                                       >Download Zip</a
+                                                    >
+                                                </div>
+                                                <h6 class="mt-3 text-muted">
+                                                    Monday , 2:10 PM
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative ps-4">
+                                        <div class="mb-4">
+                                            <span
+                                                class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
+                                                ><img
+                                                    src="${pageContext.request.contextPath}/admin-assets//images/users/avatar-7.jpg"
                                                 alt="avatar-5"
                                                 class="avatar-sm rounded-circle"
-                                        /></span>
+                                                /></span>
                                         <div class="ms-2">
                                             <h5
                                                 class="mb-0 text-dark fw-semibold fs-15 lh-base"
-                                            >
+                                                >
                                                 Alex Smith Attached Photos
                                             </h5>
                                             <div class="row g-2 mt-2">
@@ -245,7 +245,7 @@
                                                             src="${pageContext.request.contextPath}/admin-assets//images/small/img-6.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
-                                                        />
+                                                            />
                                                     </a>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -254,7 +254,7 @@
                                                             src="${pageContext.request.contextPath}/admin-assets//images/small/img-3.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
-                                                        />
+                                                            />
                                                     </a>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -263,7 +263,7 @@
                                                             src="${pageContext.request.contextPath}/admin-assets//images/small/img-4.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
-                                                        />
+                                                            />
                                                     </a>
                                                 </div>
                                             </div>
@@ -279,19 +279,19 @@
                                                 src="${pageContext.request.contextPath}/admin-assets//images/users/avatar-6.jpg"
                                                 alt="avatar-5"
                                                 class="avatar-sm rounded-circle"
-                                        /></span>
+                                                /></span>
                                         <div class="ms-2">
                                             <h5
                                                 class="mb-0 text-dark fw-semibold fs-15 lh-base"
-                                            >
+                                                >
                                                 Rebecca J. added a new team member
                                             </h5>
                                             <p class="d-flex align-items-center gap-1">
-                                                <iconify-icon
-                                                    icon="iconamoon:check-circle-1-duotone"
-                                                    class="text-success"
+                                            <iconify-icon
+                                                icon="iconamoon:check-circle-1-duotone"
+                                                class="text-success"
                                                 ></iconify-icon>
-                                                Added a new member to Front Dashboard
+                                            Added a new member to Front Dashboard
                                             </p>
                                             <h6 class="mt-3 text-muted">Monday 10:00 AM</h6>
                                         </div>
@@ -303,21 +303,21 @@
                                             class="position-absolute start-0 avatar-sm translate-middle-x bg-warning d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
                                             ><iconify-icon
                                                 icon="iconamoon:certificate-badge-duotone"
-                                            ></iconify-icon
-                                        ></span>
+                                                ></iconify-icon
+                                            ></span>
                                         <div class="ms-2">
                                             <h5
                                                 class="mb-0 text-dark fw-semibold fs-15 lh-base"
-                                            >
+                                                >
                                                 Achievements
                                             </h5>
                                             <p class="d-flex align-items-center gap-1 mt-1">
                                                 Earned a
-                                                <iconify-icon
-                                                    icon="iconamoon:certificate-badge-duotone"
-                                                    class="text-danger fs-20"
+                                            <iconify-icon
+                                                icon="iconamoon:certificate-badge-duotone"
+                                                class="text-danger fs-20"
                                                 ></iconify-icon
-                                                >" Best Product Award"
+                                            >" Best Product Award"
                                             </p>
                                             <h6 class="mt-3 text-muted">Monday 9:30 AM</h6>
                                         </div>
@@ -336,7 +336,7 @@
                     class="offcanvas offcanvas-end border-0"
                     tabindex="-1"
                     id="theme-settings-offcanvas"
-                >
+                    >
                     <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
                         <h5 class="text-white m-0">Theme Settings</h5>
                         <button
@@ -344,7 +344,7 @@
                             class="btn-close btn-close-white ms-auto"
                             data-bs-dismiss="offcanvas"
                             aria-label="Close"
-                        ></button>
+                            ></button>
                     </div>
 
                     <div class="offcanvas-body p-0">
@@ -360,7 +360,7 @@
                                             name="data-bs-theme"
                                             id="layout-color-light"
                                             value="light"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="layout-color-light"
@@ -375,7 +375,7 @@
                                             name="data-bs-theme"
                                             id="layout-color-dark"
                                             value="dark"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="layout-color-dark"
@@ -394,7 +394,7 @@
                                             name="data-topbar-color"
                                             id="topbar-color-light"
                                             value="light"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="topbar-color-light"
@@ -408,7 +408,7 @@
                                             name="data-topbar-color"
                                             id="topbar-color-dark"
                                             value="dark"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="topbar-color-dark"
@@ -427,11 +427,11 @@
                                             name="data-menu-color"
                                             id="leftbar-color-light"
                                             value="light"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-color-light"
-                                        >
+                                            >
                                             Light
                                         </label>
                                     </div>
@@ -443,11 +443,11 @@
                                             name="data-menu-color"
                                             id="leftbar-color-dark"
                                             value="dark"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-color-dark"
-                                        >
+                                            >
                                             Dark
                                         </label>
                                     </div>
@@ -463,11 +463,11 @@
                                             name="data-menu-size"
                                             id="leftbar-size-default"
                                             value="default"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-size-default"
-                                        >
+                                            >
                                             Default
                                         </label>
                                     </div>
@@ -479,11 +479,11 @@
                                             name="data-menu-size"
                                             id="leftbar-size-small"
                                             value="condensed"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-size-small"
-                                        >
+                                            >
                                             Condensed
                                         </label>
                                     </div>
@@ -495,11 +495,11 @@
                                             name="data-menu-size"
                                             id="leftbar-hidden"
                                             value="hidden"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-hidden"
-                                        >
+                                            >
                                             Hidden
                                         </label>
                                     </div>
@@ -511,11 +511,11 @@
                                             name="data-menu-size"
                                             id="leftbar-size-small-hover-active"
                                             value="sm-hover-active"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-size-small-hover-active"
-                                        >
+                                            >
                                             Small Hover Active
                                         </label>
                                     </div>
@@ -527,11 +527,11 @@
                                             name="data-menu-size"
                                             id="leftbar-size-small-hover"
                                             value="sm-hover"
-                                        />
+                                            />
                                         <label
                                             class="form-check-label"
                                             for="leftbar-size-small-hover"
-                                        >
+                                            >
                                             Small Hover
                                         </label>
                                     </div>
@@ -546,7 +546,7 @@
                                     type="button"
                                     class="btn btn-danger w-100"
                                     id="reset-layout"
-                                >
+                                    >
                                     Reset
                                 </button>
                             </div>
@@ -559,217 +559,173 @@
             <!-- ========== Topbar End ========== -->
 
             <!-- ========== App Menu Start ========== -->
-             <jsp:include page="/view/admin-common/admin-navbar.jsp"></jsp:include>
+            <jsp:include page="/view/admin-common/admin-navbar.jsp"></jsp:include>
 
 
-            <!-- ========== App Menu End ========== -->
+                <!-- ========== App Menu End ========== -->
 
 
-            <!-- ==================================================== -->
-            <!-- Start right Content here -->
-            <!-- ==================================================== -->
-            <div class="page-content">
-                <!-- Start Container -->
-                <div class="container-xxl">
-                    <!-- ========== Page Title Start ========== -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <h4 class="mb-0 fw-semibold">Thêm sản phẩm</h4>
-                                <ol class="breadcrumb mb-0">
-                                    <li class="breadcrumb-item">
-                                        <a href="javascript: void(0);">Ecommerce</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">Create Product</li>
-                                </ol>
+                <!-- ==================================================== -->
+                <!-- Start right Content here -->
+                <!-- ==================================================== -->
+                <div class="page-content">
+                    <!-- Start Container -->
+                    <div class="container-xxl">
+                        <!-- ========== Page Title Start ========== -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <h4 class="mb-0 fw-semibold">Thêm sản phẩm</h4>
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item">
+                                            <a href="javascript: void(0);">Ecommerce</a>
+                                        </li>
+                                        <li class="breadcrumb-item active">Create Product</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ========== Page Title End ========== -->
+                        <!-- ========== Page Title End ========== -->
 
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="card" id="horizontalwizard">
-                                <div class="card-header">
-                                    <ul
-                                        class="nav nav-tabs card-header-tabs border-0"
-                                    >
-                                        <li
-                                            class="nav-item"
-                                            data-target-form="#generalDetailForm"
-                                        >
-                                            <a
-                                                href="#generalDetail"
-                                                data-bs-toggle="tab"
-                                                data-toggle="tab"
-                                                class="nav-link active pb-3"
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" id="horizontalwizard">
+                                    <div class="card-header">
+                                        <ul
+                                            class="nav nav-tabs card-header-tabs border-0"
                                             >
-                                                <i
-                                                    class="bx bxs-contact me-1"
-                                                ></i>
-                                                <span class="d-none d-sm-inline"
-                                                    >Thông tin chung</span
+                                            <li
+                                                class="nav-item"
+                                                data-target-form="#generalDetailForm"
                                                 >
-                                            </a>
-                                        </li>
-                                        <!-- end nav item -->
-                                        <li
-                                            class="nav-item"
-                                            data-target-form="#productImagesForm"
-                                        >
-                                            <a
-                                                href="#productImages"
-                                                data-bs-toggle="tab"
-                                                data-toggle="tab"
-                                                class="nav-link pb-3"
-                                            >
-                                                <i
-                                                    class="bx bx-images me-1"
-                                                ></i>
-                                                <span class="d-none d-sm-inline"
-                                                    >Hình ảnh</span
+                                                <a
+                                                    href="#generalDetail"
+                                                    data-bs-toggle="tab"
+                                                    data-toggle="tab"
+                                                    class="nav-link active pb-3"
+                                                    >
+                                                    <i
+                                                        class="bx bxs-contact me-1"
+                                                        ></i>
+                                                    <span class="d-none d-sm-inline"
+                                                          >Thông tin chung</span
+                                                    >
+                                                </a>
+                                            </li>
+                                            <!-- end nav item -->
+
+
+
+                                        </ul>
+                                        <!-- nav pills -->
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content pt-0">
+                                            <div
+                                                class="tab-pane show active"
+                                                id="generalDetail"
                                                 >
-                                            </a>
-                                        </li>
-                                        <!-- end nav item -->
-                                     
-                                        <li class="nav-item">
-                                            <a
-                                                href="#finish"
-                                                data-bs-toggle="tab"
-                                                data-toggle="tab"
-                                                class="nav-link pb-3"
-                                            >
-                                                <i
-                                                    class="bx bxs-check-circle me-1"
-                                                ></i>
-                                                <span class="d-none d-sm-inline"
-                                                    >Finish</span
-                                                >
-                                            </a>
-                                        </li>
-                                        <!-- end nav item -->
-                                    </ul>
-                                    <!-- nav pills -->
-                                </div>
-                                <div class="card-body">
-                                    <div class="tab-content pt-0">
-                                        <div
-                                            class="tab-pane show active"
-                                            id="generalDetail"
-                                        >
-                                            <form
-                                                id="generalDetailForm"
-                                                method="post"
-                                                action="#"
-                                            >
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label
-                                                                class="form-label"
-                                                                for="productName"
-                                                                >Tên sản phẩm</label
-                                                            >
-                                                            <input
-                                                                type="text"
-                                                                class="form-control"
-                                                                id="productName"
-                                                                placeholder="Enter product name"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="mb-3">
-                                                            <label
-                                                                class="form-label"
-                                                                >Mô tả</label
-                                                            >
-                                                            <div
-                                                                id="snow-editor"
-                                                                style="
-                                                                    height: 195px;
-                                                                "
-                                                            >
-                                                                <h5>
-                                                                    <span
-                                                                        class="ql-size-large"
-                                                                        >Mô tả sản phẩm</span
-                                                                    >
-                                                                </h5>
+                                                <form
+                                                    id="generalDetailForm"
+                                                    method="post"
+                                                    action="#">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label
+                                                                    class="form-label"
+                                                                    for="productName"
+                                                                    >Tên sản phẩm</label
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control"
+                                                                    id="productName"
+                                                                    placeholder="Enter product name"
+                                                                    />
                                                             </div>
                                                         </div>
+
                                                     </div>
-                                               
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label
+                                                                    class="form-label"
+                                                                    >Mô tả</label
+                                                                >
+                                                                <div
+                                                                    id="snow-editor"
+                                                                    style="
+                                                                    height: 195px;
+                                                                    "
+                                                                    >
+                                                                    <h5>
+                                                                        <span
+                                                                            class="ql-size-large"
+                                                                            >Mô tả sản phẩm</span
+                                                                        >
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <label
+                                                                    for="productSummary"
+                                                                    class="form-label"
+                                                                    >Thương hiệu</label
+                                                                >
+                                                                <select class="form-control select2">
+
+                                                                <c:forEach var="b" items="${brandList}">
+                                                                    <option
+                                                                        value="${b.brandID}">${b.brandName}
+                                                                    </option>
+                                                                </c:forEach>
+
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-6">
                                                             <label
                                                                 for="productSummary"
                                                                 class="form-label"
-                                                                >Danh mục</label
+                                                                >Thương hiệu</label
                                                             >
-                                                            <select
-                                                                class="form-control select2"
-                                                                data-toggle="select2"
-                                                            >
-                                                                <optgroup
-                                                                    label=""
-                                                                >
+                                                            <select class="form-control select2">
+
+                                                                <c:forEach var="c" items="${categoryList}">
                                                                     <option
-                                                                        value="select"
-                                                                    >
-                                                                        Select
+                                                                        value="${c.categoryID}">${c.categoryName}
                                                                     </option>
-                                                                </optgroup>
-                                                                <optgroup
-                                                                    label="Shopping"
-                                                                >
-                                                                    <option
-                                                                        value="shopping1"
-                                                                    >
-                                                                        Shopping
-                                                                        1
-                                                                    </option>
-                                                                    <option
-                                                                        value="shopping2"
-                                                                    >
-                                                                        Shopping
-                                                                        2
-                                                                    </option>
-                                                                    <option
-                                                                        value="shopping3"
-                                                                    >
-                                                                        Shopping
-                                                                        3
-                                                                    </option>
-                                                                    <option
-                                                                        value="shopping4"
-                                                                    >
-                                                                        Shopping
-                                                                        4
-                                                                    </option>
-                                                                </optgroup>
-                                                                <optgroup
-                                                                    label="CRM"
-                                                                >
-                                                                    <option
-                                                                        value="CRM1"
-                                                                    >
-                                                                        CRM 1
-                                                                    </option>
-                                                                    <option
-                                                                        value="CRM2"
-                                                                    >
-                                                                        CRM 2
-                                                                    </option>
-                                                                </optgroup>
+                                                                </c:forEach>
+
+
                                                             </select>
                                                         </div>
-                                                        <div class="mb-3">
+
+                                                        <div class="col-6">
+                                                            <br>
+                                                            <label 
+                                                                class="form-label"
+                                                                for="price"
+                                                                >Số lượng</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                class="form-control"
+                                                                id="quantity"
+                                                                placeholder="Nhập số lượng"
+                                                                value="1"
+                                                                min="1"
+                                                                />
+
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <br>
                                                             <label
                                                                 class="form-label"
                                                                 for="price"
@@ -780,157 +736,141 @@
                                                                 class="form-control"
                                                                 id="price"
                                                                 placeholder="Enter amount"
-                                                            />
+                                                                />
                                                         </div>
-                                                    </div>
-                                                </div>
-                                             
-                                              
-                                            </form>
-                                        </div>
-                                        <!-- end contact detail tab pane -->
-                                        <div
-                                            class="tab-pane"
-                                            id="productImages"
-                                        >
-                                            <h5 class="fs-14 mb-1">
-                                                Product Gallery
-                                            </h5>
-                                            <p class="text-muted fs-13">
-                                                Add Product Gallery Images.
-                                            </p>
-                                            <form
-                                                action="https://techzaa.in/"
-                                                method="post"
-                                                class="dropzone"
-                                                id="productImagesForm"
-                                                data-plugin="dropzone"
-                                                data-previews-container="#file-previews"
-                                                data-upload-preview-template="#uploadPreviewTemplate"
-                                            >
-                                                <div class="fallback">
-                                                    <input
-                                                        name="file"
-                                                        type="file"
-                                                        multiple
-                                                    />
-                                                </div>
 
-                                                <div
-                                                    class="dz-message needsclick"
-                                                >
-                                                    <i
-                                                        class="h1 bx bx-cloud-upload"
-                                                    ></i>
-                                                    <h3>
-                                                        Drop files here or click
-                                                        to upload.
-                                                    </h3>
-                                                    <span
-                                                        class="text-muted fs-13"
-                                                    >
-                                                        (This is just a demo
-                                                        dropzone. Selected files
-                                                        are
-                                                        <strong>not</strong>
-                                                        actually uploaded.)
-                                                    </span>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- end job detail tab pane -->
-                                        <div class="tab-pane" id="metaData">
-                                            <form
-                                                id="metaDataForm"
-                                                method="post"
-                                                action="#"
-                                            >
-                                                <h5 class="mb-3 mt-0">
-                                                    Fill all information below
-                                                </h5>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label
-                                                                class="form-label"
-                                                                for="metaTitle"
-                                                                >Meta
-                                                                Title</label
-                                                            >
+
+                                                        <br>
+
+
+                                                        <!-- importDate -->
+                                                        <div class="col-6">
+                                                            <br>
+                                                            <label for="importDate" class="form-label">Ngày nhập hàng</label>
+                                                            <input
+                                                                type="date"
+                                                                class="form-control"
+                                                                id="importDate"
+                                                                placeholder="YYYY-MM-DD"
+                                                                value="2023-03-15"
+                                                                />
+                                                        </div>
+
+                                                        <!-- warrantyMonths -->
+                                                        <div class="col-6">
+                                                            <br>
+                                                            <label for="warrantyMonths" class="form-label">Thời gian bảo hành (tháng)</label>
+                                                            <input
+                                                                type="number"
+                                                                class="form-control"
+                                                                id="warrantyMonths"
+                                                                placeholder="Nhập số tháng bảo hành"
+                                                                value="12"
+                                                                min="1"
+                                                                max="12"
+                                                                />
+                                                        </div>
+
+                                                       
+
+
+
+                                                        <!-- CPU -->
+                                                        <div class="col-6"><br>
+
+                                                            <label for="cpu" class="form-label">CPU</label>
                                                             <input
                                                                 type="text"
                                                                 class="form-control"
-                                                                id="metaTitle"
-                                                                placeholder="Enter Meta Title"
-                                                            />
+                                                                id="cpu"
+                                                                placeholder=""
+                                                                />
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label
-                                                                class="form-label"
-                                                                for="metaKeywords"
-                                                                >Meta
-                                                                Keywords</label
-                                                            >
+
+                                                        <!-- RAM -->
+                                                        <div class="col-6"><br>
+                                                            <label for="ram" class="form-label">RAM</label>
                                                             <input
                                                                 type="text"
                                                                 class="form-control"
-                                                                id="metaKeywords"
-                                                                placeholder="Enter Meta Keywords"
-                                                            />
+                                                                id="ram"
+                                                                placeholder=""
+                                                                />
+                                                        </div>
+
+                                                        <!-- Storage -->
+                                                        <div class="col-6"><br>
+                                                            <label for="storage" class="form-label">Bộ nhớ lưu trữ</label>
+                                                            <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="storage"
+                                                                placeholder=""
+                                                                />
+                                                        </div>
+
+                                                        <!-- Screen -->
+                                                        <div class="col-6"><br>
+                                                            <label for="screen" class="form-label">Màn hình</label>
+                                                            <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="screen"
+                                                                placeholder=""
+                                                                />
+                                                        </div>
+
+                                                        <!-- GPU -->
+                                                        <div class="col-6"><br>
+                                                            <label for="gpu" class="form-label">GPU</label>
+                                                            <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="gpu"
+                                                                placeholder=""
+                                                                />
+                                                        </div>
+                                                        
+                                                        
+
+                                                        <div
+                                                            class="col-6 tab-pane"  id="productImages">
+                                                            <br>
+                                                            <h5 class="fs-14 mb-1">
+                                                                Hình ảnh sản phẩm
+                                                            </h5>
+                                                            <p class="text-muted fs-13">
+                                                                Add Product Gallery Images.
+                                                            </p>
+
+                                                            <div class="fallback">
+                                                                <input name="file" type="file" multiple/>
+                                                            </div>
+
+
+                                                        </div>
+                                                        
+                                                         <!-- isFeatured -->
+                                                        <div class="col-6 checkbox-container">
+                                                            <br>
+                                                            <label for="isFeatured">Sản phẩm nổi bật</label>
+                                                            <input type="checkbox" id="isFeatured" name="isFeatured" value="1">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label
-                                                        for="metaDescription"
-                                                        class="form-label"
-                                                        >Meta Description</label
-                                                    >
-                                                    <textarea
-                                                        class="form-control"
-                                                        id="metaDescription"
-                                                        rows="3"
-                                                    ></textarea>
-                                                </div>
+
+
                                             </form>
                                         </div>
-                                        <!-- end education detail tab pane -->
-                                        <div class="tab-pane" id="finish">
-                                            <div
-                                                class="row d-flex justify-content-center"
-                                            >
-                                                <div class="col-lg-6">
-                                                    <div class="text-center">
-                                                        <i
-                                                            class="bx bx-check-double text-success h2"
-                                                        ></i>
-                                                        <h3 class="mt-0">
-                                                            Congratulations !
-                                                        </h3>
 
-                                                        <h5
-                                                            class="w-75 mb-2 mt-3 mx-auto text-muted"
-                                                        >
-                                                            Your Product has
-                                                            been successfully
-                                                            added!
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                                <!-- end col -->
-                                            </div>
-                                            <!-- end row -->
-                                        </div>
+
                                         <div
                                             class="d-flex flex-wrap gap-2 wizard justify-content-between mt-3"
-                                        >
+                                            >
                                             <div class="first d-none">
                                                 <a
                                                     href="javascript:void(0);"
                                                     class="btn btn-primary"
-                                                >
+                                                    >
                                                     First
                                                 </a>
                                             </div>
@@ -938,10 +878,10 @@
                                                 <a
                                                     href="javascript:void(0);"
                                                     class="btn btn-primary"
-                                                >
+                                                    >
                                                     <i
                                                         class="bx bx-left-arrow-alt me-2"
-                                                    ></i
+                                                        ></i
                                                     >Back To Previous
                                                 </a>
                                             </div>
@@ -949,17 +889,17 @@
                                                 <a
                                                     href="javascript:void(0);"
                                                     class="btn btn-primary"
-                                                >
+                                                    >
                                                     Next Step<i
                                                         class="bx bx-right-arrow-alt ms-2"
-                                                    ></i>
+                                                        ></i>
                                                 </a>
                                             </div>
                                             <div class="last d-none">
                                                 <a
                                                     href="javascript:void(0);"
                                                     class="btn btn-primary"
-                                                >
+                                                    >
                                                     Finish
                                                 </a>
                                             </div>
@@ -980,17 +920,17 @@
                 <!-- ========== Footer Start ========== -->
                 <jsp:include page="/view/admin-common/admin-footer.jsp"></jsp:include>
 
-                <!-- ========== Footer End ========== -->
+                    <!-- ========== Footer End ========== -->
 
+                </div>
+                <!-- ==================================================== -->
+                <!-- End Page Content -->
+                <!-- ==================================================== -->
             </div>
-            <!-- ==================================================== -->
-            <!-- End Page Content -->
-            <!-- ==================================================== -->
-        </div>
-        <!-- END Wrapper -->
+            <!-- END Wrapper -->
 
-        <!-- Vendor Javascript (Require in all Page) -->
-        <script src="${pageContext.request.contextPath}/admin-assets//js/vendor.js"></script>
+            <!-- Vendor Javascript (Require in all Page) -->
+            <script src="${pageContext.request.contextPath}/admin-assets//js/vendor.js"></script>
 
         <!-- App Javascript (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets//js/app.js"></script>
@@ -1000,5 +940,5 @@
         <script src="${pageContext.request.contextPath}/admin-assets//js/pages/app-ecommerce-product.js"></script>
     </body>
 
-<!-- Mirrored from techzaa.in/reback/admin/apps-ecommerce-product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 06:09:08 GMT -->
+    <!-- Mirrored from techzaa.in/reback/admin/apps-ecommerce-product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 06:09:08 GMT -->
 </html>
