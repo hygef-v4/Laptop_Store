@@ -54,8 +54,9 @@ public class PaymentServlet extends HttpServlet {
                 ? "" : request.getParameter("action");
         switch (action) {
             case "check-out":
-                checkOut(request, response);
-                response.sendRedirect("dashboard");
+                if (checkOut(request, response)) {
+                    response.sendRedirect("dashboard");
+                }
                 break;
             default:
                 response.sendRedirect("payment");
@@ -63,7 +64,7 @@ public class PaymentServlet extends HttpServlet {
 
     }
 
-    private void checkOut(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private boolean checkOut(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // get cart 
         HttpSession session = request.getSession();
         // get cart from session 
@@ -96,11 +97,16 @@ public class PaymentServlet extends HttpServlet {
         // Check stock before proceeding
         for (OrderDetails od : cart.getListOrderDetails()) {
             Product product = productDAO.searchProduct(od.getProductID());
-            if (product == null || product.getQuantity() < od.getQuantity()) {
-                // Product is either not found or stock is insufficient
-                session.setAttribute("errorPaymentMsg", "Sản phẩm " + product.getProductName() + " không đủ hàng trong kho.");
-              
-                return; // Stop execution immediately to prevent response conflicts
+            if (product == null) {
+                session.setAttribute("errorPaymentMsg",
+                        "Sản phẩm với ID " + od.getProductID() + " không tồn tại.");
+                request.getRequestDispatcher("view/page/cart.jsp").forward(request, response);
+                return false;
+            } else if (product.getQuantity() < od.getQuantity()) {
+                session.setAttribute("errorPaymentMsg",
+                        "Sản phẩm " + product.getProductName() + " không đủ hàng trong kho.");
+                request.getRequestDispatcher("view/page/cart.jsp").forward(request, response);
+                return false;
             }
         }
 
@@ -119,6 +125,7 @@ public class PaymentServlet extends HttpServlet {
         // remove cart 
         session.removeAttribute("cart");
         session.setAttribute("successPaymentMsg", "Cảm ơn bạn đã mua hàng");
+        return true;
     }
 
     private int caculateAmount(Order cart, Vector<Product> productList) {

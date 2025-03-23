@@ -225,6 +225,15 @@
 
 
                                 </div>
+                                <% 
+                                    String errorMsg = (String) session.getAttribute("errorPaymentMsg");
+                                    if (errorMsg != null) { 
+                                %>
+                                    <div style="color: red;"><%= errorMsg %></div>
+                                <% 
+                                        session.removeAttribute("errorPaymentMsg"); // Clear after displaying
+                                    } 
+                                %>
 
 
                             </div><!-- End .cart-summary -->
