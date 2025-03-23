@@ -72,6 +72,8 @@ public class OrderDAO extends DBContext {
                     order.setAddress(rs.getString("address"));
                     order.setPhone(rs.getString("phone"));
                     order.setNote(rs.getString("note"));
+                    order.setStatus(rs.getBoolean("status"));  // Read status from DB
+
                     orders.add(order);
                 }
             }
@@ -79,6 +81,18 @@ public class OrderDAO extends DBContext {
             e.printStackTrace();
         }
         return orders;
+    }
+
+    public void updateOrderStatus(int orderId, boolean newStatus) {
+        String sql = "UPDATE tblOrders SET status = ? WHERE orderID = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setBoolean(1, newStatus);
+            ps.setInt(2, orderId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

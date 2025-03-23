@@ -148,7 +148,8 @@
                                                                 <td>#${order.orderID}</td>
                                                                 <td><fmt:formatDate value="${order.formattedDate}" pattern="yyyy-MM-dd" /></td>
                                                                 <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
-                                                                <td>Đã xác nhận</td> 
+                                                                <td>${order.statusText}</td> 
+
                                                                 <td>
                                                                     <button class="btn btn-info" data-toggle="collapse" data-target="#details-${order.orderID}">
                                                                         Xem Chi Tiết
@@ -196,7 +197,7 @@
                                             </tbody>
                                         </table>
                                         <hr class="mt-0 mb-3 pb-2" />
-                                        <a href="category.html" class="btn btn-dark">Go Shop</a>
+                                        <a href="${pageContext.request.contextPath}/category" class="btn btn-dark">Mua thêm</a>
                                     </div>
                                 </div>
                             </div>

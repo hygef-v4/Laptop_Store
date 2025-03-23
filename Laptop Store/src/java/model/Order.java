@@ -1,4 +1,3 @@
-
 package model;
 
 import java.security.Timestamp;
@@ -22,16 +21,18 @@ import lombok.ToString;
 @Getter
 @Setter
 public class Order {
+
     private int orderID;
     private int amount;
     private Integer userID; // Nullable field
-    private LocalDateTime  orderDate; 
-    Vector<OrderDetails> listOrderDetails = new Vector<>();
-    String fullname; 
-    String address; 
-    String phone; 
-    String note; // ghi chu 
-    
+    private LocalDateTime orderDate;
+    private Vector<OrderDetails> listOrderDetails = new Vector<>();
+    private String fullname;
+    private String address;
+    private String phone;
+    private String note; // ghi chu 
+    private boolean status;  // true = Đã xác nhận, false = Chưa xác nhận
+
     // Calculate total amount based on order details
     public int getAmount() {
         int total = 0;
@@ -40,8 +41,12 @@ public class Order {
         }
         return total;
     }
-    
+
     public Date getFormattedDate() {
         return Date.from(orderDate.atZone(ZoneId.systemDefault()).toInstant());
+    }
+    
+    public String getStatusText() {
+        return status ? "Đã xác nhận" : "Chưa xác nhận";
     }
 }
