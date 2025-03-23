@@ -14,7 +14,7 @@
     <head>
         <!-- Title Meta -->
         <meta charset="utf-8" />
-        <title>Products List | Reback - Responsive Admin Dashboard Template</title>
+        <title>Products List | Reback</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
@@ -327,7 +327,7 @@
                                             </div>
                                             <div>
                                                 <a
-                                                    href="apps-ecommerce-product-add.html"
+                                                    href="${pageContext.request.contextPath}/view/admin/addProduct.jsp"
                                                     class="btn btn-primary d-flex align-items-center"
                                                     >
                                                     <i class="bx bx-plus me-1"></i
@@ -346,11 +346,11 @@
                                                     class="bg-light bg-opacity-50"
                                                     >
                                                     <tr>
-                                                        <th>Product Name</th>
-                                                        <th>Category</th>
-                                                        <th>Price</th>
-                                                        <th>Inventory</th>
-                                                        <th>Action</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Danh mục</th>
+                                                        <th>Giá tiền</th>
+                                                        <th>Tình trạng kho</th>
+                                                        <th>Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 <!-- end thead-->
@@ -366,7 +366,7 @@
                                                                     class="flex-shrink-0 me-3"
                                                                     >
                                                                     <a
-                                                                        href="apps-ecommerce-product-detail.html"
+                                                                        href="${pageContext.request.contextPath}/products?productID=${p.productID}"
                                                                         ><img
                                                                             src="${p.image}"
                                                                             alt="product-1(1)"
@@ -380,7 +380,7 @@
                                                                         class="mt-0 mb-1"
                                                                         >
                                                                         <a
-                                                                            href="apps-ecommerce-product-detail.html"
+                                                                            href="${pageContext.request.contextPath}/products?productID=${p.productID}"
                                                                             class="text-reset"
                                                                             >${p.productName}</a
                                                                         >
@@ -395,11 +395,17 @@
                                                         <td>${p.categoryID}</td>
                                                         <td><fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></td>
                                                         <td class="text-primary">
-                                                            <i
-                                                                class="bx bxs-circle text-primary me-1"
-                                                                ></i
-                                                            >Limited
+                                                         
+                                                            <c:choose>
+                                                                <c:when test="${p.quantity == 0}">
+                                                                    <span class="text-danger">Hết hàng</span>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    Còn ${p.quantity} sản phẩm
+                                                                </c:otherwise>
+                                                            </c:choose>
                                                         </td>
+
                                                         <td>
                                                             <button
                                                                 type="button"
@@ -500,37 +506,18 @@
                 </div>
                 <!-- End Container -->
 
-                <!-- ========== Footer Start ========== -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>
-                                &copy; Reback. Crafted by
-                                <iconify-icon
-                                    icon="iconamoon:heart-duotone"
-                                    class="fs-18 align-middle text-danger"
-                                    ></iconify-icon>
-                                <a href="https://1.envato.market/techzaa" class="fw-bold footer-text" target="_blank"
-                                   >Techzaa</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- ========== Footer End ========== -->
+                <jsp:include page="/view/admin-common/admin-footer.jsp"></jsp:include>
 
+
+                </div>
+                <!-- ==================================================== -->
+                <!-- End Page Content -->
+                <!-- ==================================================== -->
             </div>
-            <!-- ==================================================== -->
-            <!-- End Page Content -->
-            <!-- ==================================================== -->
-        </div>
-        <!-- END Wrapper -->
+            <!-- END Wrapper -->
 
-        <!-- Vendor Javascript (Require in all Page) -->
-        <script src="${pageContext.request.contextPath}/admin-assets/js/vendor.js"></script>
+            <!-- Vendor Javascript (Require in all Page) -->
+            <script src="${pageContext.request.contextPath}/admin-assets/js/vendor.js"></script>
 
         <!-- App Javascript (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets/js/app.js"></script>

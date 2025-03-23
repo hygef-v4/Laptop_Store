@@ -47,17 +47,17 @@ public class DashboadServlet extends HttpServlet {
         int userId = user.getUserID(); // Get user ID from session
 
         // Fetch list of orders for the user
-        List<Order> orderList = orderDAO.getOrdersByUserId(userId);
+        List<Order> orderListUser = orderDAO.getOrdersByUserId(userId);
 
         // Populate order details for each order
-        for (Order order : orderList) {
+        for (Order order : orderListUser) {
             Vector<OrderDetails> orderDetails = orderDetailsDAO.getOrderDetailsByOrderId(order.getOrderID());
             order.setListOrderDetails(orderDetails); // Set order details
         }
 
         // Set attributes for JSP
         request.setAttribute("productDAO", productDAO);
-        request.setAttribute("orderList", orderList);
+        request.setAttribute("orderListUser", orderListUser);
 
         // Forward to account page
         request.getRequestDispatcher("view/page/account.jsp").forward(request, response);

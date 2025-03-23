@@ -2,6 +2,7 @@ package controller.page;
 
 import dal.implement.BrandDAO;
 import dal.implement.CategoryDAO;
+import dal.implement.OrderDAO;
 import dal.implement.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +11,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Vector;
 import model.Brand;
 import model.Category;
+import model.Order;
 import model.Product;
 
 public class HomeServlet extends HttpServlet {
@@ -25,6 +28,7 @@ public class HomeServlet extends HttpServlet {
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
     BrandDAO brandDAO = new BrandDAO();
+    OrderDAO orderDao = new OrderDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,14 +43,13 @@ public class HomeServlet extends HttpServlet {
         Vector<Brand> brandList = brandDAO.getAllBrands(brandListSQL);
         //get all product 
         Vector<Product> productList = productDAO.getAllProduct(productListSQL);
-
         HttpSession session = request.getSession();
         session.setAttribute("featureProducts", featureProducts);
         session.setAttribute("newProducts", newProducts);
         session.setAttribute("categoryList", categoryList);
         session.setAttribute("brandList", brandList);
         session.setAttribute("productList", productList);
-        
+
         request.getRequestDispatcher("view/page/home.jsp").forward(request, response);
 
     }

@@ -21,8 +21,8 @@
         <servlet-class>controller.page.AuthenticationServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>controller.admin.DashboardServlet</servlet-class>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <servlet-class>controller.admin.AdminDashboardServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentServlet</servlet-name>
@@ -57,7 +57,7 @@
         <url-pattern>/authen</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-name>AdminDashboardServlet</servlet-name>
         <url-pattern>/admin/dashboard</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

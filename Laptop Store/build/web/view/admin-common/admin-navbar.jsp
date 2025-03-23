@@ -9,45 +9,9 @@
 <html>
     <div class="main-nav">
         <!-- Sidebar Logo -->
-        <div class="logo-box">
-            <a href="index.html" class="logo-dark">
-                <img
-                    src="${pageContext.request.contextPath}/admin-assets/images/logo-sm.png"
-                    class="logo-sm"
-                    alt="logo sm"
-                    />
-                <img
-                    src="${pageContext.request.contextPath}/admin-assets/images/logo-dark.png"
-                    class="logo-lg"
-                    alt="logo dark"
-                    />
-            </a>
 
-            <a href="index.html" class="logo-light">
-                <img
-                    src="${pageContext.request.contextPath}/admin-assets/images/logo-sm.png"
-                    class="logo-sm"
-                    alt="logo sm"
-                    />
-                <img
-                    src="${pageContext.request.contextPath}/admin-assets/images/logo-light.png"
-                    class="logo-lg"
-                    alt="logo light"
-                    />
-            </a>
-        </div>
 
-        <!-- Menu Toggle Button (sm-hover) -->
-        <button
-            type="button"
-            class="button-sm-hover"
-            aria-label="Show Full Sidebar"
-            >
-            <iconify-icon
-                icon="iconamoon:arrow-left-4-square-duotone"
-                class="button-sm-hover-icon"
-                ></iconify-icon>
-        </button>
+
 
         <div class="scrollbar" data-simplebar>
             <ul class="navbar-nav" id="navbar-nav">                                 
@@ -65,15 +29,15 @@
                                 icon="iconamoon:shopping-bag-duotone"
                                 ></iconify-icon>
                         </span>
-                        <span class="nav-text"> Ecommerce </span>
+                        <span class="nav-text"> Admin </span>
                     </a>
                     <div id="sidebarEcommerce">
                         <ul class="nav sub-navbar-nav">
                             <li class="sub-nav-item">
                                 <a
                                     class="sub-nav-link"
-                                    href="apps-ecommerce-product-list.html"
-                                    >Products</a
+                                    href="${pageContext.request.contextPath}/admin/dashboard"
+                                    >Sản phẩm</a
                                 >
                             </li>
 
@@ -81,7 +45,7 @@
                                 <a
                                     class="sub-nav-link"
                                     href="apps-ecommerce-product-add.html"
-                                    >Create Product</a
+                                    >Thêm sản phẩm</a
                                 >
                             </li>
 
@@ -89,7 +53,7 @@
                                 <a
                                     class="sub-nav-link"
                                     href="apps-ecommerce-customer-list.html"
-                                    >Customers</a
+                                    >Khách hàng</a
                                 >
                             </li>
 
@@ -98,11 +62,12 @@
                             <li class="sub-nav-item">
                                 <a
                                     class="sub-nav-link"
-                                    href="apps-ecommerce-order-list.html"
-                                    >Orders</a
+                                    href="${pageContext.request.contextPath}/admin/dashboard?action=order-list"
+
+                                    >Đơn hàng</a
                                 >
                             </li>
-                          
+
 
 
                         </ul>

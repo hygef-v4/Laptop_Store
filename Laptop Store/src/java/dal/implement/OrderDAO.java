@@ -14,6 +14,8 @@ import model.OrderDetails;
 
 public class OrderDAO extends DBContext {
 
+    private final OrderDetailDAO orderDetailsDAO = new OrderDetailDAO(); // Use OrderDetailsDAO
+
     public int insertOrder(Order order) {
         String sql = "INSERT INTO [dbo].[tblOrders] (amount, userID, fullName, address, phone, note) VALUES (?, ?, ?, ?, ?, ?)";
         int orderId = -1; // Default value if insert fails
@@ -57,8 +59,8 @@ public class OrderDAO extends DBContext {
      * @return A list of Order objects, each containing its associated
      * OrderDetails.
      */
-    public List<Order> getOrdersByUserId(int userId) {
-        List<Order> orders = new ArrayList<>();
+    public Vector<Order> getOrdersByUserId(int userId) {
+        Vector<Order> orders = new Vector<>();
         String sql = "SELECT * FROM tblOrders WHERE userID = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, userId);
@@ -94,5 +96,79 @@ public class OrderDAO extends DBContext {
             e.printStackTrace();
         }
     }
+    // Get all orders for admin
 
+     public Vector<Order> getAllOrders() {
+        Vector<Order> orders = new Vector<>();
+        String sql = "SELECT * FROM tblOrders";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+   
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Order order = new Order();
+                    order.setOrderID(rs.getInt("orderID"));
+                    order.setUserID(rs.getInt("userID"));
+                    order.setOrderDate(rs.getTimestamp("orderDate").toLocalDateTime());
+                    order.setFullname(rs.getString("fullName"));
+                    order.setAddress(rs.getString("address"));
+                    order.setPhone(rs.getString("phone"));
+                    order.setNote(rs.getString("note"));
+                    order.setStatus(rs.getBoolean("status"));  // Read status from DB
+
+                    orders.add(order);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
+    public Order getOrderById(int orderID) {
+        Order order = null;
+        String sql = "SELECT * FROM tblOrders WHERE orderID = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                order = new Order();
+                order.setOrderID(rs.getInt("orderID"));
+                order.setAmount(rs.getInt("amount"));
+                order.setUserID(rs.getInt("userID"));
+                order.setOrderDate(rs.getTimestamp("orderDate").toLocalDateTime());
+                order.setFullname(rs.getString("fullname"));
+                order.setAddress(rs.getString("address"));
+                order.setPhone(rs.getString("phone"));
+                order.setNote(rs.getString("note"));
+                order.setStatus(rs.getBoolean("status"));
+
+                // Fetch order details using OrderDetailsDAO
+                order.setListOrderDetails(orderDetailsDAO.getOrderDetailsByOrderId(order.getOrderID()));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return order;
+    }
+
+    public static void main(String[] args) {
+        OrderDAO orderDAO = new OrderDAO(); // Create OrderDAO instance
+
+        // Test getAllOrders()
+        List<Order> orders = orderDAO.getAllOrders();
+        System.out.println("Total Orders Retrieved: " + orders.size());
+
+        // Print order details
+        for (Order order : orders) {
+            System.out.println("Order ID: " + order.getOrderID());
+            System.out.println("Customer Name: " + order.getFullname());
+            System.out.println("Address: " + order.getAddress());
+            System.out.println("Phone: " + order.getPhone());
+            System.out.println("Amount: " + order.getAmount());
+            System.out.println("Status: " + (order.isStatus() ? "Confirmed" : "Pending"));
+            System.out.println("----------------------------");
+        }
+    }
 }

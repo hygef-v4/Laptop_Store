@@ -142,8 +142,8 @@
                                             </thead>
                                             <tbody>
                                                 <c:choose>
-                                                    <c:when test="${not empty orderList}">
-                                                        <c:forEach var="order" items="${orderList}">
+                                                    <c:when test="${not empty orderListUser}">
+                                                        <c:forEach var="order" items="${orderListUser}">
                                                             <tr>
                                                                 <td>#${order.orderID}</td>
                                                                 <td><fmt:formatDate value="${order.formattedDate}" pattern="yyyy-MM-dd" /></td>
@@ -188,7 +188,7 @@
                                                     <c:otherwise>
                                                         <tr>
                                                             <td class="text-center p-0" colspan="5">
-                                                                <p class="mb-5 mt-5">No Order has been made yet.</p>
+                                                                <p class="mb-5 mt-5">Hiện tại bạn chưa có đơn hàng nào</p>
                                                             </td>
                                                         </tr>
                                                     </c:otherwise>
