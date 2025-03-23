@@ -23,7 +23,6 @@ import model.Product;
 public class CartServlet extends HttpServlet {
 
     OrderDAO orderDao = new OrderDAO();
-    OrderDetailDAO OrderDetailDao = new OrderDetailDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

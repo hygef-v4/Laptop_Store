@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,17 +100,20 @@
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link" id="order-tab" data-toggle="tab" href="#order" role="tab"
-                                       aria-controls="order" aria-selected="true">Đơn hàng</a>
+                                    <a class="nav-link ${param.tab eq 'order' ? 'active' : ''}" 
+                                       href="${pageContext.request.contextPath}/dashboard?tab=order" role="tab">
+                                        Đơn hàng đã mua
+                                    </a>
                                 </li>
-
-
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab"
-                                       aria-controls="edit" aria-selected="false">Thông tin cá nhân</a>
+                                    <a class="nav-link ${param.tab eq 'edit' ? 'active' : ''}" 
+                                       href="${pageContext.request.contextPath}/dashboard?tab=edit" role="tab">
+                                        Thông tin cá nhân
+                                    </a>
                                 </li>
+
 
 
                                 <li class="nav-item">
@@ -119,52 +124,90 @@
                         <div class="col-lg-9 order-lg-last order-1 tab-content">
 
 
-                            <div class="tab-pane fade " id="order" role="tabpanel">
+                            <div class="tab-pane fade ${param.tab eq 'order' ? 'show active' : ''}" id="order" role="tabpanel">
                                 <div class="order-content">
-                                    <h3 class="account-sub-title d-none d-md-block"><i
-                                            class="sicon-social-dropbox align-middle mr-3"></i>Đơn hàng đã mua</h3>
+                                    <h3 class="account-sub-title d-none d-md-block">
+                                        <i class="sicon-social-dropbox align-middle mr-3"></i>Đơn hàng đã mua
+                                    </h3>
                                     <div class="order-table-container text-center">
                                         <table class="table table-order text-left">
                                             <thead>
                                                 <tr>
-                                                    <th class="order-id">Đơn hàng</th>
-                                                    <th class="order-date">Ngày mua</th>
-                                                    <th class="order-status">Tình trạng</th>
+                                                    <th class="order-id">Mã Đơn Hàng</th>
+                                                    <th class="order-date">Ngày Mua</th>
                                                     <th class="order-price">Tổng tiền</th>
-
+                                                    <th class="order-status">Tình Trạng</th>
+                                                    <th>Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center p-0" colspan="5">
-                                                        <p class="mb-5 mt-5">
-                                                            No Order has been made yet.
-                                                        </p>
-                                                    </td>
-                                                </tr>
+                                                <c:choose>
+                                                    <c:when test="${not empty orderList}">
+                                                        <c:forEach var="order" items="${orderList}">
+                                                            <tr>
+                                                                <td>#${order.orderID}</td>
+                                                                <td><fmt:formatDate value="${order.formattedDate}" pattern="yyyy-MM-dd" /></td>
+                                                                <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
+                                                                <td>Đã xác nhận</td> 
+                                                                <td>
+                                                                    <button class="btn btn-info" data-toggle="collapse" data-target="#details-${order.orderID}">
+                                                                        Xem Chi Tiết
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <!-- Order Details Section -->
+                                                            <tr id="details-${order.orderID}" class="collapse">
+                                                                <td colspan="5">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Tên sản phẩm</th>
+                                                                                <th>Số Lượng</th>
+                                                                                <th>Giá</th>
+                                                                                <th>Tổng</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <c:forEach var="detail" items="${order.listOrderDetails}">
+                                                                                <tr>
+                                                                                    <td>${detail.getProductName(productDAO)}</td> 
+                                                                                    <td>${detail.quantity}</td>
+                                                                                    <td><fmt:formatNumber value="${detail.price}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
+                                                                                    <td><fmt:formatNumber value="${detail.totalPrice}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td> 
+                                                                                </tr>
+                                                                            </c:forEach>
+
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <tr>
+                                                            <td class="text-center p-0" colspan="5">
+                                                                <p class="mb-5 mt-5">No Order has been made yet.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </c:otherwise>
+                                                </c:choose>
+
                                             </tbody>
                                         </table>
                                         <hr class="mt-0 mb-3 pb-2" />
-
                                         <a href="category.html" class="btn btn-dark">Go Shop</a>
                                     </div>
                                 </div>
-                            </div><!-- End .tab-pane -->
-
-                            <div class="tab-pane fade" id="download" role="tabpanel">
-                                <div class="download-content">
-                                    <h3 class="account-sub-title d-none d-md-block"><i
-                                            class="sicon-cloud-download align-middle mr-3"></i>Downloads</h3>
-                                    <div class="download-table-container">
-                                        <p>No downloads available yet.</p> <a href="category.html"
-                                                                              class="btn btn-primary text-transform-none mb-2">GO SHOP</a>
-                                    </div>
-                                </div>
-                            </div><!-- End .tab-pane -->
+                            </div>
 
 
 
-                            <div class="tab-pane fade show active" id="edit" role="tabpanel">
+
+
+
+
+                            <div class="tab-pane fade ${empty param.tab or param.tab eq 'edit' ? 'show active' : ''}" id="edit" role="tabpanel">
                                 <h3 class="account-sub-title d-none d-md-block mt-0 pt-1 ml-1"><i
                                         class="icon-user-2 align-middle mr-3 pr-1"></i>Thông tin cá nhân</h3>
                                 <div class="account-content">
@@ -210,7 +253,7 @@
                                             <input name="acc-address" type="text" class="form-control" value="${user.address}" placeholder="số nhà, tên phường, tỉnh/thành phố" required" />
 
                                         </div>
-<!--                                            alert message-->
+                                        <!--                                            alert message-->
                                         <c:if test="${not empty changeInfoSuccess}">
                                             <div class="alert alert-success">${changeInfoSuccess}</div>
                                             <% session.removeAttribute("changeInfoSuccess"); %>
@@ -276,162 +319,9 @@
                                 </div>
                             </div><!-- End .tab-pane -->
 
-                            <div class="tab-pane fade" id="billing" role="tabpanel">
-                                <div class="address account-content mt-0 pt-2">
-                                    <h4 class="title">Billing address</h4>
 
-                                    <form class="mb-2" action="#">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>First name <span class="required">*</span></label>
-                                                    <input type="text" class="form-control" required />
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Last name <span class="required">*</span></label>
-                                                    <input type="text" class="form-control" required />
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Company </label>
-                                            <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="select-custom">
-                                            <label>Country / Region <span class="required">*</span></label>
-                                            <select name="orderby" class="form-control">
-                                                <option value="" selected="selected">British Indian Ocean Territory
-                                                </option>
-                                                <option value="1">Brunei</option>
-                                                <option value="2">Bulgaria</option>
-                                                <option value="3">Burkina Faso</option>
-                                                <option value="4">Burundi</option>
-                                                <option value="5">Cameroon</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Street address <span class="required">*</span></label>
-                                            <input type="text" class="form-control"
-                                                   placeholder="House number and street name" required />
-                                            <input type="text" class="form-control"
-                                                   placeholder="Apartment, suite, unit, etc. (optional)" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Town / City <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>State / Country <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Postcode / ZIP <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Phone <span class="required">*</span></label>
-                                            <input type="number" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Email address <span class="required">*</span></label>
-                                            <input type="email" class="form-control" placeholder="sample@gmail.com"
-                                                   required />
-                                        </div>
-
-                                        <div class="form-footer mb-0">
-                                            <div class="form-footer-right">
-                                                <button type="submit" class="btn btn-dark py-4">
-                                                    Save Address
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div><!-- End .tab-pane -->
-
-                            <div class="tab-pane fade" id="shipping" role="tabpanel">
-                                <div class="address account-content mt-0 pt-2">
-                                    <h4 class="title mb-3">Shipping Address</h4>
-
-                                    <form class="mb-2" action="#">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>First name <span class="required">*</span></label>
-                                                    <input type="text" class="form-control" required />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Last name <span class="required">*</span></label>
-                                                    <input type="text" class="form-control" required />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Company </label>
-                                            <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="select-custom">
-                                            <label>Country / Region <span class="required">*</span></label>
-                                            <select name="orderby" class="form-control">
-                                                <option value="" selected="selected">British Indian Ocean Territory
-                                                </option>
-                                                <option value="1">Brunei</option>
-                                                <option value="2">Bulgaria</option>
-                                                <option value="3">Burkina Faso</option>
-                                                <option value="4">Burundi</option>
-                                                <option value="5">Cameroon</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Street address <span class="required">*</span></label>
-                                            <input type="text" class="form-control"
-                                                   placeholder="House number and street name" required />
-                                            <input type="text" class="form-control"
-                                                   placeholder="Apartment, suite, unit, etc. (optional)" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Town / City <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>State / Country <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Postcode / ZIP <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
-                                        </div>
-
-                                        <div class="form-footer mb-0">
-                                            <div class="form-footer-right">
-                                                <button type="submit" class="btn btn-dark py-4">
-                                                    Save Address
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div><!-- End .tab-pane -->
                         </div><!-- End .tab-content -->
                     </div><!-- End .row -->
                 </div><!-- End .container -->

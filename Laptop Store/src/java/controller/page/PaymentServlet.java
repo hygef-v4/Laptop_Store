@@ -114,6 +114,11 @@ public class PaymentServlet extends HttpServlet {
         int orderId = orderDao.insertOrder(cart); // return order id 
         for (OrderDetails od : cart.getListOrderDetails()) {
             od.setOrderID(orderId);   // cap nhat order id cho tung sp mua 
+            
+            // **Set the price for each order detail**
+            double productPrice = findPriceById(productList, od.getProductID());
+            od.setPrice(productPrice);
+
             OrderDetailDao.insert(od);
             // tru di so luong san pham trong db 
             Product product = productDAO.searchProduct(od.getProductID());
