@@ -36,7 +36,7 @@
         <link href="${pageContext.request.contextPath}/admin-assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Theme Config js (Require in all Page) -->
-        <script src="${pageContext.request.contextPath}/admin-assets//js/config.js"></script>
+        <script src="${pageContext.request.contextPath}/admin-assets/js/config.js"></script>
         <style>
             /* Example custom textarea styling */
             #description {
@@ -255,7 +255,7 @@
                                             <span
                                                 class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
                                                 ><img
-                                                    src="${pageContext.request.contextPath}/admin-assets//images/users/avatar-7.jpg"
+                                                    src="${pageContext.request.contextPath}/admin-assets/images/users/avatar-7.jpg"
                                                 alt="avatar-5"
                                                 class="avatar-sm rounded-circle"
                                                 /></span>
@@ -269,7 +269,7 @@
                                                 <div class="col-lg-4">
                                                     <a href="#!">
                                                         <img
-                                                            src="${pageContext.request.contextPath}/admin-assets//images/small/img-6.jpg"
+                                                            src="${pageContext.request.contextPath}/admin-assets/images/small/img-6.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
                                                             />
@@ -278,7 +278,7 @@
                                                 <div class="col-lg-4">
                                                     <a href="#!">
                                                         <img
-                                                            src="${pageContext.request.contextPath}/admin-assets//images/small/img-3.jpg"
+                                                            src="${pageContext.request.contextPath}/admin-assets/images/small/img-3.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
                                                             />
@@ -287,7 +287,7 @@
                                                 <div class="col-lg-4">
                                                     <a href="#!">
                                                         <img
-                                                            src="${pageContext.request.contextPath}/admin-assets//images/small/img-4.jpg"
+                                                            src="${pageContext.request.contextPath}/admin-assets/images/small/img-4.jpg"
                                                             alt=""
                                                             class="img-fluid rounded"
                                                             />
@@ -303,7 +303,7 @@
                                         <span
                                             class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"
                                             ><img
-                                                src="${pageContext.request.contextPath}/admin-assets//images/users/avatar-6.jpg"
+                                                src="${pageContext.request.contextPath}/admin-assets/images/users/avatar-6.jpg"
                                                 alt="avatar-5"
                                                 class="avatar-sm rounded-circle"
                                                 /></span>
@@ -709,7 +709,7 @@
                                                             <label
                                                                 for="productSummary"
                                                                 class="form-label"
-                                                                >Thương hiệu</label
+                                                                >Nhu cầu</label
                                                             >
                                                             <select name="catID" class="form-control select2">
 
@@ -941,14 +941,14 @@
                 <!-- END Wrapper -->
 
                 <!-- Vendor Javascript (Require in all Page) -->
-                <script src="${pageContext.request.contextPath}/admin-assets//js/vendor.js"></script>
+                <script src="${pageContext.request.contextPath}/admin-assets/js/vendor.js"></script>
 
             <!-- App Javascript (Require in all Page) -->
-            <script src="${pageContext.request.contextPath}/admin-assets//js/app.js"></script>
+            <script src="${pageContext.request.contextPath}/admin-assets/js/app.js"></script>
 
 
             <!-- Page Js -->
-            <script src="${pageContext.request.contextPath}/admin-assets//js/pages/app-ecommerce-product.js"></script>
+            <script src="${pageContext.request.contextPath}/admin-assets/js/pages/app-ecommerce-product.js"></script>
             <script>
                 document.getElementById('imageURL').addEventListener('input', function () {
                     let url = this.value.trim();

@@ -407,14 +407,11 @@
                                                         </td>
 
                                                         <td>
-                                                            <button
-                                                                type="button"
-                                                                class="btn btn-sm btn-soft-secondary me-1"
-                                                                >
-                                                                <i
-                                                                    class="bx bx-edit fs-18"
-                                                                    ></i>
-                                                            </button>
+                                                            <a href="${pageContext.request.contextPath}/admin/dashboard?action=edit&productID=${p.productID}" 
+                                                               class="btn btn-sm btn-soft-secondary me-1">
+                                                                <i class="bx bx-edit fs-18"></i>
+                                                            </a>
+
                                                             <button type="button" class="btn btn-sm btn-soft-danger" 
                                                                     onclick="confirmDelete(this)" 
                                                                     data-href="${pageContext.request.contextPath}/admin/dashboard?action=delete&productID=${p.productID}">
@@ -518,8 +515,8 @@
 
         <!-- App Javascript (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets/js/app.js"></script>
-        
-<!--        delete button-->
+
+        <!--        delete button-->
         <script>
                                                                         function confirmDelete(button) {
                                                                             let confirmDelete = confirm("Bạn có chắc chắn muốn xóa mục này?");

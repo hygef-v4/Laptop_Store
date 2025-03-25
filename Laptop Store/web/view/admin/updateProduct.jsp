@@ -8,13 +8,14 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 
     <head>
         <!-- Title Meta -->
         <meta charset="utf-8" />
-        <title>Create Product | Reback - Responsive Admin Dashboard Template</title>
+        <title>Edit Product</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
@@ -655,6 +656,8 @@
                                                 >
                                                 <!--                                                form add product-->
                                                 <form id="generalDetailForm" method="POST" action="${pageContext.request.contextPath}/admin/dashboard">
+                                                <input type="hidden" name="productID" value="${productFind.productID}">
+
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
@@ -669,6 +672,7 @@
                                                                 id="productName"
                                                                 placeholder="Nhập tên sản phẩm"
                                                                 name="product-name"
+                                                                value="${productFind.productName}"
                                                                 required
                                                                 />
                                                         </div>
@@ -682,12 +686,14 @@
                                                                 class="form-label"
                                                                 >Mô tả</label
                                                             >
-                                                            <textarea name="description" id="description" placeholder="Nhập mô tả sản phẩm"></textarea>
+                                                            <textarea name="description" id="description">${productFind.description}</textarea>
+
 
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
+                                                    <div class="row" style=" min-height: 100px; /* Adjust as needed */
+                                                         overflow: visible; /* Ensure content is not hidden */">
                                                         <div class="col-6">
                                                             <label
                                                                 for="productSummary"
@@ -697,8 +703,9 @@
                                                             <select name="brandID" class="form-control select2">
 
                                                                 <c:forEach var="b" items="${brandList}">
-                                                                    <option
-                                                                        value="${b.brandID}">${b.brandName}
+                                                                    <option value="${b.brandID}" 
+                                                                            <c:if test="${b.brandID eq productFind.brandID}">selected</c:if>>
+                                                                        ${b.brandName}
                                                                     </option>
                                                                 </c:forEach>
 
@@ -709,13 +716,14 @@
                                                             <label
                                                                 for="productSummary"
                                                                 class="form-label"
-                                                                >Nhu cầu</label
+                                                                >Thương hiệu</label
                                                             >
                                                             <select name="catID" class="form-control select2">
 
                                                                 <c:forEach var="c" items="${categoryList}">
-                                                                    <option
-                                                                        value="${c.categoryID}">${c.categoryName}
+                                                                    <option value="${c.categoryID}"
+                                                                            <c:if test="${c.categoryID eq productFind.categoryID}">selected</c:if>>
+                                                                        ${c.categoryName}
                                                                     </option>
                                                                 </c:forEach>
 
@@ -736,7 +744,7 @@
                                                                 class="form-control"
                                                                 id="quantity"
                                                                 placeholder="Nhập số lượng"
-                                                                value="1"
+                                                                value="${productFind.quantity}"
                                                                 min="1"
 
                                                                 />
@@ -754,7 +762,8 @@
                                                                 type="number"
                                                                 class="form-control"
                                                                 id="price"
-                                                                placeholder="Nhập số lượng"
+                                                                value="<fmt:formatNumber value='${productFind.price}' type='number' pattern='#'/>"
+
                                                                 required
                                                                 />
                                                         </div>
@@ -773,7 +782,7 @@
                                                                 class="form-control"
                                                                 id="importDate"
                                                                 placeholder="YYYY-MM-DD"
-                                                                value="2023-03-15"
+                                                                value="${productFind.importDate}"
 
                                                                 />
                                                         </div>
@@ -788,7 +797,7 @@
                                                                 class="form-control"
                                                                 id="warrantyMonths"
                                                                 placeholder="Nhập số tháng bảo hành"
-                                                                value="12"
+                                                                value="${productFind.warrantyMonths}"
                                                                 min="1"
                                                                 max="12"
                                                                 />
@@ -808,6 +817,7 @@
                                                                 class="form-control"
                                                                 id="cpu"
                                                                 placeholder=""
+                                                                value="${productDetail.cpu}"
                                                                 required
                                                                 />
                                                         </div>
@@ -821,6 +831,7 @@
                                                                 class="form-control"
                                                                 id="ram"
                                                                 placeholder=""
+                                                                value="${productDetail.ram}"
                                                                 required
                                                                 />
                                                         </div>
@@ -834,6 +845,7 @@
                                                                 class="form-control"
                                                                 id="storage"
                                                                 placeholder=""
+                                                                value="${productDetail.storage}"
                                                                 required
                                                                 />
                                                         </div>
@@ -847,6 +859,7 @@
                                                                 class="form-control"
                                                                 id="screen"
                                                                 placeholder=""
+                                                                value="${productDetail.screen}"
                                                                 required
                                                                 />
                                                         </div>
@@ -860,10 +873,16 @@
                                                                 class="form-control"
                                                                 id="gpu"
                                                                 placeholder=""
+                                                                value="${productDetail.gpu}"
                                                                 required
                                                                 />
                                                         </div>
 
+
+
+
+
+                                                        <!-- isFeatured -->
 
 
                                                         <div class="col-6 tab-pane" id="productImages">
@@ -878,57 +897,60 @@
 
                                                             <!-- OR Paste Image URL -->
                                                             <p class="text-muted fs-13 mt-2">Hoặc dán liên kết hình ảnh</p>
-                                                            <input id="imageURL" name="imageURL" type="text" class="form-control" placeholder="Dán URL hình ảnh tại đây" required/>
+                                                            <input value="${productFind.image}" id="imageURL" name="imageURL" type="text" class="form-control" placeholder="Dán URL hình ảnh tại đây" required/>
 
                                                             <!-- Image Preview -->
                                                             <div id="imagePreview" class="mt-3">
                                                                 <img id="previewImg" src="" alt="Preview" style="max-width: 100%; display: none;">
                                                             </div>
                                                         </div>
-
-
-
-
-
-                                                        <!-- isFeatured -->
                                                         <div class="col-6 checkbox-container">
                                                             <br>
                                                             <label for="isFeatured">Sản phẩm nổi bật</label>
-                                                            <input name="isFeatured" type="checkbox" id="isFeatured" name="isFeatured" value="1">
+                                                            <input 
+                                                                name="isFeatured" 
+                                                                type="checkbox" 
+                                                                id="isFeatured" 
+                                                                value="1"
+                                                                <c:if test="${productFind.isIsFeatured()}">checked="checked"</c:if>
+
+                                                                    />
+                                                            </div>
                                                         </div>
+
+
+
+                                                        <div class="next">
+                                                            <input type="hidden" name="action" value="edit">
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Cập nhật sản phẩm </i>
+                                                            </button>
+                                                        </div>
+
+
                                                     </div>
 
-                                                    <div class="next">
-                                                        <input type="hidden" name="action" value="add-product">
-                                                        <br>
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Thêm sản phẩm </i>
-                                                        </button>
-                                                    </div>
 
 
-                                                </div>
+                                                </form>
 
 
 
-                                            </form>
-
-
-
+                                            </div>
+                                            <!-- end tab content-->
                                         </div>
-                                        <!-- end tab content-->
+                                        <!-- end card body -->
                                     </div>
-                                    <!-- end card body -->
+                                    <!-- end card -->
                                 </div>
-                                <!-- end card -->
+                                <!-- end col -->
                             </div>
-                            <!-- end col -->
+                            <!-- end row -->
                         </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- End Container -->
+                        <!-- End Container -->
 
-                    <!-- ========== Footer Start ========== -->
+                        <!-- ========== Footer Start ========== -->
                     <jsp:include page="/view/admin-common/admin-footer.jsp"></jsp:include>
 
                         <!-- ========== Footer End ========== -->

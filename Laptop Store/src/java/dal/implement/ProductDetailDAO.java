@@ -75,6 +75,32 @@ public class ProductDetailDAO extends DBContext {
         }
     }
 
+    public boolean updateProductDetail(ProductDetail productDetail) {
+        String sql = "UPDATE tblProductDetails SET cpu = ?, ram = ?, storage = ?, screen = ?, gpu = ? WHERE productID = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, productDetail.getCpu());
+            ps.setString(2, productDetail.getRam());
+            ps.setString(3, productDetail.getStorage());
+            ps.setString(4, productDetail.getScreen());
+            ps.setString(5, productDetail.getGpu());
+            ps.setInt(6, productDetail.getProductID());
+
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Product details updated successfully for Product ID: " + productDetail.getProductID());
+                return true;
+            } else {
+                System.out.println("No product details updated. Product ID might not exist.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error updating product details: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         // Create an instance of ProductDetailDAO
         ProductDetailDAO productDetailDAO = new ProductDetailDAO();
@@ -103,4 +129,5 @@ public class ProductDetailDAO extends DBContext {
             System.out.println("❌ Failed to add product details.");
         }
     }
+
 }

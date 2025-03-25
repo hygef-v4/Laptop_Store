@@ -87,6 +87,19 @@ public class AdminDashboardServlet extends HttpServlet {
             case "add-product":
                 request.getRequestDispatcher("/view/admin/addProduct.jsp").forward(request, response);
                 break;
+            case "edit":
+                int productID = Integer.parseInt(request.getParameter("productID"));
+                Product product = productDAO.searchProduct(productID);
+                if (product != null) {
+
+                    ProductDetail productDetail = productDetailDAO.getProductDetailByProductID(productID);
+                    request.setAttribute("productFind", product);
+                    request.setAttribute("productDetail", productDetail);
+                    request.getRequestDispatcher("/view/admin/updateProduct.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=product-list&error=notfound");
+                }
+                break;
             case "delete":
                 deleteProduct(request, response);
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
@@ -107,6 +120,10 @@ public class AdminDashboardServlet extends HttpServlet {
 
             case "add-product":
                 addProductDoPost(request, response);
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+                break;
+            case "edit":
+                updateProductDoPost(request, response);
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
                 break;
             default:
@@ -190,6 +207,60 @@ public class AdminDashboardServlet extends HttpServlet {
         try {
             int productId = Integer.parseInt(request.getParameter("productID"));
             productDAO.deleteProduct(productId); // Call the DAO method to delete the product
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateProductDoPost(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            // Retrieve product details from request
+            int productID = Integer.parseInt(request.getParameter("productID"));
+
+            String productName = request.getParameter("product-name").trim();
+            String brandID = request.getParameter("brandID");
+            String categoryID = request.getParameter("catID");
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            double price = Double.parseDouble(request.getParameter("price"));
+            String importDate = request.getParameter("date");
+            int warrantyMonths = Integer.parseInt(request.getParameter("warranty"));
+            String imageUrl = request.getParameter("imageURL").trim();
+            boolean isFeatured = request.getParameter("isFeatured") != null && request.getParameter("isFeatured").equals("1");
+            String description = request.getParameter("description").trim();
+
+            // Retrieve product detail specifications
+            String cpu = request.getParameter("cpu");
+            String ram = request.getParameter("ram");
+            String storage = request.getParameter("storage");
+            String screen = request.getParameter("screen");
+            String gpu = request.getParameter("gpu");
+
+            // search product by id 
+            Product product = productDAO.searchProduct(productID);
+            product.setProductName(productName);
+            product.setBrandID(brandID);
+            product.setCategoryID(categoryID);
+            product.setQuantity(quantity);
+            product.setPrice(price);
+            product.setImportDate(java.sql.Date.valueOf(importDate)); // Convert to SQL Date
+            product.setWarrantyMonths(warrantyMonths);
+            product.setImage(imageUrl);
+            product.setFeatured(isFeatured);
+            product.setDescription(description);
+
+            // Update product in database
+            productDAO.updateProduct(product);
+            // Create ProductDetail object
+            ProductDetail productDetail = productDetailDAO.getProductDetailByProductID(productID);
+
+            productDetail.setProductID(productID);
+            productDetail.setCpu(cpu);
+            productDetail.setRam(ram);
+            productDetail.setStorage(storage);
+            productDetail.setScreen(screen);
+            productDetail.setGpu(gpu);
+            productDetailDAO.updateProductDetail(productDetail);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

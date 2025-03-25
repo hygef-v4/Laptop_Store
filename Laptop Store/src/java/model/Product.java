@@ -29,4 +29,10 @@ public class Product {
     private int warrantyMonths; // Nullable field
     private boolean isFeatured;
     private String description;
+
+    public boolean isIsFeatured() {
+        return isFeatured;
+    }
+    
+    
 }

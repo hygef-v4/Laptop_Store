@@ -412,7 +412,7 @@ public class ProductDAO extends DBContext {
             ps.setString(6, product.getBrandID());
             ps.setDate(7, product.getImportDate());
             ps.setObject(8, product.getWarrantyMonths(), java.sql.Types.INTEGER); // Handle nullable warranty
-            ps.setBoolean(9, product.isFeatured());
+            ps.setBoolean(9, product.isIsFeatured());
             ps.setString(10, product.getDescription());
 
             int affectedRows = ps.executeUpdate();
@@ -441,6 +441,35 @@ public class ProductDAO extends DBContext {
             e.printStackTrace();
         }
         return false; // Return false if deletion fails
+    }
+
+    public void updateProduct(Product product) {
+        String sql = "UPDATE tblProducts SET productName = ?, image = ?, price = ?, quantity = ?, categoryID = ?, brandID = ?, importDate = ?, warrantyMonths = ?, isFeatured = ?, description = ? WHERE productID = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, product.getProductName());
+            ps.setString(2, product.getImage());
+            ps.setDouble(3, product.getPrice());
+            ps.setInt(4, product.getQuantity());
+            ps.setString(5, product.getCategoryID());
+            ps.setString(6, product.getBrandID());
+            ps.setDate(7, product.getImportDate());
+            ps.setObject(8, product.getWarrantyMonths(), java.sql.Types.INTEGER); // Handle nullable warranty
+            ps.setBoolean(9, product.isIsFeatured());
+            ps.setString(10, product.getDescription());
+            ps.setInt(11, product.getProductID());
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows == 0) {
+                System.out.println("No product updated. Product ID might not exist.");
+            } else {
+                System.out.println("Product updated successfully.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error updating product: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
