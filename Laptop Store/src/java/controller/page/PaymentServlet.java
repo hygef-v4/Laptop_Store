@@ -39,7 +39,7 @@ public class PaymentServlet extends HttpServlet {
                 || user.getAddress() == null || user.getPhone() == null) {
 
             session.setAttribute("alertInfoMessage", "Vui lòng cập nhật thông tin cá nhân trước khi thanh toán!");
-            response.sendRedirect("dashboard");
+            response.sendRedirect("dashboard?tab=edit");
             return;  // Ensures no further execution
         }
 
@@ -55,7 +55,7 @@ public class PaymentServlet extends HttpServlet {
         switch (action) {
             case "check-out":
                 if (checkOut(request, response)) {
-                    response.sendRedirect("dashboard");
+                    response.sendRedirect("dashboard?tab=order");
                 }
                 break;
             default:

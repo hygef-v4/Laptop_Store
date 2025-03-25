@@ -718,7 +718,7 @@
                                                     <td>${order.fullname}</td> 
                                                     <td>${order.phone}</td> 
                                                     <td>${order.address}</td> 
-                                                    <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
+                                                    <td><fmt:formatNumber value="${order.getTotalAmount()}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
                                                     <td>
                                                         <span class="badge ${order.status ? 'bg-success' : 'bg-danger'}">
                                                             ${order.getStatusText()}
@@ -760,6 +760,7 @@
                                                                         <th>Số Lượng</th>
                                                                         <th>Giá</th>
                                                                         <th>Tổng</th>
+                                                                        <th>Ghi chú</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -768,7 +769,8 @@
                                                                             <td>${od.getProductName(productDAO)}</td> 
                                                                             <td>${od.quantity}</td>
                                                                             <td><fmt:formatNumber value="${od.price}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
-                                                                            <td><fmt:formatNumber value="${od.totalPrice}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td> 
+                                                                            <td><fmt:formatNumber value="${od.totalPrice}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
+                                                                            <td>${order.note}</td>
                                                                         </tr>
                                                                     </c:forEach>
                                                                 </tbody>

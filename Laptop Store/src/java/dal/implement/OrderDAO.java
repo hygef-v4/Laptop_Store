@@ -98,11 +98,11 @@ public class OrderDAO extends DBContext {
     }
     // Get all orders for admin
 
-     public Vector<Order> getAllOrders() {
+    public Vector<Order> getAllOrders() {
         Vector<Order> orders = new Vector<>();
         String sql = "SELECT * FROM tblOrders";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
-   
+
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Order order = new Order();
@@ -157,18 +157,27 @@ public class OrderDAO extends DBContext {
         OrderDAO orderDAO = new OrderDAO(); // Create OrderDAO instance
 
         // Test getAllOrders()
-        List<Order> orders = orderDAO.getAllOrders();
-        System.out.println("Total Orders Retrieved: " + orders.size());
+        // Create a sample order
+        Order newOrder = new Order();
+        Order order = new Order();
+        order.setAmount(103243240);  // Make sure this is set!
+        order.setUserID(2);
+        order.setFullname("Nguyen Van A");
+        order.setAddress("123 Street, Hanoi");
+        order.setPhone("0987654321");
+        order.setNote("Please deliver fast!");
 
-        // Print order details
-        for (Order order : orders) {
-            System.out.println("Order ID: " + order.getOrderID());
-            System.out.println("Customer Name: " + order.getFullname());
-            System.out.println("Address: " + order.getAddress());
-            System.out.println("Phone: " + order.getPhone());
-            System.out.println("Amount: " + order.getAmount());
-            System.out.println("Status: " + (order.isStatus() ? "Confirmed" : "Pending"));
-            System.out.println("----------------------------");
+
+        // Insert order and get order ID
+        int orderId = orderDAO.insertOrder(newOrder);
+
+        // Check if insertion was successful
+        if (orderId > 0) {
+            System.out.println("Order inserted successfully! Order ID: " + orderId);
+        } else {
+            System.out.println("Order insertion failed.");
         }
+        
+        System.out.println(order.getAmount());
     }
 }

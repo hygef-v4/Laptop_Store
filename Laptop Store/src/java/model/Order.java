@@ -34,7 +34,7 @@ public class Order {
     private boolean status;  // true = Đã xác nhận, false = Chưa xác nhận
 
     // Calculate total amount based on order details
-    public int getAmount() {
+    public int getTotalAmount() {
         int total = 0;
         for (OrderDetails detail : listOrderDetails) {
             total += detail.getTotalPrice();
@@ -45,7 +45,7 @@ public class Order {
     public Date getFormattedDate() {
         return Date.from(orderDate.atZone(ZoneId.systemDefault()).toInstant());
     }
-    
+
     public String getStatusText() {
         return status ? "Đã giao hàng" : "Đang giao hàng";
     }

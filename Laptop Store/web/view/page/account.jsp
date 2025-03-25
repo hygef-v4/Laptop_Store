@@ -149,6 +149,7 @@
                                                     <th class="order-price">Tổng tiền</th>
                                                     <th class="order-status">Tình Trạng</th>
                                                     <th>Chi Tiết</th>
+                                                    <th>Ghi chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -158,7 +159,7 @@
                                                             <tr>
                                                                 <td>#${order.orderID}</td>
                                                                 <td><fmt:formatDate value="${order.formattedDate}" pattern="yyyy-MM-dd" /></td>
-                                                                <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
+                                                                <td><fmt:formatNumber value="${order.getTotalAmount()}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
                                                                 <td>
                                                                     <span class="badge ${order.status ? 'bg-success text-white' : 'bg-danger text-white'}">
                                                                         ${order.getStatusText()}
@@ -170,6 +171,9 @@
                                                                     <button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#details-${order.orderID}">
                                                                         Xem Chi Tiết
                                                                     </button>
+                                                                </td>
+                                                                <td>
+                                                                    ${order.note}
                                                                 </td>
                                                             </tr>
                                                             <!-- Order Details Section -->
