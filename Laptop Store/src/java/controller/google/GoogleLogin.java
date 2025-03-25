@@ -16,7 +16,7 @@ import org.apache.http.client.fluent.Form;
 public class GoogleLogin {
 
     public static String getToken(String code) throws ClientProtocolException, IOException {
-
+         // client send auth code to auth server to get access token 
         String response = Request.Post(Iconstant.GOOGLE_LINK_GET_TOKEN)
                 .bodyForm(
                         Form.form()
@@ -36,13 +36,18 @@ public class GoogleLogin {
         return accessToken;
 
     }
-
+    
+    
+    // lay resource bang cach gui access token
     public static GoogleAccount getUserInfo(final String accessToken) throws ClientProtocolException, IOException {
-
-        String link = Iconstant.GOOGLE_LINK_GET_USER_INFO + accessToken;
-
+        
+        // duong dan den api google de lay thong tin nguoi dung bang access token 
+        String link = Iconstant.GOOGLE_LINK_GET_USER_INFO + accessToken;  
+        
+        // nhan response tu google 
         String response = Request.Get(link).execute().returnContent().asString();
-
+        
+        // chuyen doi response thanh google object 
         GoogleAccount googlePojo = new Gson().fromJson(response, GoogleAccount.class);
 
         return googlePojo;

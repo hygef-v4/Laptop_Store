@@ -1,6 +1,7 @@
 package controller.page;
 
 import controller.google.GoogleLogin;
+import controller.utility.Validation;
 import dal.implement.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -81,6 +82,12 @@ public class AuthenticationServlet extends HttpServlet {
         // get username, password 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        // Validate username for login (minimal check)
+        if (!Validation.validateUsernameForLogin(request, username, "loginError")) {
+            return "view/page/login.jsp";
+        }
+
         // find user exist
         User userFound = userDAO.findByUsernamePassword(username, password);
         // check login
@@ -89,7 +96,7 @@ public class AuthenticationServlet extends HttpServlet {
             session.setAttribute("user", userFound);  // set session user 
             URL = "home";
         } else {                        // if login failed then go alert error 
-            request.setAttribute("loginError", "Username or password incorrect!!");
+            request.setAttribute("loginError", "Sai tài khoản hoặc mật khẩu!!");
             URL = "view/page/login.jsp";
         }
         return URL;
@@ -110,11 +117,23 @@ public class AuthenticationServlet extends HttpServlet {
 
         String registerUsername = request.getParameter("registerUsername");
         String registerPassword = request.getParameter("registerPassword");
+
+        // Validate username
+        if (!Validation.validateUsername(request, registerUsername, "loginError")) {
+            return "view/page/login.jsp";
+        }
+
+        // Validate password using the updated helper function
+        if (!Validation.validatePassword(request, registerPassword, "registerError")) {
+            // Validation failed; return to the login page with error message.
+            return "view/page/login.jsp";
+        }
+
         // check username exist 
         boolean isUserExist = userDAO.isUsernameExist(registerUsername);
         // if exist then error
         if (isUserExist) {
-            request.setAttribute("registerError", "Username exist !! Try another username");
+            request.setAttribute("registerError", "Tên người dùng đã tồn tại! Vui lòng thử tên khác.");
             URL = "view/page/login.jsp";
         } else {
             //else add user to db and go back to /home 
@@ -144,7 +163,7 @@ public class AuthenticationServlet extends HttpServlet {
         String confirmPassword = request.getParameter("acc-confirm-password");
         if (user == null) {
             // Redirect to login page (or handle as appropriate)
-            return "view/page/login.jsp"; // Or wherever your login page is
+            return "view/page/login.jsp";
         }
         // 2. Verify current password
         if (!userDAO.checkPassword(user.getUsername(), currentPassword)) {
@@ -161,7 +180,12 @@ public class AuthenticationServlet extends HttpServlet {
             request.setAttribute("changePasswordError", "Mật khẩu mới phải khác mật khẩu hiện tại.");
             return "view/page/account.jsp";
         }
-        // 5. Update password in the database
+        // 5. Validate the new password meets the criteria
+        if (!Validation.validatePassword(request, newPassword, "changePasswordError")) {
+            return "view/page/account.jsp";
+        }
+
+        // 6. Update password in the database
         if (userDAO.changePassword(user.getUsername(), newPassword)) {
             // Success!  Update the user object in the session (optional, but good practice)
             user.setPassword(newPassword); // Keep session data consistent
@@ -190,8 +214,12 @@ public class AuthenticationServlet extends HttpServlet {
         String phone = request.getParameter("acc-phone").trim();
         String address = request.getParameter("acc-address").trim();
 
-        if (fullName.isEmpty()) {
-            request.setAttribute("changeInfoError", "Họ và tên không được để trống.");
+        // Validate full name using the utility method
+        if (!Validation.validateFullname(request, fullName, "changeInfoError")) {
+            return "view/page/account.jsp";
+        }
+
+        if (!Validation.validateEmail(request, email, "changeInfoError")) {
             return "view/page/account.jsp";
         }
 
@@ -200,6 +228,12 @@ public class AuthenticationServlet extends HttpServlet {
             request.setAttribute("changeInfoError", "Email đã được sử dụng bởi người dùng khác.");
             return "view/page/account.jsp";
         }
+
+        // Validate phone number using the utility method for Vietnamese phone numbers
+        if (!Validation.validatePhoneNumber(request, phone, "changeInfoError")) {
+            return "view/page/account.jsp";
+        }
+
         // Update user info in the database
         boolean updateSuccess = userDAO.updateUserInfo(user.getUserID(), fullName, email, phone, address);
         if (updateSuccess) {
@@ -220,8 +254,11 @@ public class AuthenticationServlet extends HttpServlet {
 
     private String loginGoogleDoGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String URL = null;
+        // lay ve auth code 
         String code = request.getParameter("code");
+
         GoogleLogin gg = new GoogleLogin();
+        // lay access token 
         String accessToken = gg.getToken(code);
         GoogleAccount acc = gg.getUserInfo(accessToken);
         String email = acc.getEmail();
@@ -235,7 +272,7 @@ public class AuthenticationServlet extends HttpServlet {
             session.setAttribute("user", userFound);
             URL = "home";
         } else {
-            request.setAttribute("loginError", "Username or password incorrect!!");
+            request.setAttribute("loginError", "Đăng nhập thất bại!!");
             URL = "view/page/login.jsp";
         }
         return URL;
