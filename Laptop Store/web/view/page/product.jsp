@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>FbtShop.com - Cửa hàng trực tuyến</title> <!-- Vietnamese title -->
+        <title>Sản phẩm</title> <!-- Vietnamese title -->
 
         <meta name="keywords" content="HTML5 Template, Vietnamese" />
         <meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -54,7 +54,7 @@
                     <div class="container">
                         <nav aria-label="breadcrumb" class="breadcrumb-nav">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="home.jsp"><i class="icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home"><i class="icon-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
                             </ol>
                         </nav>
@@ -310,7 +310,7 @@
 
                             <div class="tab-pane fade" id="product-reviews-content" role="tabpanel" aria-labelledby="product-tab-reviews">
                                 <div class="product-reviews-content">
-                                    <h3 class="reviews-title">1 review for Men Black Sports Shoes</h3>
+                                    <h3 class="reviews-title">1 review</h3>
 
                                     <div class="comment-list">
                                         <div class="comments">
@@ -332,7 +332,7 @@
                                                     </div>
 
                                                     <span class="comment-by">
-                                                        <strong>Joe Doe</strong> – April 12, 2018
+                                                        <strong>Hung</strong> – April 12, 2024
                                                     </span>
                                                 </div>
 

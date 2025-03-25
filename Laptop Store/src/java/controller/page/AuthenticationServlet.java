@@ -1,6 +1,6 @@
 package controller.page;
 
-import controller.control.GoogleLogin;
+import controller.google.GoogleLogin;
 import dal.implement.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;

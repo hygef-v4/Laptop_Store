@@ -1,4 +1,4 @@
-package controller.control;
+package controller.google;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

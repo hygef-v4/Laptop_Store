@@ -31,23 +31,6 @@ public class AdminDashboardServlet extends HttpServlet {
 
     private static final String productListSQL = "SELECT * FROM [dbo].[tblProducts]";
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DashboardServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DashboardServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -196,7 +179,8 @@ public class AdminDashboardServlet extends HttpServlet {
 
             // Insert ProductDetail into Database
             productDetailDAO.addProductDetail(productDetail);
-
+            HttpSession session = request.getSession();
+            session.setAttribute("addProductMessage", "Bạn đã thêm sản phẩm mới thành công!");
             // Redirect back to product list
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,6 +191,8 @@ public class AdminDashboardServlet extends HttpServlet {
         try {
             int productId = Integer.parseInt(request.getParameter("productID"));
             productDAO.deleteProduct(productId); // Call the DAO method to delete the product
+            HttpSession session = request.getSession();
+            session.setAttribute("deleteProductMessage", "Bạn đã xóa sản phẩm thành công!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -260,7 +246,9 @@ public class AdminDashboardServlet extends HttpServlet {
             productDetail.setScreen(screen);
             productDetail.setGpu(gpu);
             productDetailDAO.updateProductDetail(productDetail);
-
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("updateProductMessage", "Bạn đã cập nhật sản phẩm thành công!");
         } catch (Exception e) {
             e.printStackTrace();
         }

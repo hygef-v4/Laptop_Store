@@ -121,6 +121,40 @@
                     </div>
                 </div>
             </div>
+            <!-- Alert Messages -->
+            <c:if test="${not empty sessionScope.updateProductMessage}">
+                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    ${sessionScope.updateProductMessage}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <c:remove var="updateProductMessage" scope="session"/>
+            </c:if>
+
+            <c:if test="${not empty sessionScope.deleteProductMessage}">
+                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    ${sessionScope.deleteProductMessage}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <c:remove var="deleteProductMessage" scope="session"/>
+            </c:if>
+
+            <c:if test="${not empty sessionScope.addProductMessage}">
+                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    ${sessionScope.addProductMessage}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <c:remove var="addProductMessage" scope="session"/>
+            </c:if>
         </div>
+        <script>
+            setTimeout(function () {
+                let alerts = document.querySelectorAll(".alert");
+                alerts.forEach(function (alert) {
+                    alert.classList.add("fade");
+                    setTimeout(() => alert.remove(), 500);
+                });
+            }, 3000); // Hides after 3 seconds
+        </script>
+
     </header>
 </html>
