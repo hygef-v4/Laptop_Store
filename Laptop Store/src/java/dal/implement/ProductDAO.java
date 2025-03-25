@@ -1,8 +1,9 @@
 package dal.implement;
 
 import dal.DBContext;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.sql.ResultSet;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Vector;
 import model.Product;
@@ -397,6 +398,64 @@ public class ProductDAO extends DBContext {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace(); // Log the error for debugging
+        }
+    }
+
+    public int addProduct(Product product) {
+        String sql = "INSERT INTO tblProducts (productName, image, price, quantity, categoryID, brandID, importDate, warrantyMonths, isFeatured, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, product.getProductName());
+            ps.setString(2, product.getImage());
+            ps.setDouble(3, product.getPrice());
+            ps.setInt(4, product.getQuantity());
+            ps.setString(5, product.getCategoryID());
+            ps.setString(6, product.getBrandID());
+            ps.setDate(7, product.getImportDate());
+            ps.setObject(8, product.getWarrantyMonths(), java.sql.Types.INTEGER); // Handle nullable warranty
+            ps.setBoolean(9, product.isFeatured());
+            ps.setString(10, product.getDescription());
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return rs.getInt(1); // Return the generated productID
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Return -1 if insertion fails
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of ProductDAO
+        ProductDAO productDAO = new ProductDAO();
+        Date importDate = Date.valueOf("2035-03-25");
+
+        // Sample product data
+        Product newProduct = new Product(
+                0, // Auto-incremented in DB, can be ignored if handled in DAO
+                "Test Product22",
+                "test_image.jpg",
+                199.99,
+                50,
+                "C001", // Example Category ID
+                "B001", // Example Brand ID
+                importDate,
+                12, // Warranty in months
+                true, // isFeatured
+                "This is a test product for checking add functionality."
+        );
+
+        int productId = productDAO.addProduct(newProduct);
+
+        if (productId != -1) {
+            System.out.println("Product added successfully with ID: " + productId);
+        } else {
+            System.out.println("Failed to add product.");
         }
     }
 

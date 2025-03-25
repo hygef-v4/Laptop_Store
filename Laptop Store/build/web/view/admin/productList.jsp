@@ -14,7 +14,7 @@
     <head>
         <!-- Title Meta -->
         <meta charset="utf-8" />
-        <title>Products List | Reback</title>
+        <title>Danh sách sản phẩm</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
@@ -294,12 +294,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="mb-0 fw-semibold">Products List</h4>
+                                    <h4 class="mb-0 fw-semibold">Danh sách sản phẩm</h4>
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item">
                                             <a href="javascript: void(0);">Ecommerce</a>
                                         </li>
-                                        <li class="breadcrumb-item active">Products List</li>
+                                        <li class="breadcrumb-item active">Danh sách sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -327,11 +327,11 @@
                                             </div>
                                             <div>
                                                 <a
-                                                    href="${pageContext.request.contextPath}/view/admin/addProduct.jsp"
+                                                    href="${pageContext.request.contextPath}/admin/dashboard?action=add-product"
                                                     class="btn btn-primary d-flex align-items-center"
                                                     >
                                                     <i class="bx bx-plus me-1"></i
-                                                    >Add Product
+                                                    >Thêm sản phẩm
                                                 </a>
                                             </div>
                                         </div>

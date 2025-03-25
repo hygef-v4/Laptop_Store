@@ -161,7 +161,7 @@
                                                                 <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
                                                                 <td>
                                                                     <span class="badge ${order.status ? 'bg-success text-white' : 'bg-danger text-white'}">
-                                                                        ${order.status ? 'Đã xác nhận' : 'Chưa xác nhận'}
+                                                                        ${order.getStatusText()}
                                                                     </span>
                                                                 </td>
 

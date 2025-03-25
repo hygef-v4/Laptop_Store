@@ -47,6 +47,6 @@ public class Order {
     }
     
     public String getStatusText() {
-        return status ? "Đã xác nhận" : "Chưa xác nhận";
+        return status ? "Đã giao hàng" : "Đang giao hàng";
     }
 }

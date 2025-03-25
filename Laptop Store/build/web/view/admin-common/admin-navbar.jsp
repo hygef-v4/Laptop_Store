@@ -41,13 +41,7 @@
                                 >
                             </li>
 
-                            <li class="sub-nav-item">
-                                <a
-                                    class="sub-nav-link"
-                                    href="apps-ecommerce-product-add.html"
-                                    >Thêm sản phẩm</a
-                                >
-                            </li>
+                            
 
 <!--                            <li class="sub-nav-item">
                                 <a

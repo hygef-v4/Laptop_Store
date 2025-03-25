@@ -164,7 +164,15 @@
                                 <ul class="single-info-list">
 
                                     <li>
-                                        Kho: <strong>${product.quantity}</strong>
+                                        <c:choose>
+                                            <c:when test="${product.quantity == 0}">
+                                                Kho: <strong style="color: red;"> Hết hàng</strong>
+                                            </c:when>
+                                            <c:otherwise>
+                                                Kho: <strong> ${product.quantity}</strong>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                     </li>
 
                                     <li>
@@ -200,7 +208,7 @@
 
 
 
-                                    
+
                                 </div>
                                 <!-- End .product-action -->
 

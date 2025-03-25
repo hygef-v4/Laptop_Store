@@ -37,7 +37,34 @@
 
         <!-- Theme Config js (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets//js/config.js"></script>
+        <style>
+            /* Example custom textarea styling */
+            #description {
+                width: 100%;              /* Make it span the full width of its container */
+                min-height: 150px;        /* Set a minimum height; adjust as needed */
+                padding: 10px;            /* Spacing inside the textarea */
+                margin-top: 5px;          /* Spacing above the textarea (optional) */
 
+                font-size: 1rem;          /* Font size */
+                line-height: 1.5;         /* Line height for readability */
+                color: #495057;           /* Text color */
+
+                background-color: #fff;   /* Background color */
+                border: 1px solid #ced4da;/* Border style */
+                border-radius: 4px;       /* Rounded corners */
+
+                /* Smooth transition for focus or hover effects */
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+
+            /* Optional: Add a focus state to make the textarea stand out when clicked */
+            #description:focus {
+                border-color: #86b7fe;
+                outline: 0;
+                box-shadow: 0 0 0 0.2rem rgba(13,110,253,.25);
+            }
+
+        </style>
     </head>
 
     <body>
@@ -580,7 +607,7 @@
                                         <li class="breadcrumb-item">
                                             <a href="javascript: void(0);">Ecommerce</a>
                                         </li>
-                                        <li class="breadcrumb-item active">Create Product</li>
+                                        <li class="breadcrumb-item active">Thêm sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -626,59 +653,48 @@
                                                 class="tab-pane show active"
                                                 id="generalDetail"
                                                 >
-                                                <form
-                                                    id="generalDetailForm"
-                                                    method="post"
-                                                    action="#">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label
-                                                                    class="form-label"
-                                                                    for="productName"
-                                                                    >Tên sản phẩm</label
-                                                                >
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    id="productName"
-                                                                    placeholder="Enter product name"
-                                                                    />
-                                                            </div>
+                                                <!--                                                form add product-->
+                                                <form id="generalDetailForm" method="POST" action="${pageContext.request.contextPath}/admin/dashboard">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label
+                                                                class="form-label"
+                                                                for="productName"
+                                                                >Tên sản phẩm
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="productName"
+                                                                placeholder="Nhập tên sản phẩm"
+                                                                name="product-name"
+                                                                required
+                                                                />
                                                         </div>
-
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="mb-3">
-                                                                <label
-                                                                    class="form-label"
-                                                                    >Mô tả</label
-                                                                >
-                                                                <div
-                                                                    id="snow-editor"
-                                                                    style="
-                                                                    height: 195px;
-                                                                    "
-                                                                    >
-                                                                    <h5>
-                                                                        <span
-                                                                            class="ql-size-large"
-                                                                            >Mô tả sản phẩm</span
-                                                                        >
-                                                                    </h5>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <label
-                                                                    for="productSummary"
-                                                                    class="form-label"
-                                                                    >Thương hiệu</label
-                                                                >
-                                                                <select class="form-control select2">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="mb-3">
+                                                            <label
+                                                                class="form-label"
+                                                                >Mô tả</label
+                                                            >
+                                                            <textarea name="description" id="description" placeholder="Nhập mô tả sản phẩm"></textarea>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <label
+                                                                for="productSummary"
+                                                                class="form-label"
+                                                                >Thương hiệu</label
+                                                            >
+                                                            <select name="brandID" class="form-control select2">
 
                                                                 <c:forEach var="b" items="${brandList}">
                                                                     <option
@@ -695,7 +711,7 @@
                                                                 class="form-label"
                                                                 >Thương hiệu</label
                                                             >
-                                                            <select class="form-control select2">
+                                                            <select name="catID" class="form-control select2">
 
                                                                 <c:forEach var="c" items="${categoryList}">
                                                                     <option
@@ -711,16 +727,18 @@
                                                             <br>
                                                             <label 
                                                                 class="form-label"
-                                                                for="price"
+                                                                for="quantity"
                                                                 >Số lượng</label
                                                             >
                                                             <input
+                                                                name="quantity"
                                                                 type="number"
                                                                 class="form-control"
                                                                 id="quantity"
                                                                 placeholder="Nhập số lượng"
                                                                 value="1"
                                                                 min="1"
+
                                                                 />
 
                                                         </div>
@@ -732,10 +750,12 @@
                                                                 >Giá tiền</label
                                                             >
                                                             <input
-                                                                type="text"
+                                                                name="price"
+                                                                type="number"
                                                                 class="form-control"
                                                                 id="price"
-                                                                placeholder="Enter amount"
+                                                                placeholder="Nhập số lượng"
+                                                                required
                                                                 />
                                                         </div>
 
@@ -748,11 +768,13 @@
                                                             <br>
                                                             <label for="importDate" class="form-label">Ngày nhập hàng</label>
                                                             <input
+                                                                name="date"
                                                                 type="date"
                                                                 class="form-control"
                                                                 id="importDate"
                                                                 placeholder="YYYY-MM-DD"
                                                                 value="2023-03-15"
+
                                                                 />
                                                         </div>
 
@@ -761,6 +783,7 @@
                                                             <br>
                                                             <label for="warrantyMonths" class="form-label">Thời gian bảo hành (tháng)</label>
                                                             <input
+                                                                name="warranty"
                                                                 type="number"
                                                                 class="form-control"
                                                                 id="warrantyMonths"
@@ -771,7 +794,7 @@
                                                                 />
                                                         </div>
 
-                                                       
+
 
 
 
@@ -780,10 +803,12 @@
 
                                                             <label for="cpu" class="form-label">CPU</label>
                                                             <input
+                                                                name="cpu"
                                                                 type="text"
                                                                 class="form-control"
                                                                 id="cpu"
                                                                 placeholder=""
+                                                                required
                                                                 />
                                                         </div>
 
@@ -791,10 +816,12 @@
                                                         <div class="col-6"><br>
                                                             <label for="ram" class="form-label">RAM</label>
                                                             <input
+                                                                name="ram"
                                                                 type="text"
                                                                 class="form-control"
                                                                 id="ram"
                                                                 placeholder=""
+                                                                required
                                                                 />
                                                         </div>
 
@@ -802,10 +829,12 @@
                                                         <div class="col-6"><br>
                                                             <label for="storage" class="form-label">Bộ nhớ lưu trữ</label>
                                                             <input
+                                                                name="storage"
                                                                 type="text"
                                                                 class="form-control"
                                                                 id="storage"
                                                                 placeholder=""
+                                                                required
                                                                 />
                                                         </div>
 
@@ -813,10 +842,12 @@
                                                         <div class="col-6"><br>
                                                             <label for="screen" class="form-label">Màn hình</label>
                                                             <input
+                                                                name="screen"
                                                                 type="text"
                                                                 class="form-control"
                                                                 id="screen"
                                                                 placeholder=""
+                                                                required
                                                                 />
                                                         </div>
 
@@ -824,120 +855,129 @@
                                                         <div class="col-6"><br>
                                                             <label for="gpu" class="form-label">GPU</label>
                                                             <input
+                                                                name="gpu"
                                                                 type="text"
                                                                 class="form-control"
                                                                 id="gpu"
                                                                 placeholder=""
+                                                                required
                                                                 />
                                                         </div>
-                                                        
-                                                        
 
-                                                        <div
-                                                            class="col-6 tab-pane"  id="productImages">
+
+
+                                                        <div class="col-6 tab-pane" id="productImages">
                                                             <br>
-                                                            <h5 class="fs-14 mb-1">
-                                                                Hình ảnh sản phẩm
-                                                            </h5>
-                                                            <p class="text-muted fs-13">
-                                                                Add Product Gallery Images.
-                                                            </p>
+                                                            <h5 class="fs-14 mb-1">Hình ảnh sản phẩm</h5>
+                                                            <p class="text-muted fs-13">Thêm hình ảnh sản phẩm</p>
 
+                                                            <!-- File Upload -->
                                                             <div class="fallback">
-                                                                <input name="file" type="file" multiple/>
+                                                                <input id="imageFile" type="file" accept="image/*" />
                                                             </div>
 
+                                                            <!-- OR Paste Image URL -->
+                                                            <p class="text-muted fs-13 mt-2">Hoặc dán liên kết hình ảnh</p>
+                                                            <input id="imageURL" name="imageURL" type="text" class="form-control" placeholder="Dán URL hình ảnh tại đây" required/>
 
+                                                            <!-- Image Preview -->
+                                                            <div id="imagePreview" class="mt-3">
+                                                                <img id="previewImg" src="" alt="Preview" style="max-width: 100%; display: none;">
+                                                            </div>
                                                         </div>
-                                                        
-                                                         <!-- isFeatured -->
+
+
+
+
+
+                                                        <!-- isFeatured -->
                                                         <div class="col-6 checkbox-container">
                                                             <br>
                                                             <label for="isFeatured">Sản phẩm nổi bật</label>
-                                                            <input type="checkbox" id="isFeatured" name="isFeatured" value="1">
+                                                            <input name="isFeatured" type="checkbox" id="isFeatured" name="isFeatured" value="1">
                                                         </div>
                                                     </div>
 
+                                                    <div class="next">
+                                                        <input type="hidden" name="action" value="add-product">
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Thêm sản phẩm </i>
+                                                        </button>
+                                                    </div>
+
+
+                                                </div>
+
+
 
                                             </form>
-                                        </div>
 
 
-                                        <div
-                                            class="d-flex flex-wrap gap-2 wizard justify-content-between mt-3"
-                                            >
-                                            <div class="first d-none">
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    First
-                                                </a>
-                                            </div>
-                                            <div class="previous me-2">
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    <i
-                                                        class="bx bx-left-arrow-alt me-2"
-                                                        ></i
-                                                    >Back To Previous
-                                                </a>
-                                            </div>
-                                            <div class="next">
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    Next Step<i
-                                                        class="bx bx-right-arrow-alt ms-2"
-                                                        ></i>
-                                                </a>
-                                            </div>
-                                            <div class="last d-none">
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    Finish
-                                                </a>
-                                            </div>
+
                                         </div>
+                                        <!-- end tab content-->
                                     </div>
-                                    <!-- end tab content-->
+                                    <!-- end card body -->
                                 </div>
-                                <!-- end card body -->
+                                <!-- end card -->
                             </div>
-                            <!-- end card -->
+                            <!-- end col -->
                         </div>
-                        <!-- end col -->
+                        <!-- end row -->
                     </div>
-                    <!-- end row -->
+                    <!-- End Container -->
+
+                    <!-- ========== Footer Start ========== -->
+                    <jsp:include page="/view/admin-common/admin-footer.jsp"></jsp:include>
+
+                        <!-- ========== Footer End ========== -->
+
+                    </div>
+                    <!-- ==================================================== -->
+                    <!-- End Page Content -->
+                    <!-- ==================================================== -->
                 </div>
-                <!-- End Container -->
+                <!-- END Wrapper -->
 
-                <!-- ========== Footer Start ========== -->
-                <jsp:include page="/view/admin-common/admin-footer.jsp"></jsp:include>
+                <!-- Vendor Javascript (Require in all Page) -->
+                <script src="${pageContext.request.contextPath}/admin-assets//js/vendor.js"></script>
 
-                    <!-- ========== Footer End ========== -->
-
-                </div>
-                <!-- ==================================================== -->
-                <!-- End Page Content -->
-                <!-- ==================================================== -->
-            </div>
-            <!-- END Wrapper -->
-
-            <!-- Vendor Javascript (Require in all Page) -->
-            <script src="${pageContext.request.contextPath}/admin-assets//js/vendor.js"></script>
-
-        <!-- App Javascript (Require in all Page) -->
-        <script src="${pageContext.request.contextPath}/admin-assets//js/app.js"></script>
+            <!-- App Javascript (Require in all Page) -->
+            <script src="${pageContext.request.contextPath}/admin-assets//js/app.js"></script>
 
 
-        <!-- Page Js -->
-        <script src="${pageContext.request.contextPath}/admin-assets//js/pages/app-ecommerce-product.js"></script>
+            <!-- Page Js -->
+            <script src="${pageContext.request.contextPath}/admin-assets//js/pages/app-ecommerce-product.js"></script>
+            <script>
+                document.getElementById('imageURL').addEventListener('input', function () {
+                    let url = this.value.trim();
+                    let previewImg = document.getElementById('previewImg');
+
+                    if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+                        previewImg.src = url;
+                        previewImg.style.display = 'block';
+                    } else {
+                        previewImg.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('imageFile').addEventListener('change', function (event) {
+                    let file = event.target.files[0];
+                    let previewImg = document.getElementById('previewImg');
+                    let imageURLInput = document.getElementById('imageURL');
+
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            previewImg.src = e.target.result;
+                            previewImg.style.display = 'block';
+                            imageURLInput.value = e.target.result; // Store Base64 URL
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
     </body>
 
     <!-- Mirrored from techzaa.in/reback/admin/apps-ecommerce-product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 06:09:08 GMT -->

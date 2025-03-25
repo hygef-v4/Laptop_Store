@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.Vector;
 import model.Product;
 
-
 public class ProductDetailDAO extends DBContext {
 
     public ProductDetail getProductDetailByProductID(int productID) {
@@ -38,7 +37,7 @@ public class ProductDetailDAO extends DBContext {
     public Vector<ProductDetail> getProductDetailsByProductID(int productID) {
         Vector<ProductDetail> details = new Vector<>();
         String sql = "SELECT * FROM tblProductDetails WHERE productID = ?";
-         try (PreparedStatement ptm = connection.prepareStatement(sql)) {  // Use try-with-resources
+        try (PreparedStatement ptm = connection.prepareStatement(sql)) {  // Use try-with-resources
             ptm.setInt(1, productID);
             try (ResultSet rs = ptm.executeQuery()) {
                 while (rs.next()) {
@@ -58,5 +57,50 @@ public class ProductDetailDAO extends DBContext {
         }
         return details;
     }
-  
+
+    public boolean addProductDetail(ProductDetail productDetail) {
+        String sql = "INSERT INTO tblProductDetails (productID, cpu, ram, storage, screen, gpu) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, productDetail.getProductID());
+            ps.setString(2, productDetail.getCpu());
+            ps.setString(3, productDetail.getRam());
+            ps.setString(4, productDetail.getStorage());
+            ps.setString(5, productDetail.getScreen());
+            ps.setString(6, productDetail.getGpu());
+
+            return ps.executeUpdate() > 0; // Return true if insertion is successful
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of ProductDetailDAO
+        ProductDetailDAO productDetailDAO = new ProductDetailDAO();
+
+        // Example product ID (Ensure this product exists in your database)
+        int productId = 34; // Replace with an actual product ID
+
+        // Create product details
+        ProductDetail productDetail = new ProductDetail(
+                0,
+                productId,
+                "Intel Core i7 12700H",
+                "16GB DDR5",
+                "1TB SSD",
+                "15.6-inch FHD 144Hz",
+                "NVIDIA RTX 3060"
+        );
+
+        // Add product details
+        boolean isDetailAdded = productDetailDAO.addProductDetail(productDetail);
+
+        // Output the result
+        if (isDetailAdded) {
+            System.out.println("✅ Product details added successfully!");
+        } else {
+            System.out.println("❌ Failed to add product details.");
+        }
+    }
 }

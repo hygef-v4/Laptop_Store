@@ -30,7 +30,7 @@
                                     </c:if>
                                 </c:if>
 
-                            <li><a href="${pageContext.request.contextPath}/view/page/wishlist.jsp">Yêu thích</a></li>
+<!--                            <li><a href="${pageContext.request.contextPath}/view/page/wishlist.jsp">Yêu thích</a></li>-->
                             <li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
                                 <c:choose>
                                     <c:when test="${user == null}">
@@ -119,10 +119,10 @@
                 </div>
                 <!-- End .header-search -->
 
-                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
+<!--                <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="${pageContext.request.contextPath}/assets/images/phone.png" width="30" height="30" class="pb-1">
-                    <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0327715098</a></h6>
-                </div>
+                    <h6><span>Gọi ngay</span><a href="tel:84327715098" class="text-dark font1">0123456789</a></h6>
+                </div>-->
 
                 <a href="${pageContext.request.contextPath}/authen?action=login" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
@@ -199,7 +199,7 @@
                     </li>
 
 
-                    <li><a href="${pageContext.request.contextPath}/view/contact.jsp">LIÊN HỆ</a></li>
+                    <li><a href="${pageContext.request.contextPath}/view/page/contact.jsp">LIÊN HỆ</a></li>
 
                 </ul>
             </nav>

@@ -16,7 +16,7 @@
     <head>
         <!-- Title Meta -->
         <meta charset="utf-8" />
-        <title>Orders List | Reback - Responsive Admin Dashboard Template</title>
+        <title>Danh sách đơn hàng</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
@@ -618,12 +618,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="mb-0 fw-semibold">Orders List</h4>
+                                    <h4 class="mb-0 fw-semibold">Danh sách đơn hàng</h4>
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item">
                                             <a href="javascript: void(0);">Ecommerce</a>
                                         </li>
-                                        <li class="breadcrumb-item active">Orders List</li>
+                                        <li class="breadcrumb-item active">Danh sách đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
@@ -650,7 +650,7 @@
                                                     />
                                             </div>
 
-                                            <div
+<!--                                            <div
                                                 class="d-flex flex-wrap gap-2 justify-content-end"
                                                 >
                                                 <div class="dropdown">
@@ -685,14 +685,8 @@
                                                         >
                                                     </div>
                                                 </div>
-                                                <a
-                                                    href="#!"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    <i class="bx bx-plus me-1"></i
-                                                    >Create Contact
-                                                </a>
-                                            </div>
+                                                
+                                            </div>-->
                                         </div>
                                     </div>
                                     <!-- end card body -->
@@ -727,7 +721,7 @@
                                                     <td><fmt:formatNumber value="${order.amount}" type="currency" currencySymbol="" maxFractionDigits="0" groupingUsed="true"/> đ</td>
                                                     <td>
                                                         <span class="badge ${order.status ? 'bg-success' : 'bg-danger'}">
-                                                            ${order.status ? 'Đã xác nhận' : 'Chưa xác nhận'}
+                                                            ${order.getStatusText()}
                                                         </span>
                                                     </td>
 
@@ -742,10 +736,10 @@
                                                         <select class="form-select status-dropdown custom-dropdown" onchange="location.href = this.value;">
                                                             <option value="#" disabled selected>${order.statusText}</option>
                                                             <option value="${pageContext.request.contextPath}/admin/dashboard?action=update-status&orderID=${order.orderID}&status=true">
-                                                                ✅ Đã xác nhận
+                                                                ✅ Đã giao hàng
                                                             </option>
                                                             <option value="${pageContext.request.contextPath}/admin/dashboard?action=update-status&orderID=${order.orderID}&status=false">
-                                                                ⏳ Chưa xác nhận
+                                                                ⏳ Đang giao hàng
                                                             </option>
                                                         </select>
                                                     </td>
@@ -879,5 +873,4 @@
 
     </body>
 
-    <!-- Mirrored from techzaa.in/reback/admin/apps-ecommerce-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 06:09:24 GMT -->
 </html>
