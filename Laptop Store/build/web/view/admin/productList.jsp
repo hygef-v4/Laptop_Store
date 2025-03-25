@@ -328,33 +328,33 @@
                                             <div>
                                                 <a
                                                     href="${pageContext.request.contextPath}/admin/dashboard?action=add-product"
-                                                    class="btn btn-primary d-flex align-items-center"
-                                                    >
-                                                    <i class="bx bx-plus me-1"></i
-                                                    >Thêm sản phẩm
-                                                </a>
-                                            </div>
+                                                class="btn btn-primary d-flex align-items-center"
+                                                >
+                                                <i class="bx bx-plus me-1"></i
+                                                >Thêm sản phẩm
+                                            </a>
                                         </div>
-                                        <!-- end row -->
                                     </div>
-                                    <div>
-                                        <div
-                                            class="table-responsive table-centered"
-                                            >
-                                            <table class="table text-nowrap mb-0">
-                                                <thead
-                                                    class="bg-light bg-opacity-50"
-                                                    >
-                                                    <tr>
-                                                        <th>Tên sản phẩm</th>
-                                                        <th>Danh mục</th>
-                                                        <th>Giá tiền</th>
-                                                        <th>Tình trạng kho</th>
-                                                        <th>Hành động</th>
-                                                    </tr>
-                                                </thead>
-                                                <!-- end thead-->
-                                                <tbody>
+                                    <!-- end row -->
+                                </div>
+                                <div>
+                                    <div
+                                        class="table-responsive table-centered"
+                                        >
+                                        <table class="table text-nowrap mb-0">
+                                            <thead
+                                                class="bg-light bg-opacity-50"
+                                                >
+                                                <tr>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Danh mục</th>
+                                                    <th>Giá tiền</th>
+                                                    <th>Tình trạng kho</th>
+                                                    <th>Hành động</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- end thead-->
+                                            <tbody>
 
                                                 <c:forEach var="p" items="${sessionScope.productList}">
                                                     <tr>
@@ -395,7 +395,7 @@
                                                         <td>${p.categoryID}</td>
                                                         <td><fmt:formatNumber value="${p.price}" type="currency" currencySymbol="₫" maxFractionDigits="0" /></td>
                                                         <td class="text-primary">
-                                                         
+
                                                             <c:choose>
                                                                 <c:when test="${p.quantity == 0}">
                                                                     <span class="text-danger">Hết hàng</span>
@@ -415,13 +415,10 @@
                                                                     class="bx bx-edit fs-18"
                                                                     ></i>
                                                             </button>
-                                                            <button
-                                                                type="button"
-                                                                class="btn btn-sm btn-soft-danger"
-                                                                >
-                                                                <i
-                                                                    class="bx bx-trash fs-18"
-                                                                    ></i>
+                                                            <button type="button" class="btn btn-sm btn-soft-danger" 
+                                                                    onclick="confirmDelete(this)" 
+                                                                    data-href="${pageContext.request.contextPath}/admin/dashboard?action=delete&productID=${p.productID}">
+                                                                <i class="bx bx-trash fs-18"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -521,7 +518,16 @@
 
         <!-- App Javascript (Require in all Page) -->
         <script src="${pageContext.request.contextPath}/admin-assets/js/app.js"></script>
-
+        
+<!--        delete button-->
+        <script>
+                                                                        function confirmDelete(button) {
+                                                                            let confirmDelete = confirm("Bạn có chắc chắn muốn xóa mục này?");
+                                                                            if (confirmDelete) {
+                                                                                window.location.href = button.getAttribute("data-href");
+                                                                            }
+                                                                        }
+        </script>
     </body>
 
     <!-- Mirrored from techzaa.in/reback/admin/apps-ecommerce-product-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 06:09:23 GMT -->

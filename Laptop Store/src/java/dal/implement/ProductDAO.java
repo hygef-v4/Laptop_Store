@@ -430,6 +430,19 @@ public class ProductDAO extends DBContext {
         return -1; // Return -1 if insertion fails
     }
 
+    public boolean deleteProduct(int productId) {
+        String sql = "DELETE FROM tblProducts WHERE productID = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, productId);
+
+            int affectedRows = ps.executeUpdate();
+            return affectedRows > 0; // Return true if deletion was successful
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false; // Return false if deletion fails
+    }
+
     public static void main(String[] args) {
         // Create an instance of ProductDAO
         ProductDAO productDAO = new ProductDAO();

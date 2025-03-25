@@ -53,7 +53,7 @@ public class AdminDashboardServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        String action = request.getParameter("action") == null ? "product-list" : request.getParameter("action");
+        String action = request.getParameter("action") == null ? "default" : request.getParameter("action");
         Vector<Product> productList = productDAO.getAllProduct(productListSQL);
         session.setAttribute("productList", productList);
 
@@ -77,13 +77,20 @@ public class AdminDashboardServlet extends HttpServlet {
                 break;
 
             case "product-list":
-                request.getRequestDispatcher("/view/admin/productList.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
                 break;
             case "update-status":
                 updateOrderStatus(request, response);
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=order-list");
+
                 break;
             case "add-product":
                 request.getRequestDispatcher("/view/admin/addProduct.jsp").forward(request, response);
+                break;
+            case "delete":
+                deleteProduct(request, response);
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+
                 break;
             default:
                 request.getRequestDispatcher("/view/admin/productList.jsp").forward(request, response);
@@ -118,10 +125,8 @@ public class AdminDashboardServlet extends HttpServlet {
             orderDAO.updateOrderStatus(orderId, newStatus); // Update status in DB
 
             // Redirect back to order list page after update
-            response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=order-list");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/admin/dashboard?action=order-list&error=true");
         }
     }
 
@@ -176,6 +181,15 @@ public class AdminDashboardServlet extends HttpServlet {
             productDetailDAO.addProductDetail(productDetail);
 
             // Redirect back to product list
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            int productId = Integer.parseInt(request.getParameter("productID"));
+            productDAO.deleteProduct(productId); // Call the DAO method to delete the product
         } catch (Exception e) {
             e.printStackTrace();
         }
