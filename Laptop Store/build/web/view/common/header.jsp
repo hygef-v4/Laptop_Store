@@ -126,7 +126,7 @@
 
                 <a href="${pageContext.request.contextPath}/authen?action=login" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="${pageContext.request.contextPath}/view/page/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+<!--                <a href="${pageContext.request.contextPath}/view/page/wishlist.jsp" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>-->
 
                 <div class="dropdown cart-dropdown">
                     <a href="${pageContext.request.contextPath}/cart" title="Cart">
@@ -194,7 +194,7 @@
 
                             <li><a href="${pageContext.request.contextPath}/dashboard">Tài khoản</a></li>
                             <li><a href="${pageContext.request.contextPath}/authen?action=login">Đăng nhập</a></li>
-                            <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>
+<!--                            <li><a href="forgot-password.jsp">Quên mật khẩu</a></li>-->
                         </ul>
                     </li>
 

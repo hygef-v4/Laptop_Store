@@ -290,7 +290,7 @@
                     </div>
                     <!-- End .row -->
 
-                    <nav class="toolbox toolbox-pagination">
+<!--                    <nav class="toolbox toolbox-pagination">
                         <div class="toolbox-item toolbox-show">
                             <label>Show:</label>
 
@@ -301,9 +301,9 @@
                                     <option value="36">36</option>
                                 </select>
                             </div>
-                            <!-- End .select-custom -->
+                             End .select-custom 
                         </div>
-                        <!-- End .toolbox-item -->
+                         End .toolbox-item 
 
                         <ul class="pagination toolbox-item">
                             <li class="page-item disabled">
@@ -319,7 +319,7 @@
                                 <a class="page-link page-link-btn" href="#"><i class="icon-angle-right"></i></a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>-->
                 </div>
                 <!-- End .container -->
 

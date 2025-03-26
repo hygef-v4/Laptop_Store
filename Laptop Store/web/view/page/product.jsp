@@ -226,9 +226,9 @@
                                     </div>
                                     <!-- End .social-icons -->
 
-                                    <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist"><i
+<!--                                    <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist"><i
                                             class="icon-wishlist-2"></i><span>Add to
-                                            Wishlist</span></a>
+                                            Wishlist</span></a>-->
                                 </div>
                                 <!-- End .product single-share -->
                             </div>
@@ -558,9 +558,9 @@
                             <li>
                                 <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
                                 <ul>
-                                    <li>
+<!--                                    <li>
                                         <a href="wishlist.html">Wishlist</a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="cart.jsp">Shopping Cart</a>
                                     </li>
@@ -619,7 +619,7 @@
                             <li><a href="login.html">My Account</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
 
-                            <li><a href="wishlist.html">My Wishlist</a></li>
+<!--                            <li><a href="wishlist.html">My Wishlist</a></li>-->
                             <li><a href="cart.jsp">Cart</a></li>
                             <li><a href="login.html" class="login-link">Log In</a></li>
                         </ul>

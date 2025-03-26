@@ -745,7 +745,7 @@
                                                                 id="quantity"
                                                                 placeholder="Nhập số lượng"
                                                                 value="${productFind.quantity}"
-                                                                min="1"
+                                                                min="0"
 
                                                                 />
 

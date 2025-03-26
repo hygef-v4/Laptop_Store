@@ -190,18 +190,18 @@
                                             <td class="text-left" colspan="2">
                                                 <h4 class="m-b-sm">Vận chuyển</h4>
 
-                                                <div class="form-group form-group-custom-control">
+<!--                                                <div class="form-group form-group-custom-control">
                                                     <div class="custom-control custom-radio d-flex">
                                                         <input type="radio" class="custom-control-input" name="radio" checked />
                                                         <label class="custom-control-label">Nhận tại cửa hàng</label>
                                                     </div>
-                                                    <!-- End .custom-checkbox -->
-                                                </div>
+                                                     End .custom-checkbox 
+                                                </div>-->
                                                 <!-- End .form-group -->
 
                                                 <div class="form-group form-group-custom-control mb-0">
                                                     <div class="custom-control custom-radio d-flex mb-0">
-                                                        <input type="radio" name="radio" class="custom-control-input">
+                                                        <input checked type="radio" name="radio" class="custom-control-input">
                                                         <label class="custom-control-label">Giao hàng tận nơi</label>
                                                     </div>
                                                     <!-- End .custom-checkbox -->
@@ -227,7 +227,7 @@
                                     <h4 class="">Phương thức thanh toán</h4>
                                     <div class="info-box with-icon p-0">
                                         <p>
-                                            Xin lỗi, hiện không có phương thức thanh toán nào khả dụng cho bang của bạn. Vui lòng liên hệ với chúng tôi nếu bạn cần hỗ trợ hoặc muốn sắp xếp phương thức thanh toán khác.
+                                            Thanh toán khi nhận hàng
                                         </p>
                                     </div>
                                 </div>
